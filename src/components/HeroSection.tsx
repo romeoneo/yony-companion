@@ -105,7 +105,6 @@ const HeroSection = () => {
         transition={{ duration: 1, ease: "easeOut" }}
       >
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold tracking-tight mb-4">
-          <span className="text-foreground">{t.title} </span>
           <span className="text-gradient-copper italic">{t.titleAccent}</span>
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
