@@ -17,8 +17,8 @@ const Index = () => {
       <GamesSection />
       <WorldMapSection />
       <TimelineSection />
-      <ExperienceSection />
       <JoinSection />
+      <ExperienceSection />
       <Footer />
     </div>
   );

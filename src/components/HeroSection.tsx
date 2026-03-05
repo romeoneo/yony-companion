@@ -62,9 +62,9 @@ const HeroSection = () => {
 
   const content = {
     en: {
-      title: "Enter",
+      title: "",
       titleAccent: "Yonyverse",
-      subtitle: "A global universe where dreams, cultures and wisdom come together through the Yony Games.",
+      subtitle: "A global universe where dreams, cultures and wisdom come together.",
       narrative: "In ancient times, the first Queen of the world, Yony, saw humanity dividing itself in endless competitions. She imagined new games where people would compete not to dominate, but to elevate dreams, cultures and wisdom.",
       narrativeEnd: "These became the Yony Games.",
       cta1: "Enter Yonyverse",
@@ -105,7 +105,6 @@ const HeroSection = () => {
         transition={{ duration: 1, ease: "easeOut" }}
       >
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold tracking-tight mb-4">
-          <span className="text-foreground">{t.title} </span>
           <span className="text-gradient-copper italic">{t.titleAccent}</span>
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
