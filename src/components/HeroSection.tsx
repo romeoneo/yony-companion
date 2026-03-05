@@ -62,9 +62,9 @@ const HeroSection = () => {
 
   const content = {
     en: {
-      title: "Enter",
+      title: "",
       titleAccent: "Yonyverse",
-      subtitle: "A global universe where dreams, cultures and wisdom come together through the Yony Games.",
+      subtitle: "A global universe where dreams, cultures and wisdom come together.",
       narrative: "In ancient times, the first Queen of the world, Yony, saw humanity dividing itself in endless competitions. She imagined new games where people would compete not to dominate, but to elevate dreams, cultures and wisdom.",
       narrativeEnd: "These became the Yony Games.",
       cta1: "Enter Yonyverse",
