@@ -86,14 +86,8 @@ const HeroSection = () => {
         <p className="text-copper font-serif text-xl font-semibold italic mb-8">
           {t.narrativeEnd}
         </p>
-        <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-4">
-          Yonyverse is a truly global and participatory space.
-        </p>
-        <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-4">
-          Through 16 activated countries and 8 visibility and engagement games, Yonyverse creates a shared ground where cultures, ideas, and talents from around the world can meet.
-        </p>
         <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-          Like a great global stage, Yonyverse allows individuals, communities, and creators to participate, gain visibility, inspire one another, and grow together.
+          Through 16 activated countries and 8 visibility and engagement games, Yonyverse creates a shared ground where cultures, ideas, and talents from around the world can meet. Like a great global and participatory space, Yonyverse allows individuals and communities to participate, gain visibility, inspire one another, and grow together.
         </p>
       </motion.div>
 
