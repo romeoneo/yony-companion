@@ -88,20 +88,6 @@ const HeroSection = () => {
         </p>
       </motion.div>
 
-      {/* CTAs */}
-      <motion.div
-        className="flex flex-col sm:flex-row gap-4 mt-12 z-10"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.8 }}
-      >
-        <button className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-sans-body font-medium text-lg hover:glow-copper transition-all duration-300 hover:scale-105">
-          {t.cta1}
-        </button>
-        <button className="px-8 py-4 border border-primary/30 text-foreground rounded-full font-sans-body font-medium text-lg hover:bg-primary/5 transition-all duration-300">
-          {t.cta2}
-        </button>
-      </motion.div>
     </section>
   );
 };
