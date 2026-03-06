@@ -1,70 +1,14 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-
-const EggOfYony = () => (
-  <div className="relative w-48 h-64 md:w-64 md:h-80 mx-auto">
-    {/* Rays */}
-    <motion.div
-      className="absolute inset-0 flex items-center justify-center"
-      animate={{ rotate: 360 }}
-      transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-    >
-      {[...Array(12)].map((_, i) => (
-        <div
-          key={i}
-          className="absolute w-0.5 h-full opacity-10"
-          style={{
-            background: "linear-gradient(to top, transparent, hsl(40 80% 55% / 0.4), transparent)",
-            transform: `rotate(${i * 30}deg)`,
-          }}
-        />
-      ))}
-    </motion.div>
-
-    {/* Glow backdrop */}
-    <motion.div
-      className="absolute inset-0 rounded-full bg-golden/10 blur-3xl"
-      animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
-      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-    />
-
-    {/* Egg shape */}
-    <motion.div
-      className="relative w-full h-full flex items-center justify-center"
-      animate={{ y: [0, -8, 0] }}
-      transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-    >
-      <svg viewBox="0 0 200 280" className="w-full h-full drop-shadow-2xl" style={{ filter: "drop-shadow(0 0 30px hsl(40 80% 55% / 0.4))" }}>
-        <defs>
-          <radialGradient id="eggGrad" cx="40%" cy="35%" r="60%">
-            <stop offset="0%" stopColor="hsl(40, 90%, 75%)" />
-            <stop offset="40%" stopColor="hsl(38, 75%, 55%)" />
-            <stop offset="80%" stopColor="hsl(25, 60%, 45%)" />
-            <stop offset="100%" stopColor="hsl(20, 50%, 35%)" />
-          </radialGradient>
-          <radialGradient id="eggShine" cx="35%" cy="25%" r="30%">
-            <stop offset="0%" stopColor="hsl(45, 100%, 90%)" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="transparent" stopOpacity="0" />
-          </radialGradient>
-        </defs>
-        <ellipse cx="100" cy="150" rx="75" ry="110" fill="url(#eggGrad)" />
-        <ellipse cx="100" cy="150" rx="75" ry="110" fill="url(#eggShine)" />
-        {/* Sacred geometry lines */}
-        <circle cx="100" cy="140" r="35" fill="none" stroke="hsl(45, 100%, 85%)" strokeWidth="0.5" opacity="0.3" />
-        <circle cx="100" cy="140" r="50" fill="none" stroke="hsl(45, 100%, 85%)" strokeWidth="0.3" opacity="0.2" />
-      </svg>
-    </motion.div>
-  </div>
-);
+import logoYonyverse from "@/assets/logo-yonyverse.png";
 
 const HeroSection = () => {
   const [lang] = useState("en");
 
   const content = {
     en: {
-      title: "",
       titleAccent: "Yonyverse",
-      subtitle: "A global universe where dreams, cultures and wisdom come together.",
+      subtitle: "A Digital Garden for Collaborative Impact",
       narrative: "In ancient times, the first Queen of the world, Yony, saw humanity dividing itself in endless competitions. She imagined new games where people would compete not to dominate, but to elevate dreams, cultures and wisdom.",
       narrativeEnd: "These became the Yony Games.",
       cta1: "Enter Yonyverse",
@@ -112,14 +56,21 @@ const HeroSection = () => {
         </p>
       </motion.div>
 
-      {/* Egg */}
+      {/* Logo */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.5, delay: 0.5 }}
         className="z-10"
       >
-        <EggOfYony />
+        <motion.img
+          src={logoYonyverse}
+          alt="Yonyverse Logo"
+          className="w-48 h-48 md:w-64 md:h-64 mx-auto drop-shadow-2xl"
+          animate={{ y: [0, -8, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          style={{ filter: "drop-shadow(0 0 30px hsl(40 80% 55% / 0.4))" }}
+        />
       </motion.div>
 
       {/* Narrative */}
