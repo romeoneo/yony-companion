@@ -16,7 +16,7 @@ const Footer = () => {
               <span className="text-gradient-copper italic">verse</span>
             </h3>
             <p className="text-muted-foreground text-sm max-w-xs">
-              Impact Together
+              Born To Impact
             </p>
           </div>
 
