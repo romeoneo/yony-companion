@@ -30,22 +30,6 @@ const ExperienceSection = () => (
         />
       </motion.div>
 
-      <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-        <a
-          href="https://yonygarden.lovable.app"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-sans-body font-medium text-lg text-center hover:scale-105 transition-transform"
-        >
-          Explore the Prototype
-        </a>
-        <a
-          href="#join"
-          className="px-8 py-4 border border-primary/30 text-foreground rounded-full font-sans-body font-medium text-lg text-center hover:bg-primary/5 transition-colors"
-        >
-          Join the Yony Games
-        </a>
-      </div>
     </div>
   </section>
 );
