@@ -69,7 +69,7 @@ const HeroSection = () => {
           className="w-48 h-48 md:w-64 md:h-64 mx-auto drop-shadow-2xl"
           animate={{ y: [0, -8, 0] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          style={{ filter: "drop-shadow(0 0 30px hsl(40 80% 55% / 0.4))" }}
+          
         />
       </motion.div>
 
