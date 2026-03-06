@@ -81,7 +81,7 @@ const HeroSection = () => {
         transition={{ duration: 1, delay: 1.2 }}
       >
         <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-4 italic">
-          "{t.narrative}"
+          {t.narrative}
         </p>
         <p className="text-copper font-serif text-xl font-semibold italic mb-8">
           {t.narrativeEnd}
