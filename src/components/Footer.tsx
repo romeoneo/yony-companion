@@ -16,7 +16,7 @@ const Footer = () => {
               <span className="text-gradient-copper italic">verse</span>
             </h3>
             <p className="text-muted-foreground text-sm max-w-xs">
-              A global universe where dreams, cultures and wisdom come together.
+              Impact Together
             </p>
           </div>
 
@@ -35,7 +35,7 @@ const Footer = () => {
 
         <div className="mt-12 pt-8 border-t border-border text-center">
           <p className="text-muted-foreground text-xs">
-            © 2026 Yonyverse. All rights reserved. Turn mystery into imagination.
+            © 2026 Yonyverse. All rights reserved.
           </p>
         </div>
       </div>
