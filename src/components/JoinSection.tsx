@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const JoinSection = () => {
   const roles = [
-    { role: "Yony Seeds", count: "2,000", desc: "Dream carriers" },
+    { role: "Yony Flowers", count: "256", desc: "Yony Seeds" },
     { role: "Yony Brands", count: "256", desc: "Visionary partners" },
     { role: "Yony Lights", count: "256", desc: "Creative luminaries" },
     { role: "Yony Places", count: "256", desc: "Sacred spaces" },
