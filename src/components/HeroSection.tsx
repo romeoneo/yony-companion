@@ -9,7 +9,7 @@ const HeroSection = () => {
     en: {
       titleAccent: "Yonyverse",
       subtitle: "Born To Impact",
-      narrative: "In ancient times, the first Queen of the world, Yony, saw humanity dividing itself in endless competitions. She imagined new games where people would compete not to dominate, but to elevate dreams, cultures and wisdom.",
+      narrative: "In ancient times, Yony, the First Queen of the world, saw humanity divided by endless competition. She envisioned new games where people would unite in harmony to uplift dreams, cultures, and wisdom.",
       narrativeEnd: "These became the Yony Games.",
       cta1: "Enter Yonyverse",
       cta2: "Join the Yony Games",
