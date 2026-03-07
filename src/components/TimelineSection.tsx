@@ -62,10 +62,9 @@ const TimelineSection = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
             >
-              <div className="text-copper font-sans-body text-sm font-medium mb-1">{cycle.days}</div>
-              <div className="text-3xl font-serif font-bold mb-2">Cycle {cycle.number}</div>
-              <div className="text-foreground font-medium mb-1">{cycle.territory}</div>
-              <div className="text-muted-foreground text-sm">{cycle.theme}</div>
+              <div className="text-primary font-sans-body text-sm font-medium mb-1">{cycle.days}</div>
+              <div className="text-xl font-serif font-bold mb-2">Cycle {cycle.number}</div>
+              <div className="text-foreground font-medium">{cycle.territory}</div>
             </motion.div>
           ))}
         </div>
