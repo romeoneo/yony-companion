@@ -35,7 +35,7 @@ const HeroSection = () => {
         <motion.img
           src={logoYonyverseFull}
           alt="Yonyverse Logo"
-          className="w-64 h-auto md:w-80 lg:w-96 mx-auto"
+          className="w-80 h-auto md:w-[28rem] lg:w-[34rem] mx-auto"
           animate={{ y: [0, -8, 0] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         />
