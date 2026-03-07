@@ -49,10 +49,10 @@ const HeroSection = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.2 }}
       >
-        <p className="text-muted-foreground text-base md:text-lg leading-loose mb-8 italic">
+        <p className="text-muted-foreground text-base md:text-lg mb-8 italic" style={{ lineHeight: '2.2' }}>
           Yonyverse is a symbolic garden where dreams, cultures, and projects with positive impact can take root and grow. Inspired by the ancient vision of Yony, the First Queen of the world, who saw humanity divided by endless competition, Yonyverse was imagined as a space where people could come together to nurture wisdom, creativity, and collaboration.
         </p>
-        <p className="text-muted-foreground text-base md:text-lg leading-loose">
+        <p className="text-muted-foreground text-base md:text-lg" style={{ lineHeight: '2.2' }}>
           Within this garden, the Yony Games bring the vision to life. Across 16 activated countries and 8 games of visibility and engagement, they create a shared ground where cultures, ideas, and talents from around the world can meet. Through participation, individuals and communities can gain visibility, inspire one another, and help meaningful dreams flourish.
         </p>
       </motion.div>
