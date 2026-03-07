@@ -43,7 +43,7 @@ const HeroSection = () => {
 
       {/* Born To Impact */}
       <motion.p
-        className="text-lg md:text-xl text-muted-foreground mt-6 z-10"
+        className="text-lg md:text-xl text-muted-foreground mt-2 z-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.8 }}
