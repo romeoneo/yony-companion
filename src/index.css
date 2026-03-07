@@ -15,7 +15,7 @@
     --popover: 30 25% 95%;
     --popover-foreground: 20 20% 15%;
 
-    --primary: 25 60% 45%;
+    --primary: 14 78% 54%;
     --primary-foreground: 30 25% 95%;
 
     --secondary: 30 15% 88%;
@@ -32,13 +32,13 @@
 
     --border: 30 15% 85%;
     --input: 30 15% 85%;
-    --ring: 25 60% 45%;
+    --ring: 14 78% 54%;
 
     --radius: 0.75rem;
 
     /* Custom Yonyverse tokens */
-    --copper: 25 60% 45%;
-    --copper-light: 25 55% 58%;
+    --copper: 14 78% 54%;
+    --copper-light: 14 70% 62%;
     --golden: 40 80% 55%;
     --golden-glow: 40 90% 65%;
     --deep-brown: 20 40% 18%;
@@ -48,12 +48,12 @@
 
     --sidebar-background: 30 20% 93%;
     --sidebar-foreground: 20 20% 15%;
-    --sidebar-primary: 25 60% 45%;
+    --sidebar-primary: 14 78% 54%;
     --sidebar-primary-foreground: 30 25% 95%;
     --sidebar-accent: 30 15% 88%;
     --sidebar-accent-foreground: 20 20% 15%;
     --sidebar-border: 30 15% 85%;
-    --sidebar-ring: 25 60% 45%;
+    --sidebar-ring: 14 78% 54%;
   }
 }
 
@@ -82,7 +82,7 @@
   }
 
   .text-gradient-copper {
-    background: linear-gradient(135deg, hsl(25 60% 45%), hsl(35 70% 50%));
+    background: linear-gradient(135deg, hsl(14 78% 54%), hsl(35 70% 50%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -93,7 +93,7 @@
   }
 
   .glow-copper {
-    box-shadow: 0 0 30px hsl(25 60% 45% / 0.25), 0 0 60px hsl(25 60% 45% / 0.1);
+    box-shadow: 0 0 30px hsl(14 78% 54% / 0.25), 0 0 60px hsl(14 78% 54% / 0.1);
   }
 
   .glow-soft {
@@ -117,7 +117,7 @@
   background: hsl(30 25% 95%);
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(25 60% 45% / 0.3);
+  background: hsl(14 78% 54% / 0.3);
   border-radius: 3px;
 }
 
