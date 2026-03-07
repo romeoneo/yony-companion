@@ -49,13 +49,13 @@ const HeroSection = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.2 }}
       >
-        <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-4 italic">
+        <p className="text-muted-foreground text-base md:text-lg leading-loose mb-4 italic">
           In ancient times, Yony, the First Queen of the world, saw humanity divided by endless competition. She envisioned new games where people would unite in harmony to uplift dreams, cultures, and wisdom.
         </p>
         <p className="text-copper font-serif text-xl font-semibold italic mb-8">
           These became the Yony Games.
         </p>
-        <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+        <p className="text-muted-foreground text-base md:text-lg leading-loose">
           Through 16 activated countries and 8 visibility and engagement games, Yonyverse creates a shared ground where cultures, ideas, and talents from around the world can meet. Like a great global and participatory space, Yonyverse allows individuals and communities to participate, gain visibility, inspire one another, and grow together.
         </p>
       </motion.div>
