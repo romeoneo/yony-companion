@@ -1,23 +1,7 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
-import logoYonyverse from "@/assets/logo-yonyverse.png";
+import logoYonyverseFull from "@/assets/logo-yonyverse-full.png";
 
 const HeroSection = () => {
-  const [lang] = useState("en");
-
-  const content = {
-    en: {
-      titleAccent: "Yonyverse",
-      subtitle: "Born To Impact",
-      narrative: "In ancient times, Yony, the First Queen of the world, saw humanity divided by endless competition. She envisioned new games where people would unite in harmony to uplift dreams, cultures, and wisdom.",
-      narrativeEnd: "These became the Yony Games.",
-      cta1: "Enter Yonyverse",
-      cta2: "Join the Yony Games",
-    },
-  };
-
-  const t = content[lang as keyof typeof content] || content.en;
-
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6 py-24">
       {/* Floating particles */}
@@ -41,37 +25,31 @@ const HeroSection = () => {
         />
       ))}
 
-      {/* Title */}
-      <motion.div
-        className="text-center mb-12 z-10"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-      >
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold tracking-tight mb-4">
-          <span className="text-gradient-copper italic">{t.titleAccent}</span>
-        </h1>
-        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-          {t.subtitle}
-        </p>
-      </motion.div>
-
       {/* Logo */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.5, delay: 0.5 }}
+        transition={{ duration: 1.5 }}
         className="z-10"
       >
         <motion.img
-          src={logoYonyverse}
+          src={logoYonyverseFull}
           alt="Yonyverse Logo"
-          className="w-48 h-48 md:w-64 md:h-64 mx-auto drop-shadow-2xl"
+          className="w-64 h-auto md:w-80 lg:w-96 mx-auto"
           animate={{ y: [0, -8, 0] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          
         />
       </motion.div>
+
+      {/* Born To Impact */}
+      <motion.p
+        className="text-lg md:text-xl text-muted-foreground mt-6 z-10"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.8 }}
+      >
+        Born To Impact
+      </motion.p>
 
       {/* Narrative */}
       <motion.div
@@ -81,16 +59,15 @@ const HeroSection = () => {
         transition={{ duration: 1, delay: 1.2 }}
       >
         <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-4 italic">
-          {t.narrative}
+          In ancient times, Yony, the First Queen of the world, saw humanity divided by endless competition. She envisioned new games where people would unite in harmony to uplift dreams, cultures, and wisdom.
         </p>
         <p className="text-copper font-serif text-xl font-semibold italic mb-8">
-          {t.narrativeEnd}
+          These became the Yony Games.
         </p>
         <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
           Through 16 activated countries and 8 visibility and engagement games, Yonyverse creates a shared ground where cultures, ideas, and talents from around the world can meet. Like a great global and participatory space, Yonyverse allows individuals and communities to participate, gain visibility, inspire one another, and grow together.
         </p>
       </motion.div>
-
     </section>
   );
 };
