@@ -2,14 +2,14 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import charSeeds from "@/assets/char-seeds.jpg";
-import charBrands from "@/assets/char-brands.jpg";
-import charLights from "@/assets/char-lights.jpg";
-import charAngels from "@/assets/char-angels.jpg";
-import charStars from "@/assets/char-stars.jpg";
-import charMagics from "@/assets/char-magics.jpg";
-import charGuards from "@/assets/char-guards.jpg";
-import charPlaces from "@/assets/char-places.jpg";
+import charSeeds from "@/assets/char-seeds.png";
+import charBrands from "@/assets/char-brands.png";
+import charLights from "@/assets/char-lights.png";
+import charAngels from "@/assets/char-angels.png";
+import charStars from "@/assets/char-stars.png";
+import charMagics from "@/assets/char-magics.png";
+import charGuards from "@/assets/char-guards.png";
+import charPlaces from "@/assets/char-places.png";
 
 const characters = [
   {
@@ -106,6 +106,22 @@ const CharactersSection = () => {
 
   return (
     <section id="characters" className="relative w-full" style={{ backgroundColor: "#0a0a0a" }}>
+      {/* ── Section title ── */}
+      <div className="text-center pt-20 pb-12 px-6">
+        <motion.h2
+          className="text-4xl md:text-5xl font-serif font-bold mb-4"
+          style={{ color: "#f6f2f0" }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          The <span style={{ color: "#e4632c" }} className="italic">Characters</span>
+        </motion.h2>
+        <p style={{ color: "#978B83", fontFamily: "'Montserrat', sans-serif" }} className="text-lg">
+          Archetypal roles that shape the Yonyverse.
+        </p>
+      </div>
+
       {/* ── Hero image ── */}
       <div className="relative w-full aspect-video overflow-hidden">
         <AnimatePresence initial={false} custom={direction}>
