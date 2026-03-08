@@ -16,7 +16,7 @@ const Index = () => {
       <CharactersSection />
       <GamesSection />
       <WorldMapSection />
-      <TimelineSection />
+      
       <JoinSection />
       <ExperienceSection />
       <Footer />
