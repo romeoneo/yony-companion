@@ -56,17 +56,26 @@ const JoinSection = () => {
           <p className="text-muted-foreground mb-6">
             🎯 Goal: gather all the characters required for the game.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {roles.map((r) => (
-              <div key={r.role} className="p-4 rounded-xl bg-secondary">
-                <div className="text-sm font-medium text-foreground mb-1">{r.role}</div>
-                <div className="flex items-baseline gap-1 mb-2">
-                  <span className="text-xl font-serif font-bold text-foreground">{r.current}</span>
-                  <span className="text-xs text-muted-foreground">/ {r.target}</span>
+          <div className="flex gap-3 overflow-x-auto pb-2 -mx-2 px-2">
+            {roles.map((r) => {
+              const pct = Math.round((r.current / r.target) * 100);
+              return (
+                <div key={r.role} className="flex-shrink-0 flex-1 min-w-[120px] p-3 rounded-xl bg-secondary">
+                  <div className="text-xs font-medium text-foreground mb-1">{r.role}</div>
+                  <div className="flex items-baseline gap-1 text-xs text-muted-foreground mb-2">
+                    <span className="text-sm font-serif font-bold text-foreground">{r.current}</span>
+                    <span>/ {r.target}</span>
+                    <span>· {pct}%</span>
+                  </div>
+                  <div className="w-full h-[3px] rounded-full bg-border">
+                    <div
+                      className="h-full rounded-full bg-primary transition-all"
+                      style={{ width: `${pct}%` }}
+                    />
+                  </div>
                 </div>
-                <Progress value={(r.current / r.target) * 100} className="h-2" />
-              </div>
-            ))}
+              );
+            })}
           </div>
         </motion.div>
 
