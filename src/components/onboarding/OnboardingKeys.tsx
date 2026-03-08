@@ -132,5 +132,5 @@ const slides = [
 ];
 
 export default function OnboardingKeys() {
-  return <OnboardingLayout slides={slides} />;
+  return <OnboardingLayout slides={slides} gameName="Yony Keys" />;
 }

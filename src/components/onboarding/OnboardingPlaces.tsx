@@ -115,5 +115,5 @@ const slides = [
 ];
 
 export default function OnboardingPlaces() {
-  return <OnboardingLayout slides={slides} />;
+  return <OnboardingLayout slides={slides} gameName="Yony Places" />;
 }
