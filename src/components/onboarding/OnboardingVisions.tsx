@@ -66,7 +66,7 @@ const slides = [
     <FloatingElement delay={1} x={25} y={-20}><Music className="w-10 h-10 text-primary" /></FloatingElement>
     <FloatingElement delay={2} x={-20} y={20}><Sparkles className="w-11 h-11 text-primary" /></FloatingElement>
     <FloatingElement delay={0.5} x={30} y={25}><Feather className="w-9 h-9 text-primary" /></FloatingElement>
-    <motion.h1 className="font-serif-display text-5xl md:text-7xl text-foreground text-center leading-tight relative z-10" custom={0} variants={fadeUp} initial="hidden" animate="visible">
+    <motion.h1 className="font-serif-display text-5xl md:text-7xl font-black tracking-tight text-foreground text-center leading-tight relative z-10" custom={0} variants={fadeUp} initial="hidden" animate="visible">
       Yony <span className="text-primary italic">Visions</span>
     </motion.h1>
     <motion.p className="font-sans-body text-base md:text-lg text-muted-foreground mt-4 text-center max-w-lg relative z-10" custom={1} variants={fadeUp} initial="hidden" animate="visible">

@@ -113,8 +113,8 @@ const slides = slideData.map((slide, idx) => (
     {slide.map && <WorldMap {...slide.map} />}
     {slide.visual === "riddles" && <RiddleVisual />}
     {slide.visual === "light-particles" && <LightParticles />}
-    <motion.h1 className="font-serif-display text-3xl md:text-5xl font-black tracking-tight text-foreground leading-tight text-center relative z-10" custom={0} variants={fadeUp} initial="hidden" animate="visible">
-      {slide.title}<span className="italic text-primary font-bold"> {slide.titleAccent}</span>
+    <motion.h1 className={`font-serif-display ${idx === 0 ? 'text-5xl md:text-7xl' : 'text-3xl md:text-5xl'} font-black tracking-tight text-foreground leading-tight text-center relative z-10`} custom={0} variants={fadeUp} initial="hidden" animate="visible">
+      {slide.title}<span className="italic text-primary"> {slide.titleAccent}</span>
     </motion.h1>
     {slide.texts.map((text, i) => (
       <motion.p key={i} className="font-sans-body text-sm md:text-base text-muted-foreground mt-3 first:mt-4 text-center max-w-lg relative z-10" custom={i + 1} variants={fadeUp} initial="hidden" animate="visible">

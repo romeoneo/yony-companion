@@ -58,8 +58,8 @@ const slides = [
         animate={{ y: [-10, 10, -10], opacity: [0.2, 0.6, 0.2] }}
         transition={{ duration: 3 + i * 0.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }} />
     ))}
-    <motion.h1 className="font-serif-display text-5xl md:text-7xl font-bold tracking-tight text-center relative z-10" custom={0} variants={fadeUp} initial="hidden" animate="visible">
-      Yony <span className="text-gradient-copper italic font-medium">Legends</span>
+    <motion.h1 className="font-serif-display text-5xl md:text-7xl font-black tracking-tight text-foreground text-center relative z-10" custom={0} variants={fadeUp} initial="hidden" animate="visible">
+      Yony <span className="text-primary italic">Legends</span>
     </motion.h1>
     <motion.p className="mt-4 text-base md:text-lg text-muted-foreground font-sans-body italic tracking-wide relative z-10" custom={1} variants={fadeUp} initial="hidden" animate="visible">
       Turn mystery into imagination
