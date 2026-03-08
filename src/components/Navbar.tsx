@@ -34,7 +34,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
         {/* Logo */}
         <a href="#" className="flex items-center">
-          <img src={logoYonyverse} alt="Yonyverse" className="h-8 w-auto" />
+          <img src={logoHeader} alt="Yonyverse" className="h-8 w-auto" />
         </a>
 
         {/* Desktop nav */}
