@@ -115,7 +115,7 @@ const CharactersSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          The <span style={{ color: "#e4632c" }} className="italic">Characters</span>
+          <span style={{ color: "#000000" }}>The</span> <span style={{ color: "#e4632c" }} className="italic">Characters</span>
         </motion.h2>
         <p style={{ color: "#978B83", fontFamily: "'Montserrat', sans-serif" }} className="text-lg">
           Archetypal roles that shape the Yonyverse.
