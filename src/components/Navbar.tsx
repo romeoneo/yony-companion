@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import logoYonyverse from "@/assets/logo-yonyverse-full.png";
+import logoHeader from "@/assets/logo-yonyverse-header.png";
 
 const links = [
   { label: "Characters", href: "#characters" },
@@ -25,16 +25,16 @@ const Navbar = () => {
       initial={{ y: -80 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-black/90 backdrop-blur-xl ${
         scrolled
-          ? "bg-background/80 backdrop-blur-xl shadow-sm border-b border-border/50"
-          : "bg-transparent"
+          ? "shadow-sm border-b border-white/10"
+          : ""
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
         {/* Logo */}
         <a href="#" className="flex items-center">
-          <img src={logoYonyverse} alt="Yonyverse" className="h-8 w-auto" />
+          <img src={logoHeader} alt="Yonyverse" className="h-8 w-auto" />
         </a>
 
         {/* Desktop nav */}
@@ -43,7 +43,7 @@ const Navbar = () => {
             <a
               key={l.label}
               href={l.href}
-              className="text-sm font-sans-body text-muted-foreground hover:text-foreground transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[2px] after:bottom-[-4px] after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+              className="text-sm font-sans-body text-white/70 hover:text-white transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[2px] after:bottom-[-4px] after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
             >
               {l.label}
             </a>
@@ -59,7 +59,7 @@ const Navbar = () => {
         {/* Mobile hamburger */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden w-10 h-10 flex items-center justify-center rounded-full hover:bg-secondary transition-colors"
+          className="md:hidden w-10 h-10 flex items-center justify-center rounded-full text-white hover:bg-white/10 transition-colors"
           aria-label="Menu"
         >
           {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -74,7 +74,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden"
+            className="md:hidden bg-black/95 backdrop-blur-xl border-b border-white/10 overflow-hidden"
           >
             <div className="px-6 py-4 flex flex-col gap-3">
               {links.map((l) => (
@@ -82,7 +82,7 @@ const Navbar = () => {
                   key={l.label}
                   href={l.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-base font-sans-body text-foreground py-2 border-b border-border/30"
+                  className="text-base font-sans-body text-white/80 py-2 border-b border-white/10"
                 >
                   {l.label}
                 </a>
