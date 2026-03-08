@@ -98,9 +98,12 @@ function GameGroup({
 }) {
   return (
     <div>
-      <div className="flex items-center gap-3 mb-8">
-        <Icon className="w-5 h-5 text-copper" />
-        <h3 className="font-serif text-2xl font-semibold">{title}</h3>
+      <div className="mb-8">
+        <div className="flex items-center gap-3 mb-2">
+          <Icon className="w-5 h-5 text-copper" />
+          <h3 className="font-serif text-2xl font-semibold">{title}</h3>
+        </div>
+        <p className="text-muted-foreground text-sm ml-8">{description}</p>
       </div>
       <div className="flex flex-col lg:flex-row gap-6">
         <div className="w-full lg:w-[40%] grid grid-cols-1 sm:grid-cols-2 gap-4">
