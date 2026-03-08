@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Progress } from "@/components/ui/progress";
+import { Compass, Users, Sparkles, Globe } from "lucide-react";
 
 const JoinSection = () => {
   const roles = [
