@@ -14,13 +14,13 @@ const seeds = [
 function SeedCard({ portrait, name, project, theme, excerpt, delay = 0 }: typeof seeds[0] & { delay?: number }) {
   return (
     <motion.div
-      className="flex flex-col items-center rounded-2xl bg-card border border-border p-4 max-w-[200px] text-center shadow-sm"
+      className="flex flex-col items-center rounded-xl bg-card border border-border p-3 max-w-[160px] text-center shadow-sm"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay, ease: "easeOut" }}
     >
-      <img src={portrait} alt={name} className="w-12 h-12 rounded-full object-cover border-2 border-primary/30 mb-2" />
-      <h4 className="font-serif-display text-base font-semibold text-foreground">{name}</h4>
+      <img src={portrait} alt={name} className="w-10 h-10 rounded-full object-cover border-2 border-primary/30 mb-1.5" />
+      <h4 className="font-serif-display text-sm font-semibold text-foreground">{name}</h4>
       <p className="text-xs text-primary font-sans-body mt-0.5 font-semibold">{project}</p>
       <span className="mt-1.5 text-[10px] uppercase tracking-widest text-muted-foreground font-sans-body">{theme}</span>
       <p className="mt-1.5 text-xs text-muted-foreground font-sans-body italic leading-relaxed">"{excerpt}"</p>
@@ -82,13 +82,13 @@ const slides = [
   </OnboardingSlide>,
 
   <OnboardingSlide key="s4">
-    <motion.p className="font-serif-display text-2xl md:text-4xl font-light text-foreground leading-snug text-center" custom={0} variants={fadeUp} initial="hidden" animate="visible">
+    <motion.p className="font-serif-display text-xl md:text-2xl font-light text-foreground leading-snug text-center" custom={0} variants={fadeUp} initial="hidden" animate="visible">
       Each voice helps a project <span className="text-primary">grow</span>.
     </motion.p>
-    <motion.p className="mt-3 font-serif-display text-xl md:text-2xl font-light text-muted-foreground text-center" custom={1} variants={fadeUp} initial="hidden" animate="visible">
+    <motion.p className="mt-2 font-serif-display text-base md:text-lg font-light text-muted-foreground text-center" custom={1} variants={fadeUp} initial="hidden" animate="visible">
       And each story helps a Flower bloom in the <span className="text-primary font-semibold">Yonyverse</span>.
     </motion.p>
-    <motion.div className="flex flex-wrap justify-center gap-3 mt-8" custom={2} variants={fadeUp} initial="hidden" animate="visible">
+    <motion.div className="flex flex-wrap justify-center gap-2 mt-4" custom={2} variants={fadeUp} initial="hidden" animate="visible">
       {seeds.map((s, i) => <SeedCard key={s.name} {...s} delay={0.8 + i * 0.15} />)}
     </motion.div>
   </OnboardingSlide>,

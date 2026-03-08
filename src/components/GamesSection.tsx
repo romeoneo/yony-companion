@@ -21,7 +21,7 @@ const engagementGames = [
   { id: "lights", title: "Yony Lights", description: "Illuminate impact projects through creative storytelling and cultural celebration." },
   { id: "brands", title: "Yony Brands", description: "Connect brands with cultural values, creating authentic partnerships that elevate dreams." },
   { id: "places", title: "Yony Places", description: "Discover sacred spaces and venues that host the physical games across territories." },
-  { id: "worldtour", title: "Yony World Tour", description: "Weave digital experiences that bring the mythological universe to life." },
+  { id: "worldtour", title: "Yony Travels", description: "Discover the cultural traditions and connections that unite 16 inspiring countries." },
 ];
 
 const onboardingComponents: Record<string, React.ComponentType> = {

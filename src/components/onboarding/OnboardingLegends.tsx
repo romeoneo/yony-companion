@@ -91,15 +91,13 @@ const slides = [
     <motion.p className="text-sm text-muted-foreground font-sans-body italic text-center mb-6" custom={0.5} variants={fadeUp} initial="hidden" animate="visible">
       Each figure represents a source of inspiration.
     </motion.p>
-    <motion.div className="grid grid-cols-4 gap-x-4 gap-y-3 max-w-md w-full" custom={1} variants={fadeUp} initial="hidden" animate="visible">
+    <motion.div className="grid grid-cols-4 gap-x-3 gap-y-1.5 max-w-sm w-full" custom={1} variants={fadeUp} initial="hidden" animate="visible">
       {legends.map((legend) => (
-        <div key={legend.title} className="flex flex-col items-center gap-1.5">
-          <div className="onboarding-legend-card group w-full">
-            <div className="aspect-square overflow-hidden rounded-xl">
-              <img src={legend.image} alt={legend.title} className="onboarding-legend-card-image w-full h-full object-cover" loading="lazy" />
-            </div>
+        <div key={legend.title} className="flex flex-col items-center gap-0.5">
+          <div className="w-10 h-10 overflow-hidden rounded-lg">
+            <img src={legend.image} alt={legend.title} className="w-full h-full object-cover" loading="lazy" />
           </div>
-          <span className="font-sans-body text-[9px] text-muted-foreground text-center leading-tight">{legend.title}</span>
+          <span className="font-sans-body text-[8px] text-muted-foreground text-center leading-tight">{legend.title}</span>
         </div>
       ))}
     </motion.div>

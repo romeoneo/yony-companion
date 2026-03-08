@@ -5,17 +5,6 @@ import brandMatch2 from "@/assets/brands/brand-match-2.jpg";
 import brandMatch3 from "@/assets/brands/brand-match-3.jpg";
 import brandMatch4 from "@/assets/brands/brand-match-4.jpg";
 
-const BrandCard = ({ name, emoji, delay, x, y }: { name: string; emoji: string; delay: number; x: number; y: number }) => (
-  <motion.div className="absolute rounded-lg bg-card border border-border px-3 py-2 shadow-sm pointer-events-none"
-    style={{ left: `${x}%`, top: `${y}%` }}
-    initial={{ opacity: 0, scale: 0.8 }}
-    animate={{ opacity: 1, scale: 1, y: [0, -6, 0] }}
-    transition={{ opacity: { delay, duration: 0.6 }, scale: { delay, duration: 0.6 }, y: { delay: delay + 0.6, duration: 3, repeat: Infinity, ease: "easeInOut" } }}>
-    <span className="mr-1.5">{emoji}</span>
-    <span className="font-sans-body text-xs font-medium text-foreground">{name}</span>
-  </motion.div>
-);
-
 const brands = [
   { name: "Terra Verde", emoji: "🌿", x: 15, y: 15, delay: 0.2 },
   { name: "Solaris", emoji: "☀️", x: 55, y: 8, delay: 0.4 },
@@ -40,9 +29,6 @@ const regions = [
 
 const slides = [
   <OnboardingSlide key="s1">
-    <div className="absolute inset-0 pointer-events-none">
-      {brands.map((b) => <BrandCard key={b.name} {...b} />)}
-    </div>
     <motion.h1 className="font-serif-display text-4xl md:text-5xl font-bold leading-tight text-center relative z-10" custom={0} variants={fadeUp} initial="hidden" animate="visible">
       <span className="text-foreground">Discover Brands </span>
       <span className="text-primary italic">Changing the World</span>
@@ -50,6 +36,14 @@ const slides = [
     <motion.p className="font-sans-body text-sm md:text-base text-muted-foreground max-w-lg text-center mt-4 relative z-10" custom={1} variants={fadeUp} initial="hidden" animate="visible">
       Explore, learn, play, and support brands creating social, cultural, and ecological impact.
     </motion.p>
+    <motion.div className="flex flex-wrap justify-center gap-3 mt-6 max-w-sm relative z-10" custom={2} variants={fadeUp} initial="hidden" animate="visible">
+      {brands.map((b) => (
+        <div key={b.name} className="flex items-center gap-1.5 rounded-full bg-card border border-border px-3 py-1.5 shadow-sm">
+          <span>{b.emoji}</span>
+          <span className="font-sans-body text-xs font-medium text-foreground">{b.name}</span>
+        </div>
+      ))}
+    </motion.div>
   </OnboardingSlide>,
 
   <OnboardingSlide key="s2">
@@ -76,9 +70,9 @@ const slides = [
     <motion.h2 className="font-serif-display text-2xl md:text-4xl font-bold text-center mb-6" custom={0} variants={fadeUp} initial="hidden" animate="visible">
       <span className="text-foreground">Brand </span><span className="text-primary italic">Match</span>
     </motion.h2>
-    <motion.div className="grid grid-cols-2 gap-2 max-w-xs" custom={1} variants={fadeUp} initial="hidden" animate="visible">
+    <motion.div className="grid grid-cols-2 gap-2 max-w-[200px]" custom={1} variants={fadeUp} initial="hidden" animate="visible">
       {matchCards.map((card) => (
-        <div key={card.brand} className="aspect-square rounded-lg overflow-hidden">
+        <div key={card.brand} className="w-[90px] h-[90px] rounded-lg overflow-hidden">
           <img src={card.img} alt={card.brand} className="w-full h-full object-cover" />
         </div>
       ))}
