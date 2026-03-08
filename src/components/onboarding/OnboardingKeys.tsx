@@ -92,13 +92,13 @@ const slides = [
     <motion.p className="font-sans-body text-sm text-muted-foreground text-center mb-5" custom={1} variants={fadeUp} initial="hidden" animate="visible">
       Each dilemma invites you to reflect and choose your guiding values.
     </motion.p>
-    <motion.div className="grid grid-cols-4 gap-x-4 gap-y-3 max-w-md w-full" custom={2} variants={fadeUp} initial="hidden" animate="visible">
+    <motion.div className="grid grid-cols-4 gap-x-3 gap-y-2 max-w-sm w-full" custom={2} variants={fadeUp} initial="hidden" animate="visible">
       {dilemmas.map((d, i) => (
-        <div key={d.title} className="flex flex-col items-center gap-1">
-          <div className="relative overflow-hidden rounded-xl w-14 h-14 hover:scale-105 transition-transform cursor-pointer">
-            <img src={d.image} alt={d.title} className="w-full h-full object-cover rounded-xl" loading={i < 8 ? "eager" : "lazy"} />
+        <div key={d.title} className="flex flex-col items-center gap-0.5">
+          <div className="relative overflow-hidden rounded-lg w-10 h-10 hover:scale-105 transition-transform cursor-pointer">
+            <img src={d.image} alt={d.title} className="w-full h-full object-cover rounded-lg" loading={i < 8 ? "eager" : "lazy"} />
           </div>
-          <span className="font-sans-body text-[9px] text-foreground text-center leading-tight">{d.title}</span>
+          <span className="font-sans-body text-[8px] text-foreground text-center leading-tight">{d.title}</span>
         </div>
       ))}
     </motion.div>
