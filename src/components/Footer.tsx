@@ -12,11 +12,8 @@ const Footer = () => {
     <footer className="py-16 px-6 border-t border-border">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start gap-12">
-          <div className="flex flex-col items-start">
-            <img src={logoFooter} alt="Yonyverse" className="h-8 w-auto mb-1" />
-            <p className="text-muted-foreground text-sm pl-[2px]">
-              Born To Impact
-            </p>
+          <div>
+            <img src={logoFooter} alt="Yonyverse" className="h-8 w-auto" />
           </div>
 
           <nav className="flex flex-wrap gap-8">
