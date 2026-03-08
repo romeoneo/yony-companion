@@ -80,7 +80,7 @@ const HeroSection = () => {
         </p>
         <p className="text-muted-foreground text-base md:text-lg mb-8" style={{ lineHeight: "2.2" }}>
           Within this space, the Yony Games bring visions to life.{" "}
-          <span className="hidden md:inline"><br /></span>Across 16 activated lands and 8 games, they create a shared ground where cultures, ideas, and talents meet.
+          <span className="hidden md:inline"><br /></span>They create a shared ground where cultures, ideas, and talents meet.
         </p>
         <p className="text-muted-foreground text-base md:text-lg mb-8" style={{ lineHeight: "2.2" }}>
           Through participation, individuals and communities gain visibility<br />and inspire one another.
