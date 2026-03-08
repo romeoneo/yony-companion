@@ -86,22 +86,32 @@ const JoinSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h3 className="font-serif text-2xl font-bold mb-2">Raise the funds to organize the games</h3>
-          <div className="text-primary font-sans-body text-sm font-semibold uppercase tracking-wider mb-4">Step 2</div>
-          <p className="text-muted-foreground mb-6">
-            To make the games possible across multiple countries, the necessary resources must be secured.
+          <div className="text-primary font-sans-body text-sm font-semibold uppercase tracking-wider mb-2">Step 2</div>
+          <h3 className="font-serif text-2xl font-bold mb-4">Power the Collective Journey</h3>
+          <p className="text-muted-foreground mb-2">
+            To bring the games to life across multiple territories, the essential foundations of the journey must be powered by collective support.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-            {budgetCategories.map((cat) => (
-              <div key={cat.title} className="p-4 rounded-xl bg-secondary">
-                <div className="text-lg mb-1">{cat.emoji}</div>
-                <div className="text-sm font-medium text-foreground mb-1">{cat.title}</div>
-                <div className="text-xs text-muted-foreground">{cat.desc}</div>
-              </div>
-            ))}
+          <p className="text-muted-foreground mb-8">
+            These resources enable the adventure to unfold, connect participants, and share the story with the world.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            {pillars.map((pillar) => {
+              const Icon = pillar.icon;
+              return (
+                <div key={pillar.title} className="p-5 rounded-xl bg-secondary flex gap-4 items-start">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
+                  </div>
+                  <div>
+                    <div className="text-sm font-medium text-foreground mb-1">{pillar.title}</div>
+                    <div className="text-xs text-muted-foreground leading-relaxed">{pillar.desc}</div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
           <p className="text-muted-foreground">
-            🎯 Goal: secure the resources needed to launch the games.
+            🎯 Goal: raise the resources needed to launch the collective journey.
           </p>
         </motion.div>
       </div>
