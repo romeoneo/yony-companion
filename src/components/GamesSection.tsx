@@ -91,6 +91,7 @@ function GameGroup({
 }: {
   icon: React.ElementType;
   title: string;
+  description: string;
   games: typeof visibilityGames;
   activeId: string;
   onSelect: (id: string) => void;
