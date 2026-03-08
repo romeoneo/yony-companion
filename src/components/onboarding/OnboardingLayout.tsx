@@ -74,6 +74,7 @@ function KeyboardNav({ onNext, onPrev }: { onNext: () => void; onPrev: () => voi
 // --- OnboardingLayout ---
 interface OnboardingLayoutProps {
   slides: ReactNode[];
+  gameName?: string;
 }
 
 export default function OnboardingLayout({ slides }: OnboardingLayoutProps) {
