@@ -3,8 +3,8 @@ import { useState } from "react";
 
 const territories = [
   { name: "Benin", value: "Lucidity", desc: "Lucidity reveals the truth that guides the journey.", x: 48, y: 42 },
-  { name: "South Africa", value: "Transmission", desc: "Transmission carries wisdom across generations.", x: 52, y: 62 },
   { name: "Gabon", value: "Connection", desc: "Connection reminds us that every being is linked.", x: 47, y: 48 },
+  { name: "South Africa", value: "Transmission", desc: "Transmission carries wisdom across generations.", x: 52, y: 62 },
   { name: "Madagascar", value: "Tolerance", desc: "Tolerance allows differences to coexist in harmony.", x: 58, y: 58 },
   { name: "Egypt", value: "Gratitude", desc: "Gratitude honors the gifts received from the past.", x: 53, y: 32 },
   { name: "Turkey", value: "Authenticity", desc: "Authenticity expresses the truth of one's being.", x: 55, y: 28 },
