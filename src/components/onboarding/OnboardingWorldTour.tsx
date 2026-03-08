@@ -125,5 +125,5 @@ const slides = slideData.map((slide, idx) => (
 ));
 
 export default function OnboardingWorldTour() {
-  return <OnboardingLayout slides={slides} />;
+  return <OnboardingLayout slides={slides} gameName="Yony Travels" />;
 }

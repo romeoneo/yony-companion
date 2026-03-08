@@ -74,9 +74,10 @@ function KeyboardNav({ onNext, onPrev }: { onNext: () => void; onPrev: () => voi
 // --- OnboardingLayout ---
 interface OnboardingLayoutProps {
   slides: ReactNode[];
+  gameName?: string;
 }
 
-export default function OnboardingLayout({ slides }: OnboardingLayoutProps) {
+export default function OnboardingLayout({ slides, gameName }: OnboardingLayoutProps) {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
 
@@ -112,6 +113,18 @@ export default function OnboardingLayout({ slides }: OnboardingLayoutProps) {
           {slides[current]}
         </motion.div>
       </AnimatePresence>
+
+      {gameName && current > 0 && (
+        <motion.span
+          key={`label-${current}`}
+          className="absolute top-4 left-5 z-20 font-serif-display text-xs font-medium text-muted-foreground/60 tracking-wide"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.4 }}
+        >
+          {gameName}
+        </motion.span>
+      )}
 
       <OnboardingNavigation
         total={slides.length}
