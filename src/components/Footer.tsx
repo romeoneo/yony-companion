@@ -1,3 +1,5 @@
+import logoText from "@/assets/logo-yonyverse-text.png";
+
 const Footer = () => {
   const links = [
     { label: "About Yonyverse", href: "#" },
