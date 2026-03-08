@@ -85,21 +85,26 @@ function PreviewPanel({ activeId }: { activeId: string }) {
 function GameGroup({
   icon: Icon,
   title,
+  description,
   games,
   activeId,
   onSelect,
 }: {
   icon: React.ElementType;
   title: string;
+  description: string;
   games: typeof visibilityGames;
   activeId: string;
   onSelect: (id: string) => void;
 }) {
   return (
     <div>
-      <div className="flex items-center gap-3 mb-8">
-        <Icon className="w-5 h-5 text-copper" />
-        <h3 className="font-serif text-2xl font-semibold">{title}</h3>
+      <div className="mb-8">
+        <div className="flex items-center gap-3 mb-2">
+          <Icon className="w-5 h-5 text-copper" />
+          <h3 className="font-serif text-2xl font-semibold">{title}</h3>
+        </div>
+        <p className="text-muted-foreground text-sm ml-8">{description}</p>
       </div>
       <div className="flex flex-col lg:flex-row gap-6">
         <div className="w-full lg:w-[40%] grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -128,8 +133,8 @@ const GamesSection = () => {
         </motion.div>
 
         <div className="space-y-20">
-          <GameGroup icon={Eye} title="Visibility Games" games={visibilityGames} activeId={activeVisibility} onSelect={setActiveVisibility} />
-          <GameGroup icon={Handshake} title="Engagement Games" games={engagementGames} activeId={activeEngagement} onSelect={setActiveEngagement} />
+          <GameGroup icon={Eye} title="Visibility Games" description="These games help Yony Seeds share their vision, values, personality, and story with their community." games={visibilityGames} activeId={activeVisibility} onSelect={setActiveVisibility} />
+          <GameGroup icon={Handshake} title="Engagement Games" description="Players explore the games, discover new perspectives, and earn Light Points to redistribute to Yony Flowers." games={engagementGames} activeId={activeEngagement} onSelect={setActiveEngagement} />
         </div>
       </div>
     </section>
