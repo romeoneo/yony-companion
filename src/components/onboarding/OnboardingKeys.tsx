@@ -38,7 +38,7 @@ const dilemmas = [
 ];
 
 const values = [
-  "Transmission", "Kindness", "Creativity", "Gratitude",
+  "Benevolence", "Transmission", "Creativity", "Gratitude",
   "Cohesion", "Empathy", "Authenticity", "Resilience",
   "Tolerance", "Equity", "Connection", "Intuition",
   "Lucidity", "Perseverance", "Humility", "Patience",
