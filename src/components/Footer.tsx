@@ -1,4 +1,4 @@
-import logoText from "@/assets/logo-yonyverse-text.png";
+import logoFull from "@/assets/logo-yonyverse-full.png";
 
 const Footer = () => {
   const links = [
@@ -13,7 +13,7 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start gap-12">
           <div>
-            <img src={logoText} alt="Yonyverse" className="h-7 w-auto mb-2" />
+            <img src={logoFull} alt="Yonyverse" className="h-8 w-auto mb-2" />
             <p className="text-muted-foreground text-sm max-w-xs">
               Born To Impact
             </p>
