@@ -75,17 +75,20 @@ const HeroSection = () => {
         transition={{ duration: 0.9, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
       >
         <p className="text-muted-foreground text-base md:text-lg mb-8 italic" style={{ lineHeight: "2.2" }}>
-          Yonyverse is a symbolic garden where dreams, cultures, and projects<br />with impact can take root and grow.
+          Yonyverse is a symbolic garden where dreams, cultures, and projects{" "}
+          <span className="hidden md:inline"><br /></span>with impact can take root and grow.
         </p>
         <p className="text-muted-foreground text-base md:text-lg mb-8" style={{ lineHeight: "2.2" }}>
-          Within this space, the Yony Games bring visions to life.<br />Across 16 activated lands and 8 games, they create a shared ground where cultures, ideas, and talents meet.
+          Within this space, the Yony Games bring visions to life.{" "}
+          <span className="hidden md:inline"><br /></span>Across 16 activated lands and 8 games, they create a shared ground where cultures, ideas, and talents meet.
         </p>
         <p className="text-muted-foreground text-base md:text-lg mb-8" style={{ lineHeight: "2.2" }}>
-          Through participation, individuals and communities gain visibility and<br />inspire one another.
+          Through participation, individuals and communities gain visibility and{" "}
+          <span className="hidden md:inline"><br /></span>inspire one another.
         </p>
         <p className="text-foreground text-lg md:text-xl italic font-medium" style={{ lineHeight: "2.2" }}>
-          From the Egg springs the world Earth desires.<br />
-          We Are Born To Impact.
+          From the Egg springs the world Earth desires.{" "}
+          <span className="hidden md:inline"><br /></span>We Are Born To Impact.
         </p>
       </motion.div>
     </section>
