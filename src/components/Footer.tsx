@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-start gap-12">
           <div className="flex flex-col items-start">
             <img src={logoFooter} alt="Yonyverse" className="h-8 w-auto mb-1" />
-            <p className="text-muted-foreground text-sm">
+            <p className="text-muted-foreground text-sm pl-[2px]">
               Born To Impact
             </p>
           </div>
