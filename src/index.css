@@ -179,3 +179,51 @@ body {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* Hero egg living glow */
+@keyframes hero-egg-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px hsl(40 80% 55% / 0.2)) drop-shadow(0 0 30px hsl(40 80% 55% / 0.1));
+  }
+  50% {
+    filter: drop-shadow(0 0 30px hsl(40 80% 55% / 0.45)) drop-shadow(0 0 60px hsl(40 80% 55% / 0.2));
+  }
+}
+
+@keyframes hero-egg-inner-glow {
+  0%, 100% {
+    opacity: 0.15;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+}
+
+/* Hero floating particles */
+@keyframes hero-particle-drift {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: var(--particle-opacity, 0.3);
+  }
+  85% {
+    opacity: var(--particle-opacity, 0.3);
+  }
+  100% {
+    transform: translateY(var(--drift-y, -60px)) translateX(var(--drift-x, 10px));
+    opacity: 0;
+  }
+}
+
+.hero-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, hsl(40 80% 65% / 0.8), hsl(40 80% 55% / 0));
+  pointer-events: none;
+  animation: hero-particle-drift var(--duration, 6s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
