@@ -36,6 +36,7 @@ const WorldMapSection = () => {
             Journey of the <span className="text-gradient-copper italic">Yony Egg</span>
           </h2>
           <p className="text-muted-foreground text-lg">16 founding territories. 16 values. 16 cycles. 256 days.</p>
+          <p className="text-muted-foreground text-sm mt-2 max-w-2xl mx-auto">An Egg will journey across the 16 territories, embodying a shared will for transformation, connection, and the rebirth of a new world founded on harmony.</p>
         </motion.div>
 
         {/* Map */}
