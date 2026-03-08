@@ -33,12 +33,8 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2">
-          <img src={logoYonyverse} alt="Yonyverse" className="h-9 w-auto" />
-          <span className="font-serif text-xl font-bold hidden sm:inline">
-            <span className="text-foreground">Yony</span>
-            <span className="text-gradient-copper italic">verse</span>
-          </span>
+        <a href="#" className="flex items-center">
+          <img src={logoYonyverse} alt="Yonyverse" className="h-8 w-auto" />
         </a>
 
         {/* Desktop nav */}
