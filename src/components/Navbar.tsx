@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import logoYonyverse from "@/assets/logo-yonyverse.png";
+import logoYonyverse from "@/assets/logo-yonyverse-full.png";
 
 const links = [
   { label: "Characters", href: "#characters" },
