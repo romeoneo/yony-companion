@@ -82,7 +82,7 @@ const Navbar = () => {
                   key={l.label}
                   href={l.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-base font-sans-body text-foreground py-2 border-b border-border/30"
+                  className="text-base font-sans-body text-white/80 py-2 border-b border-white/10"
                 >
                   {l.label}
                 </a>
