@@ -83,7 +83,7 @@ const HeroSection = () => {
           <span className="hidden md:inline"><br /></span>Across 16 activated lands and 8 games, they create a shared ground where cultures, ideas, and talents meet.
         </p>
         <p className="text-muted-foreground text-base md:text-lg mb-8" style={{ lineHeight: "2.2" }}>
-          Through participation, individuals and communities gain visibility and inspire one another.
+          Through participation, individuals and communities gain visibility<br />and inspire one another.
         </p>
         <p className="text-foreground text-lg md:text-xl italic font-medium" style={{ lineHeight: "2.2" }}>
           From the Egg springs the world Earth desires.{" "}
