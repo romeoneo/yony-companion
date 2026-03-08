@@ -85,6 +85,7 @@ function PreviewPanel({ activeId }: { activeId: string }) {
 function GameGroup({
   icon: Icon,
   title,
+  description,
   games,
   activeId,
   onSelect,
