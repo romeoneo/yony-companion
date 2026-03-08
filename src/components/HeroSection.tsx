@@ -85,7 +85,7 @@ const HeroSection = () => {
         </p>
         <p className="text-foreground text-lg md:text-xl italic font-medium" style={{ lineHeight: "2.2" }}>
           From the Egg springs the world Earth desires.<br />
-          We are Born to Impact.
+          We Are Born To Impact.
         </p>
       </motion.div>
     </section>
