@@ -1,3 +1,5 @@
+import logoText from "@/assets/logo-yonyverse-text.png";
+
 const Footer = () => {
   const links = [
     { label: "About Yonyverse", href: "#" },
@@ -11,10 +13,7 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start gap-12">
           <div>
-            <h3 className="font-serif text-2xl font-bold mb-2">
-              <span className="text-foreground">Yony</span>
-              <span className="text-gradient-copper italic">verse</span>
-            </h3>
+            <img src={logoText} alt="Yonyverse" className="h-7 w-auto mb-2" />
             <p className="text-muted-foreground text-sm max-w-xs">
               Born To Impact
             </p>
