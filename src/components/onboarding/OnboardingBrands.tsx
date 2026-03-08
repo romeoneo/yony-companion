@@ -5,17 +5,6 @@ import brandMatch2 from "@/assets/brands/brand-match-2.jpg";
 import brandMatch3 from "@/assets/brands/brand-match-3.jpg";
 import brandMatch4 from "@/assets/brands/brand-match-4.jpg";
 
-const BrandCard = ({ name, emoji, delay, x, y }: { name: string; emoji: string; delay: number; x: number; y: number }) => (
-  <motion.div className="absolute rounded-lg bg-card border border-border px-3 py-2 shadow-sm pointer-events-none"
-    style={{ left: `${x}%`, top: `${y}%` }}
-    initial={{ opacity: 0, scale: 0.8 }}
-    animate={{ opacity: 1, scale: 1, y: [0, -6, 0] }}
-    transition={{ opacity: { delay, duration: 0.6 }, scale: { delay, duration: 0.6 }, y: { delay: delay + 0.6, duration: 3, repeat: Infinity, ease: "easeInOut" } }}>
-    <span className="mr-1.5">{emoji}</span>
-    <span className="font-sans-body text-xs font-medium text-foreground">{name}</span>
-  </motion.div>
-);
-
 const brands = [
   { name: "Terra Verde", emoji: "🌿", x: 15, y: 15, delay: 0.2 },
   { name: "Solaris", emoji: "☀️", x: 55, y: 8, delay: 0.4 },
