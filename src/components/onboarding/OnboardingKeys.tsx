@@ -1,7 +1,6 @@
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import OnboardingLayout, { OnboardingSlide, fadeUp } from "./OnboardingLayout";
 
-// Dilemma images
 import reseauDesSecrets from "@/assets/keys/reseau-des-secrets.png";
 import machineDesPossibles from "@/assets/keys/machine-des-possibles.png";
 import ombresDuPasse from "@/assets/keys/ombres-du-passe.png";
@@ -45,350 +44,93 @@ const values = [
   "Lucidité", "Persévérance", "Humilité", "Patience",
 ];
 
-// --- Animation variants ---
+const SocialIcons = () => (
+  <motion.div className="flex gap-5 mt-8" custom={2} variants={fadeUp} initial="hidden" animate="visible">
+    {[
+      <svg key="ig" viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="5" /><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" /></svg>,
+      <svg key="tt" viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" strokeLinecap="round" strokeLinejoin="round" /></svg>,
+      <svg key="yt" viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="3" /><polygon points="10,8.5 16,12 10,15.5" fill="currentColor" stroke="none" /></svg>,
+      <svg key="li" viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" /><path d="M8 11v5M8 8v.01M12 16v-5c0-1 .5-2 2-2s2 1 2 2v5" /></svg>,
+    ].map((icon, i) => (
+      <div key={i} className="w-14 h-14 rounded-full border border-border bg-card flex items-center justify-center text-primary">{icon}</div>
+    ))}
+  </motion.div>
+);
 
-const slideVariants = {
-  enter: { opacity: 0, scale: 1.02 },
-  center: { opacity: 1, scale: 1 },
-  exit: { opacity: 0, scale: 0.98 },
-};
+const slides = [
+  <OnboardingSlide key="welcome">
+    <motion.h1 className="font-serif-display text-5xl md:text-7xl font-black tracking-tight text-foreground text-center" custom={0} variants={fadeUp} initial="hidden" animate="visible">
+      Yony <span className="text-primary italic">Keys</span>
+    </motion.h1>
+    <motion.p className="font-sans-body text-base md:text-lg text-muted-foreground mt-4 max-w-md text-center" custom={1} variants={fadeUp} initial="hidden" animate="visible">
+      Find the values that open the path
+    </motion.p>
+  </OnboardingSlide>,
 
-const staggerChild = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1, y: 0,
-    transition: { delay: i * 0.15, duration: 0.6, ease: "easeOut" as const },
-  }),
-};
+  <OnboardingSlide key="dilemma">
+    <motion.h2 className="font-serif-display text-2xl md:text-4xl font-bold text-foreground leading-tight max-w-2xl text-center" custom={0} variants={fadeUp} initial="hidden" animate="visible">
+      Every project faces moments of <span className="text-primary italic">uncertainty.</span>
+    </motion.h2>
+    <motion.p className="font-sans-body text-base text-muted-foreground mt-4 max-w-lg text-center" custom={1} variants={fadeUp} initial="hidden" animate="visible">
+      A dilemma appears… and a decision must be made.
+    </motion.p>
+  </OnboardingSlide>,
 
-// --- Slide Components ---
+  <OnboardingSlide key="keys">
+    <motion.h2 className="font-serif-display text-2xl md:text-4xl font-bold text-foreground leading-tight max-w-2xl text-center" custom={0} variants={fadeUp} initial="hidden" animate="visible">
+      Choose two values to guide your <span className="text-primary italic">response.</span>
+    </motion.h2>
+    <motion.p className="font-sans-body text-base text-muted-foreground mt-4 max-w-lg text-center" custom={1} variants={fadeUp} initial="hidden" animate="visible">
+      These values become the keys that help you open a path.
+    </motion.p>
+  </OnboardingSlide>,
 
-function SlideWelcome() {
-  return (
-    <div className="flex flex-col items-center justify-center h-full text-center px-6">
-      <motion.h1
-        className="font-serif-display text-6xl md:text-8xl font-black tracking-tight text-foreground"
-        custom={0}
-        variants={staggerChild}
-        initial="hidden"
-        animate="visible"
-      >
-        Yony <span className="text-primary italic font-serif-display">Keys</span>
-      </motion.h1>
+  <OnboardingSlide key="dilemmas">
+    <motion.h2 className="font-serif-display text-2xl md:text-4xl font-bold text-foreground text-center mb-2" custom={0} variants={fadeUp} initial="hidden" animate="visible">
+      Explore the <span className="text-primary italic">16 dilemmas.</span>
+    </motion.h2>
+    <motion.p className="font-sans-body text-sm text-muted-foreground text-center mb-5" custom={1} variants={fadeUp} initial="hidden" animate="visible">
+      Each dilemma invites you to reflect and choose your guiding values.
+    </motion.p>
+    <motion.div className="grid grid-cols-4 gap-x-4 gap-y-3 max-w-md w-full" custom={2} variants={fadeUp} initial="hidden" animate="visible">
+      {dilemmas.map((d, i) => (
+        <div key={d.title} className="flex flex-col items-center gap-1">
+          <div className="relative overflow-hidden rounded-xl w-14 h-14 hover:scale-105 transition-transform cursor-pointer">
+            <img src={d.image} alt={d.title} className="w-full h-full object-cover rounded-xl" loading={i < 8 ? "eager" : "lazy"} />
+          </div>
+          <span className="font-sans-body text-[9px] text-foreground text-center leading-tight">{d.title}</span>
+        </div>
+      ))}
+    </motion.div>
+  </OnboardingSlide>,
 
-      <motion.p
-        className="font-sans-body text-xl md:text-2xl text-muted-foreground mt-6 max-w-md"
-        custom={1}
-        variants={staggerChild}
-        initial="hidden"
-        animate="visible"
-      >
-        Find the values that open the path
-      </motion.p>
-    </div>
-  );
-}
+  <OnboardingSlide key="values">
+    <motion.h2 className="font-serif-display text-2xl md:text-4xl font-bold text-foreground text-center mb-2" custom={0} variants={fadeUp} initial="hidden" animate="visible">
+      Choose your <span className="text-primary italic">guiding values.</span>
+    </motion.h2>
+    <motion.p className="font-sans-body text-sm text-muted-foreground text-center mb-6" custom={1} variants={fadeUp} initial="hidden" animate="visible">
+      Select two values that resonate with your reflection.
+    </motion.p>
+    <motion.div className="grid grid-cols-4 gap-2 max-w-md w-full" custom={2} variants={fadeUp} initial="hidden" animate="visible">
+      {values.map((v) => (
+        <button key={v} className="px-3 py-2 rounded-full border border-border font-serif-display text-xs tracking-wider transition-all duration-300 cursor-pointer bg-card hover:bg-primary hover:text-primary-foreground hover:border-primary">
+          {v}
+        </button>
+      ))}
+    </motion.div>
+  </OnboardingSlide>,
 
-function SlideDilemma() {
-  return (
-    <div className="flex flex-col items-center justify-center h-full text-center px-6">
-      <motion.h2
-        className="font-serif-display text-4xl md:text-6xl font-bold text-foreground leading-tight max-w-3xl"
-        custom={0}
-        variants={staggerChild}
-        initial="hidden"
-        animate="visible"
-      >
-        Every project faces moments of{" "}
-        <span className="text-primary italic font-serif-display">uncertainty.</span>
-      </motion.h2>
-
-      <motion.p
-        className="font-sans-body text-lg md:text-xl text-muted-foreground mt-6 max-w-lg"
-        custom={1}
-        variants={staggerChild}
-        initial="hidden"
-        animate="visible"
-      >
-        A dilemma appears… and a decision must be made.
-      </motion.p>
-    </div>
-  );
-}
-
-function SlideKeys() {
-  return (
-    <div className="flex flex-col items-center justify-center h-full text-center px-6">
-      <motion.h2
-        className="font-serif-display text-4xl md:text-6xl font-bold text-foreground leading-tight max-w-3xl"
-        custom={0}
-        variants={staggerChild}
-        initial="hidden"
-        animate="visible"
-      >
-        Choose two values to guide your{" "}
-        <span className="text-primary italic font-serif-display">response.</span>
-      </motion.h2>
-
-      <motion.p
-        className="font-sans-body text-lg md:text-xl text-muted-foreground mt-6 max-w-lg"
-        custom={1}
-        variants={staggerChild}
-        initial="hidden"
-        animate="visible"
-      >
-        These values become the keys that help you open a path.
-      </motion.p>
-    </div>
-  );
-}
-
-function SlideDilemmas() {
-  return (
-    <div className="flex flex-col items-center justify-center h-full px-4 md:px-8 py-8">
-      <motion.h2
-        className="font-serif-display text-3xl md:text-5xl font-bold text-foreground text-center mb-3"
-        custom={0}
-        variants={staggerChild}
-        initial="hidden"
-        animate="visible"
-      >
-        Explore the <span className="text-primary italic font-serif-display">16 dilemmas.</span>
-      </motion.h2>
-
-      <motion.p
-        className="font-sans-body text-base md:text-lg text-muted-foreground text-center mb-6"
-        custom={1}
-        variants={staggerChild}
-        initial="hidden"
-        animate="visible"
-      >
-        Each dilemma invites you to reflect and choose your guiding values.
-      </motion.p>
-
-      <motion.div
-        className="grid grid-cols-4 gap-x-6 gap-y-4 max-w-xl w-full"
-        initial="hidden"
-        animate="visible"
-        variants={{ visible: { transition: { staggerChildren: 0.04 } } }}
-      >
-        {dilemmas.map((d, i) => (
-          <motion.div
-            key={d.title}
-            className="flex flex-col items-center gap-1.5 group cursor-pointer"
-            variants={{
-              hidden: { opacity: 0, scale: 0.85 },
-              visible: { opacity: 1, scale: 1, transition: { duration: 0.4 } },
-            }}
-          >
-            <div className="relative overflow-hidden rounded-xl cursor-pointer transition-all duration-300 hover:scale-105 w-12 h-12 md:w-14 md:h-14"
-              style={{ boxShadow: "none" }}
-              onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 8px 30px hsl(14 78% 54% / 0.3)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "none"; }}
-            >
-              <img
-                src={d.image}
-                alt={d.title}
-                className="w-full h-full object-cover rounded-xl"
-                loading={i < 8 ? "eager" : "lazy"}
-              />
-            </div>
-            <span className="font-sans-body text-xs md:text-sm text-foreground text-center leading-tight">
-              {d.title}
-            </span>
-          </motion.div>
-        ))}
-      </motion.div>
-    </div>
-  );
-}
-
-function SlideValues() {
-  return (
-    <div className="flex flex-col items-center justify-center h-full px-6 py-8">
-      <motion.h2
-        className="font-serif-display text-3xl md:text-5xl font-bold text-foreground text-center mb-3"
-        custom={0}
-        variants={staggerChild}
-        initial="hidden"
-        animate="visible"
-      >
-        Choose your <span className="text-primary italic font-serif-display">guiding values.</span>
-      </motion.h2>
-
-      <motion.p
-        className="font-sans-body text-base md:text-lg text-muted-foreground text-center mb-8"
-        custom={1}
-        variants={staggerChild}
-        initial="hidden"
-        animate="visible"
-      >
-        Select two values that resonate with your reflection.
-      </motion.p>
-
-      <motion.div
-        className="grid grid-cols-4 gap-3 max-w-2xl w-full"
-        initial="hidden"
-        animate="visible"
-        variants={{ visible: { transition: { staggerChildren: 0.06 } } }}
-      >
-        {values.map((v) => (
-          <motion.button
-            key={v}
-            className="px-5 py-3 rounded-full border border-border font-serif-display text-sm tracking-wider transition-all duration-300 cursor-pointer bg-card hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-lg"
-            variants={{
-              hidden: { opacity: 0, y: 15 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-            }}
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {v}
-          </motion.button>
-        ))}
-      </motion.div>
-    </div>
-  );
-}
-
-function SlideShare() {
-  return (
-    <div className="flex flex-col items-center justify-center h-full text-center px-6">
-      <motion.h2
-        className="font-serif-display text-4xl md:text-6xl font-bold text-foreground leading-tight max-w-3xl"
-        custom={0}
-        variants={staggerChild}
-        initial="hidden"
-        animate="visible"
-      >
-        Share your creation on{" "}
-        <span className="text-primary italic font-serif-display">social media.</span>
-      </motion.h2>
-
-      <motion.p
-        className="font-sans-body text-lg md:text-xl text-muted-foreground mt-6 max-w-lg"
-        custom={1}
-        variants={staggerChild}
-        initial="hidden"
-        animate="visible"
-      >
-        Post it and connect it to your project.
-      </motion.p>
-
-      <motion.div
-        className="flex gap-6 mt-12"
-        initial="hidden"
-        animate="visible"
-        variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-      >
-        {[
-          { label: "Instagram", icon: (
-            <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <rect x="2" y="2" width="20" height="20" rx="5" />
-              <circle cx="12" cy="12" r="5" />
-              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
-            </svg>
-          )},
-          { label: "TikTok", icon: (
-            <svg viewBox="0 0 24 24" className="w-8 h-8" fill="currentColor">
-              <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.73a8.19 8.19 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.16z" />
-            </svg>
-          )},
-          { label: "YouTube", icon: (
-            <svg viewBox="0 0 24 24" className="w-8 h-8" fill="currentColor">
-              <path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19 31.56 31.56 0 000 12a31.56 31.56 0 00.5 5.81 3.02 3.02 0 002.12 2.14c1.84.55 9.38.55 9.38.55s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14A31.56 31.56 0 0024 12a31.56 31.56 0 00-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z" />
-            </svg>
-          )},
-          { label: "LinkedIn", icon: (
-            <svg viewBox="0 0 24 24" className="w-8 h-8" fill="currentColor">
-              <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05a3.74 3.74 0 013.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77A1.75 1.75 0 000 1.73v20.54A1.75 1.75 0 001.77 24h20.46A1.75 1.75 0 0024 22.27V1.73A1.75 1.75 0 0022.23 0z" />
-            </svg>
-          )},
-        ].map((social) => (
-          <motion.a
-            key={social.label}
-            href="#"
-            className="w-20 h-20 md:w-24 md:h-24 rounded-full border border-border bg-card flex items-center justify-center text-primary transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:shadow-lg"
-            variants={{
-              hidden: { opacity: 0, scale: 0.8 },
-              visible: { opacity: 1, scale: 1, transition: { duration: 0.4 } },
-            }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            aria-label={social.label}
-          >
-            {social.icon}
-          </motion.a>
-        ))}
-      </motion.div>
-    </div>
-  );
-}
-
-// --- Main Component ---
-
-const slides = [SlideWelcome, SlideDilemma, SlideKeys, SlideDilemmas, SlideValues, SlideShare];
+  <OnboardingSlide key="share">
+    <motion.h2 className="font-serif-display text-2xl md:text-4xl font-bold text-foreground leading-tight max-w-2xl text-center" custom={0} variants={fadeUp} initial="hidden" animate="visible">
+      Share your creation on <span className="text-primary italic">social media.</span>
+    </motion.h2>
+    <motion.p className="font-sans-body text-base text-muted-foreground mt-4 max-w-lg text-center" custom={1} variants={fadeUp} initial="hidden" animate="visible">
+      Post it and connect it to your project.
+    </motion.p>
+    <SocialIcons />
+  </OnboardingSlide>,
+];
 
 export default function OnboardingKeys() {
-  const [current, setCurrent] = useState(0);
-  const [paused, setPaused] = useState(false);
-
-  const next = useCallback(() => {
-    setCurrent((c) => (c + 1) % slides.length);
-  }, []);
-
-  useEffect(() => {
-    if (paused) return;
-    const timer = setInterval(next, 4000);
-    return () => clearInterval(timer);
-  }, [paused, next]);
-
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight" || e.key === " ") next();
-      if (e.key === "ArrowLeft") setCurrent((c) => (c - 1 + slides.length) % slides.length);
-    };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, [next]);
-
-  const SlideComponent = slides[current];
-
-  return (
-    <div
-      className="relative w-full h-screen bg-background overflow-hidden select-none"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-    >
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={current}
-          className="absolute inset-0"
-          variants={slideVariants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{ duration: 0.6, ease: "easeInOut" }}
-        >
-          <SlideComponent />
-        </motion.div>
-      </AnimatePresence>
-
-      {/* Progress dots */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-50">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            className={`rounded-full transition-all duration-300 cursor-pointer h-3 ${
-              i === current
-                ? "w-10 bg-primary"
-                : "w-3 bg-border hover:bg-muted-foreground/40"
-            }`}
-            onClick={() => setCurrent(i)}
-            aria-label={`Go to slide ${i + 1}`}
-          />
-        ))}
-      </div>
-    </div>
-  );
+  return <OnboardingLayout slides={slides} />;
 }
