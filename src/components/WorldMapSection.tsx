@@ -33,7 +33,7 @@ const WorldMapSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-            Journey of the <span className="text-gradient-copper italic">Egg of Yony</span>
+            Journey of the <span className="text-gradient-copper italic">Yony Egg</span>
           </h2>
           <p className="text-muted-foreground text-lg">16 founding territories. 16 values. One shared journey.</p>
         </motion.div>
