@@ -3,7 +3,7 @@ import PortalSection from "@/components/PortalSection";
 import CharactersSection from "@/components/CharactersSection";
 import GamesSection from "@/components/GamesSection";
 import WorldMapSection from "@/components/WorldMapSection";
-import TimelineSection from "@/components/TimelineSection";
+
 import ExperienceSection from "@/components/ExperienceSection";
 import JoinSection from "@/components/JoinSection";
 import Footer from "@/components/Footer";
