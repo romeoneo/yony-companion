@@ -13,11 +13,11 @@ const JoinSection = () => {
     { role: "Yony Guards", current: 6, target: 40 },
   ];
 
-  const budgetCategories = [
-    { emoji: "✈️", title: "Travel and explorations", desc: "Transportation and excursions in the countries activated in the game." },
-    { emoji: "👥", title: "Operational team", desc: "Organization, coordination, and management of the project." },
-    { emoji: "📣", title: "Communication and marketing", desc: "Content production and global visibility of the adventure." },
-    { emoji: "💻", title: "Technology platform", desc: "Development and operation of the Yonyverse platform." },
+  const pillars = [
+    { icon: Compass, title: "Exploration and travel", desc: "Transportation and explorations across the territories activated in the journey." },
+    { icon: Users, title: "Collective operations", desc: "Organization, coordination, and facilitation of the collective adventure." },
+    { icon: Sparkles, title: "Story and visibility", desc: "Content creation and global visibility of the journey." },
+    { icon: Globe, title: "Digital platform", desc: "Development and operation of the Yonyverse platform." },
   ];
 
   return (
