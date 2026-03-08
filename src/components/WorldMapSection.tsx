@@ -35,7 +35,7 @@ const WorldMapSection = () => {
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
             Journey of the <span className="text-gradient-copper italic">Yony Egg</span>
           </h2>
-          <p className="text-muted-foreground text-lg">16 founding territories. 16 values. One shared journey.</p>
+          <p className="text-muted-foreground text-lg">16 founding territories. 16 values. 16 cycles. 256 days.</p>
         </motion.div>
 
         {/* Map */}
