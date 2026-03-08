@@ -49,8 +49,8 @@ function QRVisual() {
 const slides = [
   <OnboardingSlide key="s1">
     <WorldMap />
-    <motion.h1 className="font-serif-display text-5xl md:text-7xl font-bold tracking-tight text-foreground text-center relative z-10" custom={0} variants={fadeUp} initial="hidden" animate="visible">
-      Yony <span className="italic text-primary font-normal">Places</span>
+    <motion.h1 className="font-serif-display text-5xl md:text-7xl font-black tracking-tight text-foreground text-center relative z-10" custom={0} variants={fadeUp} initial="hidden" animate="visible">
+      Yony <span className="italic text-primary">Places</span>
     </motion.h1>
     <motion.p className="mt-4 text-base text-muted-foreground font-light text-center relative z-10" custom={1} variants={fadeUp} initial="hidden" animate="visible">
       Illuminate the world's cultural heritage.
