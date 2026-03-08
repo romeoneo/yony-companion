@@ -2,22 +2,22 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 const territories = [
-  { name: "Benin", value: "Kindness", desc: "Where generosity flows like rivers through ancient kingdoms.", x: 48, y: 42 },
-  { name: "Gabon", value: "Transmission", desc: "Forests that whisper ancestral knowledge to new generations.", x: 47, y: 48 },
-  { name: "South Africa", value: "Creativity", desc: "Ubuntu philosophy inspiring creative expression across communities.", x: 52, y: 62 },
-  { name: "Madagascar", value: "Gratitude", desc: "An island where nature teaches the art of thankfulness.", x: 58, y: 58 },
-  { name: "Egypt", value: "Cohesion", desc: "Ancient unity built pyramids that stand across millennia.", x: 53, y: 32 },
-  { name: "Turkey", value: "Empathy", desc: "The bridge between worlds, where understanding connects civilizations.", x: 55, y: 28 },
-  { name: "Sweden", value: "Authenticity", desc: "Northern light illuminating the truth within.", x: 50, y: 18 },
-  { name: "Mongolia", value: "Resilience", desc: "Vast steppes forging strength through endless horizons.", x: 70, y: 24 },
-  { name: "India", value: "Tolerance", desc: "A tapestry of thousands of cultures woven into one.", x: 66, y: 35 },
-  { name: "Indonesia", value: "Equity", desc: "Archipelago of islands teaching balance and fairness.", x: 74, y: 48 },
-  { name: "Japan", value: "Intuition", desc: "Where Zen mastery meets technological precision.", x: 80, y: 28 },
-  { name: "Papua New Guinea", value: "Connection", desc: "Ancient tribal bonds preserving humanity's deepest connections.", x: 82, y: 48 },
-  { name: "Easter Island", value: "Lucidity", desc: "Stone guardians gazing across the Pacific with eternal clarity.", x: 12, y: 58 },
-  { name: "Mexico", value: "Perseverance", desc: "Civilizations that built empires from sun-scorched earth.", x: 18, y: 36 },
-  { name: "Brazil", value: "Humility", desc: "The Amazon teaches that even giants grow from tiny seeds.", x: 30, y: 52 },
-  { name: "Peru", value: "Patience", desc: "Mountains sculpted by time reveal terraces of ancient wisdom.", x: 24, y: 50 },
+  { name: "Benin", value: "Lucidity", desc: "Lucidity reveals the truth that guides the journey.", x: 48, y: 42 },
+  { name: "South Africa", value: "Transmission", desc: "Transmission carries wisdom across generations.", x: 52, y: 62 },
+  { name: "Gabon", value: "Connection", desc: "Connection reminds us that every being is linked.", x: 47, y: 48 },
+  { name: "Madagascar", value: "Tolerance", desc: "Tolerance allows differences to coexist in harmony.", x: 58, y: 58 },
+  { name: "Egypt", value: "Gratitude", desc: "Gratitude honors the gifts received from the past.", x: 53, y: 32 },
+  { name: "Turkey", value: "Authenticity", desc: "Authenticity expresses the truth of one's being.", x: 55, y: 28 },
+  { name: "Sweden", value: "Cohesion", desc: "Cohesion unites individuals into a collective force.", x: 50, y: 18 },
+  { name: "Mongolia", value: "Humility", desc: "Humility opens the path to true understanding.", x: 70, y: 24 },
+  { name: "India", value: "Intuition", desc: "Intuition listens to the silent voice within.", x: 66, y: 35 },
+  { name: "Indonesia", value: "Creativity", desc: "Creativity transforms imagination into living culture.", x: 74, y: 48 },
+  { name: "Japan", value: "Perseverance", desc: "Perseverance shapes every step into mastery.", x: 80, y: 28 },
+  { name: "Papua New Guinea", value: "Resilience", desc: "Resilience allows life to flourish despite adversity.", x: 82, y: 48 },
+  { name: "Easter Island", value: "Patience", desc: "Patience reminds us that great things take time.", x: 12, y: 58 },
+  { name: "Mexico", value: "Equity", desc: "Equity ensures that every voice has its place.", x: 18, y: 36 },
+  { name: "Brazil", value: "Empathy", desc: "Empathy lets us feel the world through others.", x: 30, y: 52 },
+  { name: "Peru", value: "Benevolence", desc: "Benevolence spreads generosity through every action.", x: 24, y: 50 },
 ];
 
 const WorldMapSection = () => {
@@ -33,7 +33,7 @@ const WorldMapSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-            Journey of the <span className="text-gradient-copper italic">Egg of Yony</span>
+            Journey of the <span className="text-gradient-copper italic">Yony Egg</span>
           </h2>
           <p className="text-muted-foreground text-lg">16 founding territories. 16 values. One shared journey.</p>
         </motion.div>
