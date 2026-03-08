@@ -114,6 +114,18 @@ export default function OnboardingLayout({ slides, gameName }: OnboardingLayoutP
         </motion.div>
       </AnimatePresence>
 
+      {gameName && current > 0 && (
+        <motion.span
+          key={`label-${current}`}
+          className="absolute top-4 left-5 z-20 font-serif-display text-xs font-medium text-muted-foreground/60 tracking-wide"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.4 }}
+        >
+          {gameName}
+        </motion.span>
+      )}
+
       <OnboardingNavigation
         total={slides.length}
         current={current}
