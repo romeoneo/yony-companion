@@ -38,10 +38,10 @@ const dilemmas = [
 ];
 
 const values = [
-  "Transmission", "Bienveillance", "Créativité", "Gratitude",
-  "Cohésion", "Empathie", "Authenticité", "Résilience",
-  "Tolérance", "Équité", "Reliance", "Intuition",
-  "Lucidité", "Persévérance", "Humilité", "Patience",
+  "Transmission", "Kindness", "Creativity", "Gratitude",
+  "Cohesion", "Empathy", "Authenticity", "Resilience",
+  "Tolerance", "Equity", "Connection", "Intuition",
+  "Lucidity", "Perseverance", "Humility", "Patience",
 ];
 
 const SocialIcons = () => (

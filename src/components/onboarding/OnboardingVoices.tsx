@@ -19,8 +19,8 @@ function SeedCard({ portrait, name, project, theme, excerpt, delay = 0 }: typeof
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay, ease: "easeOut" }}
     >
-      <img src={portrait} alt={name} className="w-12 h-12 rounded-full object-cover border-2 border-primary/30 mb-2" />
-      <h4 className="font-serif-display text-base font-semibold text-foreground">{name}</h4>
+      <img src={portrait} alt={name} className="w-10 h-10 rounded-full object-cover border-2 border-primary/30 mb-1.5" />
+      <h4 className="font-serif-display text-sm font-semibold text-foreground">{name}</h4>
       <p className="text-xs text-primary font-sans-body mt-0.5 font-semibold">{project}</p>
       <span className="mt-1.5 text-[10px] uppercase tracking-widest text-muted-foreground font-sans-body">{theme}</span>
       <p className="mt-1.5 text-xs text-muted-foreground font-sans-body italic leading-relaxed">"{excerpt}"</p>

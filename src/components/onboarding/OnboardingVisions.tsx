@@ -98,11 +98,11 @@ const slides = [
     <motion.p className="font-sans-body text-base text-muted-foreground mt-3 text-center max-w-xl" custom={1} variants={fadeUp} initial="hidden" animate="visible">
       Each figure represents a source of inspiration.
     </motion.p>
-    <motion.div className="grid grid-cols-4 gap-2 mt-6 max-w-md" custom={2} variants={fadeUp} initial="hidden" animate="visible">
+    <motion.div className="grid grid-cols-4 gap-x-3 gap-y-1.5 mt-4 max-w-sm" custom={2} variants={fadeUp} initial="hidden" animate="visible">
       {figures.map((fig) => (
-        <div key={fig.label} className="flex flex-col items-center gap-1">
-          <div className="w-16 h-16 rounded-lg overflow-hidden border border-border shadow-sm"><img src={fig.image} alt={fig.label} className="w-full h-full object-cover" /></div>
-          <span className="text-[9px] font-sans-body text-muted-foreground">{fig.label}</span>
+        <div key={fig.label} className="flex flex-col items-center gap-0.5">
+          <div className="w-10 h-10 rounded-lg overflow-hidden border border-border shadow-sm"><img src={fig.image} alt={fig.label} className="w-full h-full object-cover" /></div>
+          <span className="text-[8px] font-sans-body text-muted-foreground">{fig.label}</span>
         </div>
       ))}
     </motion.div>

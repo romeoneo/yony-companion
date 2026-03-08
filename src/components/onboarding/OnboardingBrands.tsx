@@ -81,9 +81,9 @@ const slides = [
     <motion.h2 className="font-serif-display text-2xl md:text-4xl font-bold text-center mb-6" custom={0} variants={fadeUp} initial="hidden" animate="visible">
       <span className="text-foreground">Brand </span><span className="text-primary italic">Match</span>
     </motion.h2>
-    <motion.div className="grid grid-cols-2 gap-2 max-w-xs" custom={1} variants={fadeUp} initial="hidden" animate="visible">
+    <motion.div className="grid grid-cols-2 gap-2 max-w-[200px]" custom={1} variants={fadeUp} initial="hidden" animate="visible">
       {matchCards.map((card) => (
-        <div key={card.brand} className="aspect-square rounded-lg overflow-hidden">
+        <div key={card.brand} className="w-[90px] h-[90px] rounded-lg overflow-hidden">
           <img src={card.img} alt={card.brand} className="w-full h-full object-cover" />
         </div>
       ))}
