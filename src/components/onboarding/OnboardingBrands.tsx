@@ -30,8 +30,8 @@ const regions = [
 const slides = [
   <OnboardingSlide key="s1">
     <motion.h1 className="font-serif-display text-4xl md:text-5xl font-bold leading-tight text-center relative z-10" custom={0} variants={fadeUp} initial="hidden" animate="visible">
-      <span className="text-foreground">Discover Brands </span>
-      <span className="text-primary italic">Changing the World</span>
+      <span className="text-foreground">Yony </span>
+      <span className="text-primary italic">Brands</span>
     </motion.h1>
     <motion.p className="font-sans-body text-sm md:text-base text-muted-foreground max-w-lg text-center mt-4 relative z-10" custom={1} variants={fadeUp} initial="hidden" animate="visible">
       Explore, learn, play, and support brands creating social, cultural, and ecological impact.
