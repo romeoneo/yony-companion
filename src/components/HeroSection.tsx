@@ -76,7 +76,7 @@ const HeroSection = () => {
       >
         <p className="text-muted-foreground text-base md:text-lg mb-8 italic" style={{ lineHeight: "2.2" }}>
           Yonyverse is a symbolic garden where dreams and projects{" "}
-          <span className="hidden md:inline"><br /></span>with impact can take root and grow.
+          <span className="hidden md:inline"><br /></span>can take root and grow.
         </p>
         <p className="text-muted-foreground text-base md:text-lg mb-8" style={{ lineHeight: "2.2" }}>
           Within this space, the Yony Games bring visions to life.{" "}
