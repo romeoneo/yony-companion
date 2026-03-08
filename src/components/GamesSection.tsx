@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Eye, Handshake } from "lucide-react";
+import { Eye, Handshake, X } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 import OnboardingVoices from "@/components/onboarding/OnboardingVoices";
 import OnboardingVisions from "@/components/onboarding/OnboardingVisions";
 import OnboardingLegends from "@/components/onboarding/OnboardingLegends";
@@ -82,6 +83,31 @@ function PreviewPanel({ activeId }: { activeId: string }) {
   );
 }
 
+function MobileModal({ activeId, onClose }: { activeId: string; onClose: () => void }) {
+  const ActiveComponent = onboardingComponents[activeId];
+  const game = [...visibilityGames, ...engagementGames].find((g) => g.id === activeId);
+
+  return (
+    <motion.div
+      className="fixed inset-0 z-50 bg-background flex flex-col"
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 40 }}
+      transition={{ duration: 0.3 }}
+    >
+      <div className="flex items-center justify-between px-4 py-3 border-b border-border">
+        <span className="font-serif text-lg font-bold text-foreground">{game?.title}</span>
+        <button onClick={onClose} className="p-2 rounded-full hover:bg-muted transition-colors cursor-pointer">
+          <X className="w-5 h-5 text-muted-foreground" />
+        </button>
+      </div>
+      <div className="flex-1 relative overflow-hidden">
+        <ActiveComponent />
+      </div>
+    </motion.div>
+  );
+}
+
 function GameGroup({
   icon: Icon,
   title,
@@ -89,6 +115,7 @@ function GameGroup({
   games,
   activeId,
   onSelect,
+  isMobile,
 }: {
   icon: React.ElementType;
   title: string;
@@ -96,6 +123,7 @@ function GameGroup({
   games: typeof visibilityGames;
   activeId: string;
   onSelect: (id: string) => void;
+  isMobile: boolean;
 }) {
   return (
     <div>
@@ -107,12 +135,12 @@ function GameGroup({
         <p className="text-muted-foreground text-sm ml-8">{description}</p>
       </div>
       <div className="flex flex-col lg:flex-row gap-6">
-        <div className="w-full lg:w-[40%] grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className={`w-full ${isMobile ? "" : "lg:w-[40%]"} grid grid-cols-1 sm:grid-cols-2 gap-4`}>
           {games.map((game, i) => (
-            <GameCard key={game.id} game={game} isActive={activeId === game.id} onClick={() => onSelect(game.id)} index={i} />
+            <GameCard key={game.id} game={game} isActive={!isMobile && activeId === game.id} onClick={() => onSelect(game.id)} index={i} />
           ))}
         </div>
-        <PreviewPanel activeId={activeId} />
+        {!isMobile && <PreviewPanel activeId={activeId} />}
       </div>
     </div>
   );
@@ -121,6 +149,13 @@ function GameGroup({
 const GamesSection = () => {
   const [activeVisibility, setActiveVisibility] = useState("voices");
   const [activeEngagement, setActiveEngagement] = useState("lights");
+  const [mobileModal, setMobileModal] = useState<string | null>(null);
+  const isMobile = useIsMobile();
+
+  const handleSelect = (id: string, setter: (id: string) => void) => {
+    setter(id);
+    if (isMobile) setMobileModal(id);
+  };
 
   return (
     <section id="games" className="py-24 px-6">
@@ -133,10 +168,16 @@ const GamesSection = () => {
         </motion.div>
 
         <div className="space-y-20">
-          <GameGroup icon={Eye} title="Visibility Games" description="These games help Yony Seeds share their vision, values, personality, and story with their community." games={visibilityGames} activeId={activeVisibility} onSelect={setActiveVisibility} />
-          <GameGroup icon={Handshake} title="Engagement Games" description="Players explore the games, discover new perspectives, and earn Light Points to redistribute to Yony Flowers." games={engagementGames} activeId={activeEngagement} onSelect={setActiveEngagement} />
+          <GameGroup isMobile={isMobile} icon={Eye} title="Visibility Games" description="These games help Yony Seeds share their vision, values, personality, and story with their community." games={visibilityGames} activeId={activeVisibility} onSelect={(id) => handleSelect(id, setActiveVisibility)} />
+          <GameGroup isMobile={isMobile} icon={Handshake} title="Engagement Games" description="Players explore the games, discover new perspectives, and earn Light Points to redistribute to Yony Flowers." games={engagementGames} activeId={activeEngagement} onSelect={(id) => handleSelect(id, setActiveEngagement)} />
         </div>
       </div>
+
+      <AnimatePresence>
+        {mobileModal && (
+          <MobileModal activeId={mobileModal} onClose={() => setMobileModal(null)} />
+        )}
+      </AnimatePresence>
     </section>
   );
 };
