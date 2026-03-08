@@ -132,8 +132,8 @@ const GamesSection = () => {
         </motion.div>
 
         <div className="space-y-20">
-          <GameGroup icon={Eye} title="Visibility Games" games={visibilityGames} activeId={activeVisibility} onSelect={setActiveVisibility} />
-          <GameGroup icon={Handshake} title="Engagement Games" games={engagementGames} activeId={activeEngagement} onSelect={setActiveEngagement} />
+          <GameGroup icon={Eye} title="Visibility Games" description="These games help Yony Seeds share their vision, values, personality, and story with their community." games={visibilityGames} activeId={activeVisibility} onSelect={setActiveVisibility} />
+          <GameGroup icon={Handshake} title="Engagement Games" description="Players explore the games, discover new perspectives, and earn Light Points to redistribute to Yony Flowers." games={engagementGames} activeId={activeEngagement} onSelect={setActiveEngagement} />
         </div>
       </div>
     </section>
