@@ -77,7 +77,7 @@ interface OnboardingLayoutProps {
   gameName?: string;
 }
 
-export default function OnboardingLayout({ slides }: OnboardingLayoutProps) {
+export default function OnboardingLayout({ slides, gameName }: OnboardingLayoutProps) {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
 
