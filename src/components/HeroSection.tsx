@@ -81,7 +81,7 @@ const HeroSection = () => {
           Within this space, the Yony Games bring visions to life.<br />Across 16 activated lands and 8 games, they create a shared ground where cultures, ideas, and talents meet.
         </p>
         <p className="text-muted-foreground text-base md:text-lg mb-8" style={{ lineHeight: "2.2" }}>
-          Through participation, individuals and communities gain visibility,<br />inspire one another, and help meaningful dreams flourish.
+          Through participation, individuals and communities gain visibility and<br />inspire one another.
         </p>
         <p className="text-foreground text-lg md:text-xl italic font-medium" style={{ lineHeight: "2.2" }}>
           From the Egg springs the world Earth desires.<br />
