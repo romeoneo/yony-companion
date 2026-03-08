@@ -45,7 +45,7 @@ interface GameCardProps {
 const GameCard = ({ game, isActive, onClick, index }: GameCardProps) => (
   <motion.button
     onClick={onClick}
-    className={`text-left p-6 rounded-2xl sacred-border transition-all duration-300 cursor-pointer ${
+    className={`text-left p-5 rounded-2xl sacred-border transition-all duration-300 cursor-pointer ${
       isActive
         ? "border-2 border-copper bg-copper/5 shadow-md"
         : "bg-card hover:border-copper/40"
@@ -56,112 +56,80 @@ const GameCard = ({ game, isActive, onClick, index }: GameCardProps) => (
     transition={{ duration: 0.4, delay: index * 0.08 }}
     whileHover={{ y: -2 }}
   >
-    <h4 className="font-serif text-xl font-bold mb-2 text-foreground">{game.title}</h4>
-    <p className="text-muted-foreground text-sm leading-relaxed mb-3">{game.description}</p>
+    <h4 className="font-serif text-lg font-bold mb-1.5 text-foreground">{game.title}</h4>
+    <p className="text-muted-foreground text-sm leading-relaxed mb-2">{game.description}</p>
     <span className="text-copper text-sm font-sans font-medium">Discover Game →</span>
   </motion.button>
 );
+
+function PreviewPanel({ activeId }: { activeId: string }) {
+  const ActiveComponent = onboardingComponents[activeId];
+  return (
+    <div className="w-full lg:w-[60%] rounded-2xl border border-border bg-card overflow-hidden relative h-[480px]">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeId}
+          className="absolute inset-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.35 }}
+        >
+          <ActiveComponent />
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+}
+
+function GameGroup({
+  icon: Icon,
+  title,
+  games,
+  activeId,
+  onSelect,
+}: {
+  icon: React.ElementType;
+  title: string;
+  games: typeof visibilityGames;
+  activeId: string;
+  onSelect: (id: string) => void;
+}) {
+  return (
+    <div>
+      <div className="flex items-center gap-3 mb-8">
+        <Icon className="w-5 h-5 text-copper" />
+        <h3 className="font-serif text-2xl font-semibold">{title}</h3>
+      </div>
+      <div className="flex flex-col lg:flex-row gap-6">
+        <div className="w-full lg:w-[40%] grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {games.map((game, i) => (
+            <GameCard key={game.id} game={game} isActive={activeId === game.id} onClick={() => onSelect(game.id)} index={i} />
+          ))}
+        </div>
+        <PreviewPanel activeId={activeId} />
+      </div>
+    </div>
+  );
+}
 
 const GamesSection = () => {
   const [activeVisibility, setActiveVisibility] = useState("voices");
   const [activeEngagement, setActiveEngagement] = useState("lights");
 
-  const ActiveVisibilityComponent = onboardingComponents[activeVisibility];
-  const ActiveEngagementComponent = onboardingComponents[activeEngagement];
-
   return (
     <section id="games" className="py-24 px-6">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
             The <span className="text-gradient-copper italic">Yony Games</span>
           </h2>
           <p className="text-muted-foreground text-lg">Eight games that elevate dreams, cultures and wisdom.</p>
         </motion.div>
 
-        {/* Visibility Games */}
-        <div className="mb-20">
-          <div className="flex items-center gap-3 mb-8">
-            <Eye className="w-5 h-5 text-copper" />
-            <h3 className="font-serif text-2xl font-semibold">Visibility Games</h3>
-          </div>
-
-          <div className="flex flex-col lg:flex-row gap-6">
-            {/* Left: 2x2 grid */}
-            <div className="w-full lg:w-[40%] grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {visibilityGames.map((game, i) => (
-                <GameCard
-                  key={game.id}
-                  game={game}
-                  isActive={activeVisibility === game.id}
-                  onClick={() => setActiveVisibility(game.id)}
-                  index={i}
-                />
-              ))}
-            </div>
-
-            {/* Right: preview panel */}
-            <div className="w-full lg:w-[60%] rounded-2xl border border-border bg-card overflow-hidden relative min-h-[420px]">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeVisibility}
-                  className="w-full h-full"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.35 }}
-                >
-                  <div className="w-full h-full [&>div]:!h-full [&>div]:!min-h-0">
-                    <ActiveVisibilityComponent />
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
-        </div>
-
-        {/* Engagement Games */}
-        <div>
-          <div className="flex items-center gap-3 mb-8">
-            <Handshake className="w-5 h-5 text-copper" />
-            <h3 className="font-serif text-2xl font-semibold">Engagement Games</h3>
-          </div>
-
-          <div className="flex flex-col lg:flex-row gap-6">
-            <div className="w-full lg:w-[40%] grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {engagementGames.map((game, i) => (
-                <GameCard
-                  key={game.id}
-                  game={game}
-                  isActive={activeEngagement === game.id}
-                  onClick={() => setActiveEngagement(game.id)}
-                  index={i}
-                />
-              ))}
-            </div>
-
-            <div className="w-full lg:w-[60%] rounded-2xl border border-border bg-card overflow-hidden relative min-h-[420px]">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeEngagement}
-                  className="w-full h-full"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.35 }}
-                >
-                  <div className="w-full h-full [&>div]:!h-full [&>div]:!min-h-0">
-                    <ActiveEngagementComponent />
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
+        <div className="space-y-20">
+          <GameGroup icon={Eye} title="Visibility Games" games={visibilityGames} activeId={activeVisibility} onSelect={setActiveVisibility} />
+          <GameGroup icon={Handshake} title="Engagement Games" games={engagementGames} activeId={activeEngagement} onSelect={setActiveEngagement} />
         </div>
       </div>
     </section>
