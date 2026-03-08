@@ -85,10 +85,31 @@ const HeroSection = () => {
         <p className="text-muted-foreground text-base md:text-lg mb-8" style={{ lineHeight: "2.2" }}>
           Through participation, individuals and communities gain visibility<br />and inspire one another.
         </p>
-        <p className="text-foreground text-lg md:text-xl italic font-medium" style={{ lineHeight: "2.2" }}>
+        <p className="text-foreground text-lg md:text-xl italic font-medium mb-10" style={{ lineHeight: "2.2" }}>
           From the Egg springs the world Earth desires.{" "}
           <span className="hidden md:inline"><br /></span>We Are Born To Impact.
         </p>
+
+        {/* CTA */}
+        <motion.div
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 1.6 }}
+        >
+          <a
+            href="#join"
+            className="px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold font-sans-body text-base hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/20"
+          >
+            Join the Games
+          </a>
+          <a
+            href="#games"
+            className="px-8 py-3.5 rounded-full border border-border text-foreground font-sans-body text-base hover:bg-secondary transition-colors"
+          >
+            Explore the Universe
+          </a>
+        </motion.div>
       </motion.div>
     </section>
   );
