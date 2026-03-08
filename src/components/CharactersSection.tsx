@@ -105,12 +105,12 @@ const CharactersSection = () => {
   const char = characters[active];
 
   return (
-    <section id="characters" className="relative w-full" style={{ backgroundColor: "#f6f2f0" }}>
+    <section id="characters" className="relative w-full" style={{ backgroundColor: "#0a0a0a" }}>
       {/* ── Section title ── */}
       <div className="text-center pt-20 pb-12 px-6">
         <motion.h2
           className="text-4xl md:text-5xl font-serif font-bold mb-4"
-          style={{ color: "#1a1a1a" }}
+          style={{ color: "#f6f2f0" }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -141,7 +141,7 @@ const CharactersSection = () => {
         <div
           className="absolute bottom-0 left-0 right-0 h-1/3 pointer-events-none"
           style={{
-            background: "linear-gradient(to top, #f6f2f0, transparent)",
+            background: "linear-gradient(to top, #0a0a0a, transparent)",
           }}
         />
 
