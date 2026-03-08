@@ -1,4 +1,4 @@
-import logoText from "@/assets/logo-yonyverse-text.png";
+import logoFull from "@/assets/logo-yonyverse-full.png";
 
 const Footer = () => {
   const links = [
