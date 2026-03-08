@@ -40,9 +40,6 @@ const regions = [
 
 const slides = [
   <OnboardingSlide key="s1">
-    <div className="absolute inset-0 pointer-events-none">
-      {brands.map((b) => <BrandCard key={b.name} {...b} />)}
-    </div>
     <motion.h1 className="font-serif-display text-4xl md:text-5xl font-bold leading-tight text-center relative z-10" custom={0} variants={fadeUp} initial="hidden" animate="visible">
       <span className="text-foreground">Discover Brands </span>
       <span className="text-primary italic">Changing the World</span>
@@ -50,6 +47,14 @@ const slides = [
     <motion.p className="font-sans-body text-sm md:text-base text-muted-foreground max-w-lg text-center mt-4 relative z-10" custom={1} variants={fadeUp} initial="hidden" animate="visible">
       Explore, learn, play, and support brands creating social, cultural, and ecological impact.
     </motion.p>
+    <motion.div className="flex flex-wrap justify-center gap-3 mt-6 max-w-sm relative z-10" custom={2} variants={fadeUp} initial="hidden" animate="visible">
+      {brands.map((b) => (
+        <div key={b.name} className="flex items-center gap-1.5 rounded-full bg-card border border-border px-3 py-1.5 shadow-sm">
+          <span>{b.emoji}</span>
+          <span className="font-sans-body text-xs font-medium text-foreground">{b.name}</span>
+        </div>
+      ))}
+    </motion.div>
   </OnboardingSlide>,
 
   <OnboardingSlide key="s2">
