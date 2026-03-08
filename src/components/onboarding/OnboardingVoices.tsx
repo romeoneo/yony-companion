@@ -14,7 +14,7 @@ const seeds = [
 function SeedCard({ portrait, name, project, theme, excerpt, delay = 0 }: typeof seeds[0] & { delay?: number }) {
   return (
     <motion.div
-      className="flex flex-col items-center rounded-2xl bg-card border border-border p-4 max-w-[200px] text-center shadow-sm"
+      className="flex flex-col items-center rounded-xl bg-card border border-border p-3 max-w-[160px] text-center shadow-sm"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay, ease: "easeOut" }}
