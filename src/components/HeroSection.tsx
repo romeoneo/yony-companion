@@ -78,7 +78,7 @@ const HeroSection = () => {
           Yonyverse is a symbolic garden where dreams, cultures, and projects<br />with impact can take root and grow.
         </p>
         <p className="text-muted-foreground text-base md:text-lg mb-8" style={{ lineHeight: "2.2" }}>
-          Within this space, the Yony Games bring visions to life.<br />Across 16 activated lands and 8 games, they create a shared ground where cultures, ideas, and talents from around the world meet.
+          Within this space, the Yony Games bring visions to life.<br />Across 16 activated lands and 8 games, they create a shared ground where cultures, ideas, and talents meet.
         </p>
         <p className="text-muted-foreground text-base md:text-lg mb-8" style={{ lineHeight: "2.2" }}>
           Through participation, individuals and communities gain visibility,<br />inspire one another, and help meaningful dreams flourish.
