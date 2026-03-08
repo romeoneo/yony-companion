@@ -82,13 +82,13 @@ const slides = [
   </OnboardingSlide>,
 
   <OnboardingSlide key="s4">
-    <motion.p className="font-serif-display text-2xl md:text-4xl font-light text-foreground leading-snug text-center" custom={0} variants={fadeUp} initial="hidden" animate="visible">
+    <motion.p className="font-serif-display text-xl md:text-2xl font-light text-foreground leading-snug text-center" custom={0} variants={fadeUp} initial="hidden" animate="visible">
       Each voice helps a project <span className="text-primary">grow</span>.
     </motion.p>
-    <motion.p className="mt-3 font-serif-display text-xl md:text-2xl font-light text-muted-foreground text-center" custom={1} variants={fadeUp} initial="hidden" animate="visible">
+    <motion.p className="mt-2 font-serif-display text-base md:text-lg font-light text-muted-foreground text-center" custom={1} variants={fadeUp} initial="hidden" animate="visible">
       And each story helps a Flower bloom in the <span className="text-primary font-semibold">Yonyverse</span>.
     </motion.p>
-    <motion.div className="flex flex-wrap justify-center gap-3 mt-8" custom={2} variants={fadeUp} initial="hidden" animate="visible">
+    <motion.div className="flex flex-wrap justify-center gap-2 mt-4" custom={2} variants={fadeUp} initial="hidden" animate="visible">
       {seeds.map((s, i) => <SeedCard key={s.name} {...s} delay={0.8 + i * 0.15} />)}
     </motion.div>
   </OnboardingSlide>,
