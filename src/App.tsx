@@ -7,6 +7,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate, useParams, useNavigate } from "react-router-dom";
 import Index from "./pages/Index";
 import JoinGames from "./pages/JoinGames";
+import RegistrationConfirmation from "./pages/RegistrationConfirmation";
+import AdminRegistrations from "./pages/AdminRegistrations";
 import NotFound from "./pages/NotFound";
 import { routeSlugs } from "./i18n";
 
