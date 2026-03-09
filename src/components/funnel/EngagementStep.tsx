@@ -1,167 +1,151 @@
 import { motion } from "framer-motion";
-import { Heart, Target, Lightbulb } from "lucide-react";
-import { Textarea } from "@/components/ui/textarea";
+import { GameRole } from "@/pages/JoinGames";
 import { Label } from "@/components/ui/label";
-import { GameRole, RegistrationData } from "@/pages/JoinGames";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 interface EngagementStepProps {
   engagementText: string;
   intentionText: string;
+  projectCategory?: string;
   role?: GameRole;
-  onUpdate: (data: Partial<RegistrationData>) => void;
+  onUpdate: (data: Partial<{
+    engagementText: string;
+    intentionText: string;
+    projectCategory: string;
+  }>) => void;
 }
 
-const getEngagementPrompts = (role?: GameRole) => {
-  const prompts = {
-    yony_flowers_tutor: {
-      engagement: "What motivates you to become a tutor and mentor 8 Yony Seeds in their development?",
-      intention: "What vision do you carry for the impact you and your mentees will have together?"
-    },
-    yony_flowers_project: {
-      engagement: "Tell us about your impact project. What problem do you want to solve?",
-      intention: "How do you see your contribution to the Yonyverse and the evolution of your project?"
-    },
-    yony_brands: {
-      engagement: "What are you passionate about when it comes to creating visual identities and brands?",
-      intention: "How do you wish to contribute to the visual identity of the Yonyverse?"
-    },
-    yony_lights: {
-      engagement: "Why is it important for you to illuminate and amplify stories?",
-      intention: "Which Yonyverse stories do you want to bring into the light?"
-    },
-    yony_places: {
-      engagement: "What draws you to exploring and connecting territories?",
-      intention: "How do you envision connecting the different places of the Yonyverse?"
-    },
-    yony_angels: {
-      engagement: "What drives you to support and nurture others?",
-      intention: "What kind of support do you wish to bring to the community?"
-    },
-    yony_magics: {
-      engagement: "What is your approach to creating extraordinary experiences?",
-      intention: "What kinds of magical experiences do you want to create for the Yonyverse?"
-    },
-    yony_stars: {
-      engagement: "What inspires you to shine and inspire others through excellence?",
-      intention: "In what area do you wish to excel and lead by example?"
-    },
-    yony_guards: {
-      engagement: "Why are community protection and harmony important to you?",
-      intention: "How do you plan to maintain the balance and safety of the Yonyverse?"
-    }
-  };
+const projectCategories = [
+  'Social Initiatives',
+  'Education & Training',
+  'Innovation & Technology',
+  'Nature & Environment',
+  'Health & Wellness',
+  'Arts & Culture',
+  'Tourism & Traditions',
+  'Other'
+];
 
-  return prompts[role!] || prompts.yony_flowers_project;
+const getEngagementPrompt = (role?: GameRole) => {
+  switch (role) {
+    case 'yony_flowers_tutor':
+      return "As a Tutor, describe your teaching philosophy and approach to mentoring young talents. What methods do you use to inspire and guide your students?";
+    case 'yony_flowers_project':
+      return "Describe the impact project you want to bring to your chosen country. What problem does it solve and how will it benefit the local community?";
+    case 'yony_brands':
+      return "How do you envision contributing to the visual identity and brand development of the Yonyverse? What's your creative approach?";
+    case 'yony_lights':
+      return "How would you illuminate and amplify the stories within the Yonyverse? What storytelling techniques do you excel at?";
+    case 'yony_places':
+      return "Describe how you would explore and connect different territories in the Yonyverse. What's your approach to cultural discovery?";
+    case 'yony_angels':
+      return "How do you plan to support and nurture the Yonyverse community? What's your approach to community building?";
+    case 'yony_magics':
+      return "Describe the extraordinary and immersive experiences you would create for the Yonyverse. What makes your approach unique?";
+    case 'yony_stars':
+      return "How do you plan to shine and inspire excellence within the Yonyverse? What's your strategy for motivation and achievement?";
+    case 'yony_guards':
+      return "How would you protect and maintain harmony in the Yonyverse? What's your approach to conflict resolution and community management?";
+    default:
+      return "Describe your vision and approach for contributing to the Yonyverse. What unique value do you bring?";
+  }
 };
 
-const EngagementStep = ({ engagementText, intentionText, role, onUpdate }: EngagementStepProps) => {
-  const prompts = getEngagementPrompts(role);
+const getIntentionPrompt = (role?: GameRole) => {
+  switch (role) {
+    case 'yony_flowers_tutor':
+      return "What drives your passion for education and mentorship? How do you see yourself growing through this experience?";
+    case 'yony_flowers_project':
+      return "What personal motivations led you to this project idea? How will this experience contribute to your own growth?";
+    default:
+      return "What are your personal motivations for joining the Yonyverse? How do you hope to grow through this experience?";
+  }
+};
 
+const EngagementStep = ({ engagementText, intentionText, projectCategory, role, onUpdate }: EngagementStepProps) => {
   return (
-    <div>
+    <div className="max-w-3xl mx-auto">
       <div className="text-center mb-8">
         <h2 className="text-3xl font-serif font-bold mb-4">
           Your <span style={{ color: "#e76830" }}>Engagement</span>
         </h2>
         <p className="text-muted-foreground text-lg">
-          Share your motivation and vision with the Yonyverse community.
+          Tell us about your vision, expertise, and personal motivations for joining the Yonyverse.
         </p>
       </div>
 
-      <div className="max-w-2xl mx-auto space-y-8">
-        {/* Engagement */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="space-y-4"
-        >
-          <div className="flex items-start gap-3">
-            <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center mt-1">
-              <Heart className="w-4 h-4 text-primary" />
-            </div>
-            <div className="flex-1">
-              <Label htmlFor="engagement" className="text-lg font-medium block mb-2">
-                Your engagement *
-              </Label>
-              <p className="text-sm text-muted-foreground mb-3">
-                {prompts.engagement}
-              </p>
-              <Textarea
-                id="engagement"
-                value={engagementText}
-                onChange={(e) => onUpdate({ engagementText: e.target.value })}
-                placeholder="Express your passion and what motivates you to take on this role..."
-                className="min-h-[120px] text-base"
-                maxLength={500}
-              />
-              <div className="text-xs text-muted-foreground mt-1 text-right">
-                {engagementText.length}/500 characters
-              </div>
-            </div>
+      <div className="space-y-6">
+        {/* Specialization Domain - for Yony Flowers Project */}
+        {role === 'yony_flowers_project' && (
+          <div className="space-y-2">
+            <Label htmlFor="project-category" className="text-base font-medium">
+              Project Category / Domain of Specialization *
+            </Label>
+            <Select
+              value={projectCategory || ""}
+              onValueChange={(value) => onUpdate({ projectCategory: value })}
+            >
+              <SelectTrigger id="project-category" className="h-14">
+                <SelectValue placeholder="Select your project category..." />
+              </SelectTrigger>
+              <SelectContent>
+                {projectCategories.map((category) => (
+                  <SelectItem key={category} value={category}>
+                    {category}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <p className="text-sm text-muted-foreground">
+              This defines your area of specialization and helps us understand your project focus.
+            </p>
           </div>
-        </motion.div>
+        )}
 
-        {/* Intention */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="space-y-4"
-        >
-          <div className="flex items-start gap-3">
-            <div className="w-8 h-8 bg-orange-500/20 rounded-full flex items-center justify-center mt-1">
-              <Target className="w-4 h-4 text-orange-500" />
-            </div>
-            <div className="flex-1">
-              <Label htmlFor="intention" className="text-lg font-medium block mb-2">
-                Your intention *
-              </Label>
-              <p className="text-sm text-muted-foreground mb-3">
-                {prompts.intention}
-              </p>
-              <Textarea
-                id="intention"
-                value={intentionText}
-                onChange={(e) => onUpdate({ intentionText: e.target.value })}
-                placeholder="Describe your vision and the impact you wish to have..."
-                className="min-h-[120px] text-base"
-                maxLength={500}
-              />
-              <div className="text-xs text-muted-foreground mt-1 text-right">
-                {intentionText.length}/500 characters
-              </div>
-            </div>
-          </div>
-        </motion.div>
+        {/* Vision & Approach */}
+        <div className="space-y-2">
+          <Label htmlFor="engagement" className="text-base font-medium">
+            Your Vision & Approach *
+          </Label>
+          <Textarea
+            id="engagement"
+            value={engagementText}
+            onChange={(e) => onUpdate({ engagementText: e.target.value })}
+            placeholder={getEngagementPrompt(role)}
+            className="min-h-32 resize-none"
+          />
+          <p className="text-sm text-muted-foreground">
+            Minimum 50 characters. Share your professional vision and approach for your role.
+          </p>
+        </div>
 
-        {/* Tip */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="bg-secondary/50 p-6 rounded-xl border border-border"
-        >
-          <div className="flex items-start gap-3">
-            <Lightbulb className="w-5 h-5 text-yellow-500 mt-1" />
-            <div>
-              <h4 className="font-medium mb-2">Tip for an authentic application</h4>
-              <p className="text-sm text-muted-foreground">
-                Be sincere and specific. The Yonyverse community values authenticity
-                and genuine passion. Feel free to share your personal experiences
-                and what makes your approach unique.
-              </p>
-            </div>
-          </div>
-        </motion.div>
+        {/* Personal Intentions */}
+        <div className="space-y-2">
+          <Label htmlFor="intention" className="text-base font-medium">
+            Personal Motivations & Growth *
+          </Label>
+          <Textarea
+            id="intention"
+            value={intentionText}
+            onChange={(e) => onUpdate({ intentionText: e.target.value })}
+            placeholder={getIntentionPrompt(role)}
+            className="min-h-32 resize-none"
+          />
+          <p className="text-sm text-muted-foreground">
+            Minimum 50 characters. Tell us about your personal motivations and expected growth.
+          </p>
+        </div>
 
-        {engagementText && intentionText && (
+        {/* Progress indicator */}
+        {engagementText.length >= 50 && intentionText.length >= 50 && (
           <motion.div
-            className="p-4 rounded-lg bg-primary/10 border border-primary/20 text-center"
+            className="p-4 rounded-lg bg-green-50 border border-green-200"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <p className="text-sm text-primary font-medium">
-              ✨ Excellent! Your engagement and intention are clearly expressed.
+            <p className="text-sm font-medium text-green-700">
+              ✨ Great! Your engagement responses meet the minimum requirements.
             </p>
           </motion.div>
         )}

@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { LucideIcon } from "lucide-react";
 import { GameRole } from "@/pages/JoinGames";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Label } from "@/components/ui/label";
 
 interface RoleConfig {
   name: string;
@@ -17,7 +19,7 @@ interface RoleSelectionStepProps {
 
 const RoleSelectionStep = ({ selectedRole, onRoleSelect, roleConfig }: RoleSelectionStepProps) => {
   return (
-    <div>
+    <div className="max-w-2xl mx-auto">
       <div className="text-center mb-8">
         <h2 className="text-3xl font-serif font-bold mb-4">
           Choose your <span style={{ color: "#e76830" }}>Character</span>
@@ -27,75 +29,79 @@ const RoleSelectionStep = ({ selectedRole, onRoleSelect, roleConfig }: RoleSelec
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {(Object.entries(roleConfig) as [GameRole, RoleConfig][]).map(([roleKey, config]) => {
-          const Icon = config.icon;
-          const isSelected = selectedRole === roleKey;
+      <div className="space-y-6">
+        <div className="space-y-2">
+          <Label htmlFor="role-select" className="text-base font-medium">
+            Your Role in the Yonyverse
+          </Label>
+          <Select
+            value={selectedRole || ""}
+            onValueChange={(value) => onRoleSelect(value as GameRole)}
+          >
+            <SelectTrigger id="role-select" className="h-14 text-left">
+              <SelectValue placeholder="Select a character role..." />
+            </SelectTrigger>
+            <SelectContent>
+              {(Object.entries(roleConfig) as [GameRole, RoleConfig][]).map(([roleKey, config]) => {
+                const Icon = config.icon;
+                return (
+                  <SelectItem key={roleKey} value={roleKey} className="py-4">
+                    <div className="flex items-center gap-3">
+                      <div
+                        className="w-8 h-8 rounded-full flex items-center justify-center shrink-0"
+                        style={{ backgroundColor: `${config.color}20` }}
+                      >
+                        <Icon className="w-4 h-4" style={{ color: config.color }} />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="font-medium text-foreground">
+                          {config.name}
+                        </div>
+                        <div className="text-sm text-muted-foreground truncate">
+                          {config.description}
+                        </div>
+                      </div>
+                    </div>
+                  </SelectItem>
+                );
+              })}
+            </SelectContent>
+          </Select>
+        </div>
 
-          return (
-            <motion.div
-              key={roleKey}
-              className={`relative p-6 rounded-xl border-2 cursor-pointer transition-all duration-300 ${
-                isSelected
-                  ? "border-primary bg-primary/5 shadow-lg"
-                  : "border-border bg-card hover:border-primary/50 hover:shadow-md"
-              }`}
-              onClick={() => onRoleSelect(roleKey)}
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              {/* Selection indicator */}
-              {isSelected && (
-                <motion.div
-                  className="absolute -top-2 -right-2 w-6 h-6 bg-primary rounded-full flex items-center justify-center"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ type: "spring", duration: 0.3 }}
-                >
-                  <div className="w-2 h-2 bg-primary-foreground rounded-full" />
-                </motion.div>
-              )}
-
-              {/* Icon */}
-              <div className="mb-4">
-                <div
-                  className="w-12 h-12 rounded-full flex items-center justify-center mb-3"
-                  style={{ backgroundColor: `${config.color}20` }}
-                >
-                  <Icon className="w-6 h-6" style={{ color: config.color }} />
-                </div>
-                <h3 className="font-serif font-semibold text-lg text-foreground">
-                  {config.name}
-                </h3>
+        {selectedRole && (
+          <motion.div
+            className="p-6 rounded-lg bg-primary/10 border border-primary/20"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <div className="flex items-start gap-4">
+              <div
+                className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 mt-1"
+                style={{ backgroundColor: `${roleConfig[selectedRole].color}20` }}
+              >
+                {(() => {
+                  const Icon = roleConfig[selectedRole].icon;
+                  return <Icon className="w-6 h-6" style={{ color: roleConfig[selectedRole].color }} />;
+                })()}
               </div>
-
-              {/* Description */}
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {config.description}
-              </p>
-
-              {/* Special indicators */}
-              {roleKey.startsWith('yony_flowers') && (
-                <div className="mt-3 px-2 py-1 rounded-full bg-secondary text-xs font-medium text-secondary-foreground inline-block">
-                  Country Flower
-                </div>
-              )}
-            </motion.div>
-          );
-        })}
+              <div className="flex-1">
+                <h3 className="text-lg font-serif font-semibold text-primary mb-2">
+                  {roleConfig[selectedRole].name}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {roleConfig[selectedRole].description}
+                </p>
+                {selectedRole.startsWith('yony_flowers') && (
+                  <div className="mt-3 inline-block px-3 py-1 rounded-full bg-secondary text-xs font-medium text-secondary-foreground">
+                    Country Flower
+                  </div>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        )}
       </div>
-
-      {selectedRole && (
-        <motion.div
-          className="mt-8 p-4 rounded-lg bg-primary/10 border border-primary/20"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
-          <p className="text-sm text-primary font-medium">
-            ✨ Great choice! You selected: <strong>{roleConfig[selectedRole].name}</strong>
-          </p>
-        </motion.div>
-      )}
     </div>
   );
 };
