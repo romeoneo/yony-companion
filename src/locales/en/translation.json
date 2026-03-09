@@ -255,48 +255,39 @@
     "confirmed": "Great! Your connection to {{country}} is confirmed."
   },
   "engagementStep": {
-    "title": "Your",
-    "titleAccent": "Engagement",
-    "subtitle": "Tell us about your vision, expertise, and personal motivations for joining the Yonyverse.",
-    "projectCategory": "Project Category / Domain of Specialization *",
-    "projectCategoryPlaceholder": "Select your project category...",
-    "projectCategoryNote": "This defines your area of specialization and helps us understand your project focus.",
-    "visionLabel": "Your Vision & Approach *",
-    "visionNote": "Minimum 50 characters. Share your professional vision and approach for your role.",
-    "intentionLabel": "Personal Motivations & Growth *",
-    "intentionNote": "Minimum 50 characters. Tell us about your personal motivations and expected growth.",
-    "meetsRequirements": "✨ Great! Your engagement responses meet the minimum requirements.",
-    "categories": {
-      "social": "Social Initiatives",
-      "education": "Education & Training",
-      "innovation": "Innovation & Technology",
-      "nature": "Nature & Environment",
-      "health": "Health & Wellness",
-      "arts": "Arts & Culture",
-      "tourism": "Tourism & Traditions",
+    "title": "Registration –",
+    "titleAccent": "Your Contribution",
+    "subtitle": "As part of your registration, help us understand how you would like to contribute to the Yonyverse.",
+    "contributionTitle": "How would you like to contribute?",
+    "contributions": {
+      "shareKnowledge": "Share knowledge or expertise",
+      "connectPartners": "Connect partners or projects",
+      "growCommunity": "Help grow the community",
+      "promote": "Promote the Yonyverse",
+      "strategicDev": "Support strategic development",
+      "contributeCreatively": "Contribute creatively (art, design, storytelling)",
       "other": "Other"
     },
-    "prompts": {
-      "yony_flowers_tutor": {
-        "engagement": "As a Tutor, describe your teaching philosophy and approach to mentoring young talents. What methods do you use to inspire and guide your students?",
-        "intention": "What drives your passion for education and mentorship? How do you see yourself growing through this experience?"
-      },
-      "yony_flowers_project": {
-        "engagement": "Describe the impact project you want to bring to your chosen country. What problem does it solve and how will it benefit the local community?",
-        "intention": "What personal motivations led you to this project idea? How will this experience contribute to your own growth?"
-      },
-      "yony_brands": { "engagement": "How do you envision contributing to the visual identity and brand development of the Yonyverse? What's your creative approach?" },
-      "yony_lights": { "engagement": "How would you illuminate and amplify the stories within the Yonyverse? What storytelling techniques do you excel at?" },
-      "yony_places": { "engagement": "Describe how you would explore and connect different territories in the Yonyverse. What's your approach to cultural discovery?" },
-      "yony_angels": { "engagement": "How do you plan to support and nurture the Yonyverse community? What's your approach to community building?" },
-      "yony_magics": { "engagement": "Describe the extraordinary and immersive experiences you would create for the Yonyverse. What makes your approach unique?" },
-      "yony_stars": { "engagement": "How do you plan to shine and inspire excellence within the Yonyverse? What's your strategy for motivation and achievement?" },
-      "yony_guards": { "engagement": "How would you protect and maintain harmony in the Yonyverse? What's your approach to conflict resolution and community management?" },
-      "default": {
-        "engagement": "Describe your vision and approach for contributing to the Yonyverse. What unique value do you bring?",
-        "intention": "What are your personal motivations for joining the Yonyverse? How do you hope to grow through this experience?"
-      }
-    }
+    "interestsTitle": "What areas interest you the most?",
+    "interests": {
+      "culture": "Culture",
+      "education": "Education",
+      "socialImpact": "Social impact",
+      "environment": "Environment",
+      "innovation": "Innovation",
+      "globalCollaboration": "Global collaboration"
+    },
+    "roleTitle": "Which role best represents you?",
+    "roles": {
+      "creator": "Creator",
+      "connector": "Connector",
+      "builder": "Builder",
+      "explorer": "Explorer",
+      "strategist": "Strategist"
+    },
+    "optionalTitle": "Anything you'd like to share? (optional)",
+    "optionalDesc": "Vision, experience, or ideas you'd like to bring to the Yonyverse.",
+    "optionalPlaceholder": "Share your thoughts here..."
   },
   "confirmation": {
     "title": "Confirm your",

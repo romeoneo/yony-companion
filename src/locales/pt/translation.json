@@ -161,30 +161,39 @@
     "confirmed": "Ótimo! Sua conexão com {{country}} está confirmada."
   },
   "engagementStep": {
-    "title": "Seu",
-    "titleAccent": "Engajamento",
-    "subtitle": "Conte-nos sobre sua visão, experiência e motivações pessoais para se juntar ao Yonyverse.",
-    "projectCategory": "Categoria do Projeto / Domínio de Especialização *",
-    "projectCategoryPlaceholder": "Selecione a categoria do seu projeto...",
-    "projectCategoryNote": "Isso define sua área de especialização e nos ajuda a entender o foco do seu projeto.",
-    "visionLabel": "Sua Visão e Abordagem *",
-    "visionNote": "Mínimo 50 caracteres. Compartilhe sua visão profissional e abordagem para seu papel.",
-    "intentionLabel": "Motivações Pessoais e Crescimento *",
-    "intentionNote": "Mínimo 50 caracteres. Conte-nos sobre suas motivações pessoais e crescimento esperado.",
-    "meetsRequirements": "✨ Ótimo! Suas respostas de engajamento atendem aos requisitos mínimos.",
-    "categories": { "social": "Iniciativas Sociais", "education": "Educação e Formação", "innovation": "Inovação e Tecnologia", "nature": "Natureza e Meio Ambiente", "health": "Saúde e Bem-estar", "arts": "Artes e Cultura", "tourism": "Turismo e Tradições", "other": "Outro" },
-    "prompts": {
-      "yony_flowers_tutor": { "engagement": "Como Tutor, descreva sua filosofia de ensino e abordagem para orientar jovens talentos.", "intention": "O que impulsiona sua paixão pela educação e mentoria?" },
-      "yony_flowers_project": { "engagement": "Descreva o projeto de impacto que deseja levar ao país escolhido.", "intention": "Que motivações pessoais levaram a esta ideia de projeto?" },
-      "yony_brands": { "engagement": "Como você imagina contribuir para a identidade visual do Yonyverse?" },
-      "yony_lights": { "engagement": "Como você iluminaria e amplificaria as histórias do Yonyverse?" },
-      "yony_places": { "engagement": "Descreva como você exploraria e conectaria diferentes territórios no Yonyverse." },
-      "yony_angels": { "engagement": "Como você planeja apoiar e nutrir a comunidade Yonyverse?" },
-      "yony_magics": { "engagement": "Descreva as experiências extraordinárias e imersivas que você criaria." },
-      "yony_stars": { "engagement": "Como você planeja brilhar e inspirar excelência dentro do Yonyverse?" },
-      "yony_guards": { "engagement": "Como você protegeria e manteria a harmonia no Yonyverse?" },
-      "default": { "engagement": "Descreva sua visão e abordagem para contribuir com o Yonyverse.", "intention": "Quais são suas motivações pessoais para se juntar ao Yonyverse?" }
-    }
+    "title": "Inscrição –",
+    "titleAccent": "Sua Contribuição",
+    "subtitle": "Como parte da sua inscrição, ajude-nos a entender como você gostaria de contribuir para o Yonyverse.",
+    "contributionTitle": "Como você gostaria de contribuir?",
+    "contributions": {
+      "shareKnowledge": "Compartilhar conhecimentos ou experiência",
+      "connectPartners": "Conectar parceiros ou projetos",
+      "growCommunity": "Ajudar a fazer a comunidade crescer",
+      "promote": "Promover o Yonyverse",
+      "strategicDev": "Apoiar o desenvolvimento estratégico",
+      "contributeCreatively": "Contribuir criativamente (arte, design, narrativa)",
+      "other": "Outro"
+    },
+    "interestsTitle": "Quais áreas mais te interessam?",
+    "interests": {
+      "culture": "Cultura",
+      "education": "Educação",
+      "socialImpact": "Impacto social",
+      "environment": "Meio ambiente",
+      "innovation": "Inovação",
+      "globalCollaboration": "Colaboração global"
+    },
+    "roleTitle": "Qual papel melhor te representa?",
+    "roles": {
+      "creator": "Criador",
+      "connector": "Conector",
+      "builder": "Construtor",
+      "explorer": "Explorador",
+      "strategist": "Estrategista"
+    },
+    "optionalTitle": "Algo que gostaria de compartilhar? (opcional)",
+    "optionalDesc": "Visão, experiência ou ideias que você gostaria de trazer ao Yonyverse.",
+    "optionalPlaceholder": "Compartilhe seus pensamentos aqui..."
   },
   "confirmation": {
     "title": "Confirme sua",

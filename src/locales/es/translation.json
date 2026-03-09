@@ -161,30 +161,39 @@
     "confirmed": "¡Genial! Tu conexión con {{country}} está confirmada."
   },
   "engagementStep": {
-    "title": "Tu",
-    "titleAccent": "Compromiso",
-    "subtitle": "Cuéntanos sobre tu visión, experiencia y motivaciones personales para unirte al Yonyverse.",
-    "projectCategory": "Categoría de Proyecto / Dominio de Especialización *",
-    "projectCategoryPlaceholder": "Selecciona tu categoría de proyecto...",
-    "projectCategoryNote": "Esto define tu área de especialización y nos ayuda a entender el enfoque de tu proyecto.",
-    "visionLabel": "Tu Visión y Enfoque *",
-    "visionNote": "Mínimo 50 caracteres. Comparte tu visión profesional y enfoque para tu rol.",
-    "intentionLabel": "Motivaciones Personales y Crecimiento *",
-    "intentionNote": "Mínimo 50 caracteres. Cuéntanos sobre tus motivaciones personales y crecimiento esperado.",
-    "meetsRequirements": "✨ ¡Genial! Tus respuestas de compromiso cumplen los requisitos mínimos.",
-    "categories": { "social": "Iniciativas Sociales", "education": "Educación y Formación", "innovation": "Innovación y Tecnología", "nature": "Naturaleza y Medio Ambiente", "health": "Salud y Bienestar", "arts": "Artes y Cultura", "tourism": "Turismo y Tradiciones", "other": "Otro" },
-    "prompts": {
-      "yony_flowers_tutor": { "engagement": "Como Tutor, describe tu filosofía de enseñanza y tu enfoque para guiar jóvenes talentos.", "intention": "¿Qué impulsa tu pasión por la educación y el mentoría?" },
-      "yony_flowers_project": { "engagement": "Describe el proyecto de impacto que quieres llevar a tu país elegido.", "intention": "¿Qué motivaciones personales te llevaron a esta idea de proyecto?" },
-      "yony_brands": { "engagement": "¿Cómo imaginas contribuir a la identidad visual del Yonyverse?" },
-      "yony_lights": { "engagement": "¿Cómo iluminarías y amplificarías las historias del Yonyverse?" },
-      "yony_places": { "engagement": "Describe cómo explorarías y conectarías diferentes territorios en el Yonyverse." },
-      "yony_angels": { "engagement": "¿Cómo planeas apoyar y nutrir a la comunidad Yonyverse?" },
-      "yony_magics": { "engagement": "Describe las experiencias extraordinarias e inmersivas que crearías." },
-      "yony_stars": { "engagement": "¿Cómo planeas brillar e inspirar la excelencia dentro del Yonyverse?" },
-      "yony_guards": { "engagement": "¿Cómo protegerías y mantendrías la armonía en el Yonyverse?" },
-      "default": { "engagement": "Describe tu visión y enfoque para contribuir al Yonyverse.", "intention": "¿Cuáles son tus motivaciones personales para unirte al Yonyverse?" }
-    }
+    "title": "Inscripción –",
+    "titleAccent": "Tu Contribución",
+    "subtitle": "Como parte de tu inscripción, ayúdanos a entender cómo te gustaría contribuir al Yonyverse.",
+    "contributionTitle": "¿Cómo te gustaría contribuir?",
+    "contributions": {
+      "shareKnowledge": "Compartir conocimientos o experiencia",
+      "connectPartners": "Conectar socios o proyectos",
+      "growCommunity": "Ayudar a hacer crecer la comunidad",
+      "promote": "Promover el Yonyverse",
+      "strategicDev": "Apoyar el desarrollo estratégico",
+      "contributeCreatively": "Contribuir creativamente (arte, diseño, narrativa)",
+      "other": "Otro"
+    },
+    "interestsTitle": "¿Qué áreas te interesan más?",
+    "interests": {
+      "culture": "Cultura",
+      "education": "Educación",
+      "socialImpact": "Impacto social",
+      "environment": "Medio ambiente",
+      "innovation": "Innovación",
+      "globalCollaboration": "Colaboración global"
+    },
+    "roleTitle": "¿Qué rol te representa mejor?",
+    "roles": {
+      "creator": "Creador",
+      "connector": "Conector",
+      "builder": "Constructor",
+      "explorer": "Explorador",
+      "strategist": "Estratega"
+    },
+    "optionalTitle": "¿Algo que quieras compartir? (opcional)",
+    "optionalDesc": "Visión, experiencia o ideas que te gustaría aportar al Yonyverse.",
+    "optionalPlaceholder": "Comparte tus ideas aquí..."
   },
   "confirmation": {
     "title": "Confirma tu",
