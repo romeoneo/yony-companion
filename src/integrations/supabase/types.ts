@@ -68,6 +68,42 @@ export type Database = {
         }
         Relationships: []
       }
+      registrations: {
+        Row: {
+          contribution_types: string[] | null
+          country: string | null
+          created_at: string
+          email: string
+          id: string
+          interest_areas: string[] | null
+          message: string | null
+          name: string
+          role: string
+        }
+        Insert: {
+          contribution_types?: string[] | null
+          country?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          interest_areas?: string[] | null
+          message?: string | null
+          name: string
+          role: string
+        }
+        Update: {
+          contribution_types?: string[] | null
+          country?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          interest_areas?: string[] | null
+          message?: string | null
+          name?: string
+          role?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
