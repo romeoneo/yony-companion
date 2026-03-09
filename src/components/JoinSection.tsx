@@ -132,7 +132,17 @@ const JoinSection = () => {
           </div>
         </motion.div>
 
-        {/* Step 2 */}
+        {/* Yony Family Progress banner */}
+        <motion.div
+          className="mb-16 p-6 rounded-2xl bg-primary/5 border border-primary/20 text-center"
+          initial={{ opacity: 0, scale: 0.96 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <Flame className="w-5 h-5 text-primary" />
+            <span className="text-sm font-semibold font-sans-body text-primary uppercase tracking-wider">Yony Family Progress</span>
+          </div>
         <motion.div
           className="p-8 rounded-3xl bg-card sacred-border"
           initial={{ opacity: 0, y: 20 }}
