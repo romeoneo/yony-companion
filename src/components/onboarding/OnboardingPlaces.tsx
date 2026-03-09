@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Gift } from "lucide-react";
 import OnboardingLayout, { OnboardingSlide, fadeUp } from "./OnboardingLayout";
@@ -46,74 +47,55 @@ function QRVisual() {
   );
 }
 
-const slides = [
-  <OnboardingSlide key="s1">
-    <WorldMap />
-    <motion.h1 className="font-serif-display text-5xl md:text-7xl font-black tracking-tight text-foreground text-center relative z-10" custom={0} variants={fadeUp} initial="hidden" animate="visible">
-      Yony <span className="italic text-primary">Places</span>
-    </motion.h1>
-    <motion.p className="mt-4 text-base text-muted-foreground font-light text-center relative z-10" custom={1} variants={fadeUp} initial="hidden" animate="visible">
-      Illuminate the world's cultural heritage.
-    </motion.p>
-    <motion.p className="mt-2 text-sm text-muted-foreground/80 font-light max-w-lg text-center relative z-10" custom={2} variants={fadeUp} initial="hidden" animate="visible">
-      An immersive urban experience that transforms meaningful places into points of a global cultural movement.
-    </motion.p>
-  </OnboardingSlide>,
-
-  <OnboardingSlide key="s2">
-    <WorldMap highlighted />
-    <motion.h1 className="font-serif-display text-3xl md:text-5xl font-bold tracking-tight text-foreground text-center relative z-10" custom={0} variants={fadeUp} initial="hidden" animate="visible">
-      Go to a <span className="italic text-primary font-normal">Place.</span>
-    </motion.h1>
-    <motion.p className="mt-4 text-base text-muted-foreground font-light max-w-lg text-center relative z-10" custom={1} variants={fadeUp} initial="hidden" animate="visible">
-      Find a Yony Places partner location in one of the participating cities around the world.
-    </motion.p>
-  </OnboardingSlide>,
-
-  <OnboardingSlide key="s3">
-    <motion.div className="mb-4" custom={0} variants={fadeUp} initial="hidden" animate="visible"><QRVisual /></motion.div>
-    <motion.h1 className="font-serif-display text-3xl md:text-5xl font-bold tracking-tight text-foreground text-center" custom={1} variants={fadeUp} initial="hidden" animate="visible">
-      Scan the <span className="italic text-primary font-normal">QR Code.</span>
-    </motion.h1>
-    <motion.p className="mt-4 text-base text-muted-foreground font-light text-center" custom={2} variants={fadeUp} initial="hidden" animate="visible">
-      Each location hosts a unique QR code linking to a cultural object.
-    </motion.p>
-  </OnboardingSlide>,
-
-  <OnboardingSlide key="s4">
-    <motion.h1 className="font-serif-display text-3xl md:text-5xl font-bold tracking-tight text-foreground text-center" custom={0} variants={fadeUp} initial="hidden" animate="visible">
-      Discover the <span className="italic text-primary font-normal">Story.</span>
-    </motion.h1>
-    <motion.p className="mt-4 text-base text-muted-foreground font-light text-center max-w-lg" custom={1} variants={fadeUp} initial="hidden" animate="visible">
-      Learn about its origins, its journey, and its meaning for the community it comes from.
-    </motion.p>
-  </OnboardingSlide>,
-
-  <OnboardingSlide key="s5">
-    <motion.div className="mb-4" custom={0} variants={fadeUp} initial="hidden" animate="visible">
-      <Gift className="w-10 h-10 text-primary" strokeWidth={1.5} />
-    </motion.div>
-    <motion.h1 className="font-serif-display text-3xl md:text-5xl font-bold tracking-tight text-foreground text-center" custom={1} variants={fadeUp} initial="hidden" animate="visible">
-      Receive a <span className="italic text-primary font-normal">Gift.</span>
-    </motion.h1>
-    <motion.p className="mt-4 text-base text-muted-foreground font-light max-w-lg text-center" custom={2} variants={fadeUp} initial="hidden" animate="visible">
-      After each scan, enter the location lottery. Leave a Google review and receive your reward. <span className="font-bold text-foreground">No losers</span> — every participation is rewarded.
-    </motion.p>
-  </OnboardingSlide>,
-
-  <OnboardingSlide key="s6">
-    <motion.h1 className="font-serif-display text-3xl md:text-5xl font-bold tracking-tight text-foreground text-center" custom={0} variants={fadeUp} initial="hidden" animate="visible">
-      Redistribute the <span className="italic text-primary font-normal">Light.</span>
-    </motion.h1>
-    <motion.p className="mt-4 text-base text-muted-foreground font-light text-center" custom={1} variants={fadeUp} initial="hidden" animate="visible">
-      Earn Light Tokens after each scan.
-    </motion.p>
-    <motion.p className="mt-2 text-sm text-muted-foreground/80 font-light max-w-lg text-center" custom={2} variants={fadeUp} initial="hidden" animate="visible">
-      Redistribute your tokens to the Flowers of the Yonyverse and support their projects.
-    </motion.p>
-  </OnboardingSlide>,
-];
-
 export default function OnboardingPlaces() {
+  const { t } = useTranslation();
+
+  const slides = [
+    <OnboardingSlide key="s1">
+      <WorldMap />
+      <motion.h1 className="font-serif-display text-5xl md:text-7xl font-black tracking-tight text-foreground text-center relative z-10" custom={0} variants={fadeUp} initial="hidden" animate="visible">
+        {t("onboarding.places.title")} <span className="italic text-primary">{t("onboarding.places.titleAccent")}</span>
+      </motion.h1>
+      <motion.p className="mt-4 text-base text-muted-foreground font-light text-center relative z-10" custom={1} variants={fadeUp} initial="hidden" animate="visible">{t("onboarding.places.intro")}</motion.p>
+      <motion.p className="mt-2 text-sm text-muted-foreground/80 font-light max-w-lg text-center relative z-10" custom={2} variants={fadeUp} initial="hidden" animate="visible">{t("onboarding.places.introDesc")}</motion.p>
+    </OnboardingSlide>,
+    <OnboardingSlide key="s2">
+      <WorldMap highlighted />
+      <motion.h1 className="font-serif-display text-3xl md:text-5xl font-bold tracking-tight text-foreground text-center relative z-10" custom={0} variants={fadeUp} initial="hidden" animate="visible">
+        {t("onboarding.places.goTo")} <span className="italic text-primary font-normal">{t("onboarding.places.goToAccent")}</span>
+      </motion.h1>
+      <motion.p className="mt-4 text-base text-muted-foreground font-light max-w-lg text-center relative z-10" custom={1} variants={fadeUp} initial="hidden" animate="visible">{t("onboarding.places.goToDesc")}</motion.p>
+    </OnboardingSlide>,
+    <OnboardingSlide key="s3">
+      <motion.div className="mb-4" custom={0} variants={fadeUp} initial="hidden" animate="visible"><QRVisual /></motion.div>
+      <motion.h1 className="font-serif-display text-3xl md:text-5xl font-bold tracking-tight text-foreground text-center" custom={1} variants={fadeUp} initial="hidden" animate="visible">
+        {t("onboarding.places.scan")} <span className="italic text-primary font-normal">{t("onboarding.places.scanAccent")}</span>
+      </motion.h1>
+      <motion.p className="mt-4 text-base text-muted-foreground font-light text-center" custom={2} variants={fadeUp} initial="hidden" animate="visible">{t("onboarding.places.scanDesc")}</motion.p>
+    </OnboardingSlide>,
+    <OnboardingSlide key="s4">
+      <motion.h1 className="font-serif-display text-3xl md:text-5xl font-bold tracking-tight text-foreground text-center" custom={0} variants={fadeUp} initial="hidden" animate="visible">
+        {t("onboarding.places.discover")} <span className="italic text-primary font-normal">{t("onboarding.places.discoverAccent")}</span>
+      </motion.h1>
+      <motion.p className="mt-4 text-base text-muted-foreground font-light text-center max-w-lg" custom={1} variants={fadeUp} initial="hidden" animate="visible">{t("onboarding.places.discoverDesc")}</motion.p>
+    </OnboardingSlide>,
+    <OnboardingSlide key="s5">
+      <motion.div className="mb-4" custom={0} variants={fadeUp} initial="hidden" animate="visible"><Gift className="w-10 h-10 text-primary" strokeWidth={1.5} /></motion.div>
+      <motion.h1 className="font-serif-display text-3xl md:text-5xl font-bold tracking-tight text-foreground text-center" custom={1} variants={fadeUp} initial="hidden" animate="visible">
+        {t("onboarding.places.gift")} <span className="italic text-primary font-normal">{t("onboarding.places.giftAccent")}</span>
+      </motion.h1>
+      <motion.p className="mt-4 text-base text-muted-foreground font-light max-w-lg text-center" custom={2} variants={fadeUp} initial="hidden" animate="visible">
+        {t("onboarding.places.giftDesc")} <span className="font-bold text-foreground">{t("onboarding.places.noLosers")}</span>{t("onboarding.places.giftEnd")}
+      </motion.p>
+    </OnboardingSlide>,
+    <OnboardingSlide key="s6">
+      <motion.h1 className="font-serif-display text-3xl md:text-5xl font-bold tracking-tight text-foreground text-center" custom={0} variants={fadeUp} initial="hidden" animate="visible">
+        {t("onboarding.places.redistribute")} <span className="italic text-primary font-normal">{t("onboarding.places.redistributeAccent")}</span>
+      </motion.h1>
+      <motion.p className="mt-4 text-base text-muted-foreground font-light text-center" custom={1} variants={fadeUp} initial="hidden" animate="visible">{t("onboarding.places.redistributeDesc1")}</motion.p>
+      <motion.p className="mt-2 text-sm text-muted-foreground/80 font-light max-w-lg text-center" custom={2} variants={fadeUp} initial="hidden" animate="visible">{t("onboarding.places.redistributeDesc2")}</motion.p>
+    </OnboardingSlide>,
+  ];
+
   return <OnboardingLayout slides={slides} gameName="Yony Places" />;
 }

@@ -1,24 +1,8 @@
 {
-  "nav": {
-    "characters": "Personajes",
-    "games": "Juegos",
-    "journey": "Viaje",
-    "challenge": "Desafío",
-    "join": "Unirse",
-    "exploreGames": "Explorar los Juegos"
-  },
-  "hero": {
-    "narrative1": "El Yonyverse es un jardín simbólico donde los sueños y los proyectos pueden echar raíces y crecer.",
-    "narrative2": "Dentro de este espacio, los Yony Games dan vida a las visiones. Crean un terreno compartido donde culturas, ideas y talentos se encuentran.",
-    "narrative3": "A través de la participación, individuos y comunidades ganan visibilidad y se inspiran mutuamente.",
-    "narrative4": "Del Huevo brota el mundo que la Tierra desea. We Are Born To Impact.",
-    "exploreGames": "Explorar los Juegos",
-    "exploreUniverse": "Explorar el Universo"
-  },
+  "nav": { "characters": "Personajes", "games": "Juegos", "journey": "Viaje", "challenge": "Desafío", "join": "Unirse", "exploreGames": "Explorar los Juegos" },
+  "hero": { "narrative1": "El Yonyverse es un jardín simbólico donde los sueños y los proyectos pueden echar raíces y crecer.", "narrative2": "Dentro de este espacio, los Yony Games dan vida a las visiones. Crean un terreno compartido donde culturas, ideas y talentos se encuentran.", "narrative3": "A través de la participación, individuos y comunidades ganan visibilidad y se inspiran mutuamente.", "narrative4": "Del Huevo brota el mundo que la Tierra desea. We Are Born To Impact.", "exploreGames": "Explorar los Juegos", "exploreUniverse": "Explorar el Universo" },
   "characters": {
-    "title": "Los",
-    "titleAccent": "Personajes",
-    "subtitle": "Roles arquetípicos que dan forma al Yonyverse.",
+    "title": "Los", "titleAccent": "Personajes", "subtitle": "Roles arquetípicos que dan forma al Yonyverse.",
     "seeds": { "name": "Yony Seeds", "subtitle": "Portadores de Sueños", "description": "Portadores de sueños que presentan proyectos de impacto durante los nueve meses de los Yony Games. Cada Semilla pertenece a un grupo Flower de ocho Semillas que representan un territorio." },
     "brands": { "name": "Yony Brands", "subtitle": "Socios Visionarios", "description": "Socios visionarios que alinean su identidad de marca con los valores culturales de los Yony Games, amplificando el alcance de los sueños por el mundo." },
     "lights": { "name": "Yony Lights", "subtitle": "Luminarias Creativas", "description": "Luminarias creativas que iluminan las narrativas culturales de cada territorio a través del arte, la música y la narración." },
@@ -29,10 +13,7 @@
     "places": { "name": "Yony Places", "subtitle": "Espacios Sagrados", "description": "Espacios sagrados y lugares que acogen las manifestaciones físicas de los Yony Games en los 16 territorios fundadores." }
   },
   "games": {
-    "title": "Los",
-    "titleAccent": "Yony Games",
-    "subtitle": "Ocho juegos que elevan sueños, culturas y sabiduría.",
-    "discoverGame": "Descubrir Juego →",
+    "title": "Los", "titleAccent": "Yony Games", "subtitle": "Ocho juegos que elevan sueños, culturas y sabiduría.", "discoverGame": "Descubrir Juego →",
     "visibility": { "title": "Juegos de Visibilidad", "description": "Estos juegos ayudan a los Yony Seeds a compartir su visión, valores, personalidad e historia con su comunidad." },
     "engagement": { "title": "Juegos de Compromiso", "description": "Los jugadores exploran los juegos, descubren nuevas perspectivas y ganan Puntos de Luz para redistribuir a los Yony Flowers." },
     "voices": { "title": "Yony Voices", "description": "Amplificar historias culturales a través de la voz y la narrativa, compartiendo sabiduría entre comunidades." },
@@ -45,9 +26,7 @@
     "travels": { "title": "Yony Travels", "description": "Descubrir las tradiciones culturales y las conexiones que unen 16 países inspiradores." }
   },
   "worldMap": {
-    "title": "Viaje del",
-    "titleAccent": "Huevo Yony",
-    "subtitle": "16 territorios fundadores. 16 valores. 16 ciclos. 256 días.",
+    "title": "Viaje del", "titleAccent": "Huevo Yony", "subtitle": "16 territorios fundadores. 16 valores. 16 ciclos. 256 días.",
     "description": "Un Huevo viajará a través de los 16 territorios, encarnando una voluntad compartida de transformación, conexión y el renacimiento de un nuevo mundo fundado en la armonía.",
     "territories": {
       "benin": { "name": "Benín", "value": "Lucidez", "desc": "La lucidez revela la verdad que guía el viaje." },
@@ -68,10 +47,19 @@
       "peru": { "name": "Perú", "value": "Benevolencia", "desc": "La benevolencia esparce generosidad a través de cada acción." }
     }
   },
+  "portal": {
+    "title": "Los", "titleAccent": "Portales", "subtitle": "Elige tu camino hacia el Yonyverse.",
+    "characters": { "title": "Personajes", "description": "Conoce los roles arquetípicos que dan forma al universo Yonyverse." },
+    "world": { "title": "Explorar el Mundo", "description": "Viaja a través de los 16 territorios fundadores y su sabiduría cultural." },
+    "games": { "title": "Los Juegos", "description": "Descubre los ocho juegos que elevan sueños, culturas y sabiduría." },
+    "join": { "title": "Unirse a los Juegos", "description": "Forma parte de la comunidad fundadora y da forma al futuro." }
+  },
+  "timeline": {
+    "title": "El", "titleAccent": "Viaje", "subtitle": "256 días. 16 ciclos. Una odisea cultural épica.",
+    "cycle": "Ciclo", "day": "Día"
+  },
   "join": {
-    "title": "El",
-    "titleYony": "Yony",
-    "titleAccent": "Challenge",
+    "title": "El", "titleYony": "Yony", "titleAccent": "Challenge",
     "subtitle": "Antes de que los juegos puedan comenzar, se deben completar dos pasos. Una vez logrados, se anunciarán las fechas oficiales de los nueve meses de los juegos del Yonyverse.",
     "step1": { "label": "Paso 1", "title": "Yony Family - Construir la comunidad fundadora", "desc1": "Los juegos necesitan participantes para encarnar los personajes de la aventura.", "desc2": "Cada categoría de personajes tiene un número mínimo que debe alcanzarse.", "goal": "🎯 Objetivo: reunir todos los personajes necesarios para el juego.", "left": "restante(s)" },
     "familyProgress": { "title": "Progreso Yony Family", "members": "miembros", "assembled": "de la comunidad fundadora reunida" },
@@ -82,171 +70,28 @@
       "story": { "title": "Historia y visibilidad", "desc": "Creación de contenido y visibilidad global del viaje." },
       "digital": { "title": "Plataforma digital", "desc": "Desarrollo y operación de la plataforma Yonyverse." }
     },
-    "cta": "Unirse a la Yony Family",
-    "ctaSubtext": "Sé de los primeros — plazas limitadas para cada rol de personaje."
+    "cta": "Unirse a la Yony Family", "ctaSubtext": "Sé de los primeros — plazas limitadas para cada rol de personaje."
   },
-  "experience": {
-    "title": "Experimenta el",
-    "titleAccent": "Yonyverse",
-    "description": "Los Yony Seeds, portadores de sueños y proyectos de impacto, se reúnen en grupos de ocho llamados Flowers, cada uno conectado a la delegación de un territorio. Juntos, durante nueve meses, cultivan la colaboración y la celebración de sus valores y su tierra. Explora el prototipo."
-  },
-  "footer": {
-    "aboutYonyverse": "Sobre Yonyverse",
-    "theYonyGames": "Los Yony Games",
-    "theEggOfYony": "El Huevo de Yony",
-    "joinTheGames": "Unirse a los Juegos",
-    "copyright": "© 2026 Yonyverse. Todos los derechos reservados."
-  },
+  "experience": { "title": "Experimenta el", "titleAccent": "Yonyverse", "description": "Los Yony Seeds, portadores de sueños y proyectos de impacto, se reúnen en grupos de ocho llamados Flowers, cada uno conectado a la delegación de un territorio. Juntos, durante nueve meses, cultivan la colaboración y la celebración de sus valores y su tierra. Explora el prototipo." },
+  "footer": { "aboutYonyverse": "Sobre Yonyverse", "theYonyGames": "Los Yony Games", "theEggOfYony": "El Huevo de Yony", "joinTheGames": "Unirse a los Juegos", "copyright": "© 2026 Yonyverse. Todos los derechos reservados." },
   "notFound": { "title": "404", "message": "¡Ups! Página no encontrada", "backHome": "Volver al inicio" },
-  "joinGames": {
-    "pageTitle": "Unirse al",
-    "pageTitleAccent": "Yonyverse",
-    "home": "Inicio",
-    "stepOf": "Paso {{current}} de {{total}}",
-    "steps": { "role": "Rol", "profile": "Perfil", "country": "País", "engagement": "Compromiso", "confirmation": "Confirmación" },
-    "cancel": "Cancelar",
-    "previous": "Anterior",
-    "next": "Siguiente",
-    "cancelDialog": { "title": "¿Cancelar inscripción?", "description": "¿Estás seguro de que quieres cancelar? Toda la información ingresada se perderá.", "continue": "Continuar inscripción", "confirm": "Sí, cancelar" }
-  },
-  "roleSelection": {
-    "title": "Elige tu",
-    "titleAccent": "Personaje",
-    "subtitle": "Cada rol aporta una contribución única al Yonyverse. Selecciona el que más resuene contigo.",
-    "label": "Tu Rol en el Yonyverse",
-    "placeholder": "Selecciona un rol...",
-    "countryFlower": "Flower País",
-    "roles": {
-      "yony_flowers_tutor": { "name": "Yony Flowers (Tutor)", "description": "Guiar y acompañar a 8 Yony Seeds en su camino de desarrollo" },
-      "yony_flowers_project": { "name": "Yony Flowers (Portador de Proyecto)", "description": "Llevar un proyecto de impacto a un país específico" },
-      "yony_brands": { "name": "Yony Brands", "description": "Crear y desarrollar la identidad visual del Yonyverse" },
-      "yony_lights": { "name": "Yony Lights", "description": "Iluminar y amplificar los relatos del viaje" },
-      "yony_places": { "name": "Yony Places", "description": "Explorar y conectar los territorios del juego" },
-      "yony_angels": { "name": "Yony Angels", "description": "Apoyar y nutrir a la comunidad" },
-      "yony_magics": { "name": "Yony Magics", "description": "Crear experiencias extraordinarias e inmersivas" },
-      "yony_stars": { "name": "Yony Stars", "description": "Brillar e inspirar a través de la excelencia" },
-      "yony_guards": { "name": "Yony Guards", "description": "Proteger y mantener la armonía del Yonyverse" }
-    }
-  },
-  "personalInfo": {
-    "title": "Preséntate a la",
-    "titleAccent": "Comunidad",
-    "subtitle": "Esta información nos ayudará a crear tu perfil en el Yonyverse.",
-    "profilePicture": "Foto de perfil (opcional)",
-    "addPhoto": "Agregar foto",
-    "avatarPreview": "Vista previa del avatar",
-    "imageFormat": "JPG, PNG o WEBP • Máx 5MB",
-    "fullName": "Nombre completo *",
-    "fullNamePlaceholder": "Tu nombre y apellido",
-    "email": "Correo electrónico *",
-    "emailPlaceholder": "tu@email.com",
-    "emailNote": "Usaremos esta dirección para mantenerte informado sobre el Yonyverse",
-    "profileReady": "✨ ¡Perfecto! Tu perfil está listo:",
-    "invalidImage": "Por favor selecciona un archivo de imagen válido",
-    "imageTooLarge": "El tamaño de la imagen debe ser menor a 5MB"
-  },
-  "specialization": {
-    "title": "Conexión",
-    "titleAccent": "País",
-    "subtitle": "Elige el país con el que quieres estar conectado en el Yonyverse.",
-    "countryLabel": "Tu País de Conexión *",
-    "countryPlaceholder": "Selecciona un país...",
-    "searchCountries": "Buscar países...",
-    "noCountryFound": "No se encontró ningún país.",
-    "countryNote": "Este país se asociará con tu rol en el ecosistema Yonyverse.",
-    "tutorTitle": "Acuerdo de Misión de Tutor",
-    "tutorDesc": "Como Tutor Yony Flowers, serás responsable de guiar y acompañar a 8 Yony Seeds en su camino de desarrollo. Es un compromiso significativo que requiere dedicación y pasión por la educación y el mentoría.",
-    "tutorAccept": "Acepto la misión de acompañar a 8 Yony Seeds",
-    "tutorAcceptNote": "Al marcar esta casilla, te comprometes con las responsabilidades de Tutor en el Yonyverse.",
-    "confirmed": "¡Genial! Tu conexión con {{country}} está confirmada."
-  },
-  "engagementStep": {
-    "title": "Inscripción –",
-    "titleAccent": "Tu Contribución",
-    "subtitle": "Como parte de tu inscripción, ayúdanos a entender cómo te gustaría contribuir al Yonyverse.",
-    "contributionTitle": "¿Cómo te gustaría contribuir?",
-    "contributions": {
-      "shareKnowledge": "Compartir conocimientos o experiencia",
-      "connectPartners": "Conectar socios o proyectos",
-      "growCommunity": "Ayudar a hacer crecer la comunidad",
-      "promote": "Promover el Yonyverse",
-      "strategicDev": "Apoyar el desarrollo estratégico",
-      "contributeCreatively": "Contribuir creativamente (arte, diseño, narrativa)",
-      "other": "Otro"
-    },
-    "interestsTitle": "¿Qué áreas te interesan más?",
-    "interests": {
-      "culture": "Cultura",
-      "education": "Educación",
-      "socialImpact": "Impacto social",
-      "environment": "Medio ambiente",
-      "innovation": "Innovación",
-      "globalCollaboration": "Colaboración global"
-    },
-    "roleTitle": "¿Qué rol te representa mejor?",
-    "roles": {
-      "creator": "Creador",
-      "connector": "Conector",
-      "builder": "Constructor",
-      "explorer": "Explorador",
-      "strategist": "Estratega"
-    },
-    "optionalTitle": "¿Algo que quieras compartir? (opcional)",
-    "optionalDesc": "Visión, experiencia o ideas que te gustaría aportar al Yonyverse.",
-    "optionalPlaceholder": "Comparte tus ideas aquí..."
-  },
-  "confirmation": {
-    "title": "Confirma tu",
-    "titleAccent": "Inscripción",
-    "subtitle": "Revisa tu información antes de enviar tu solicitud.",
-    "profile": "Perfil",
-    "name": "Nombre:",
-    "email": "Email:",
-    "photo": "Foto:",
-    "uploaded": "Subida ✓",
-    "notProvided": "No proporcionada",
-    "role": "Rol",
-    "mission": "Misión:",
-    "missionDesc": "Reclutar y acompañar a 8 Yony Seeds",
-    "missionAccepted": "✓ Misión aceptada",
-    "country": "País:",
-    "category": "Categoría:",
-    "engagementIntention": "Compromiso e Intención",
-    "yourEngagement": "Tu compromiso:",
-    "yourIntention": "Tu intención:",
-    "submitting": "Enviando...",
-    "submit": "Enviar mi solicitud",
-    "error": "Error",
-    "errorFields": "Por favor completa todos los campos obligatorios.",
-    "errorUpload": "Error al subir el avatar",
-    "errorGeneric": "Ocurrió un error durante la inscripción.",
-    "successTitle": "¡Inscripción exitosa!",
-    "successDesc": "Tu solicitud ha sido enviada con éxito.",
-    "welcomeTitle": "Bienvenido al",
-    "welcomeTitleAccent": "Yonyverse",
-    "welcomeDesc": "Tu inscripción ha sido enviada con éxito. El equipo Yonyverse revisará tu solicitud y te mantendrá informado sobre los próximos pasos.",
-    "nextSteps": "Próximos pasos:",
-    "nextStep1": "Revisión de tu solicitud por el equipo",
-    "nextStep2": "Notificación por email en 48 horas",
-    "nextStep3": "Invitación a unirte a la comunidad oficial",
-    "nextStep4": "El comienzo de tu aventura en el Yonyverse"
-  },
+  "joinGames": { "pageTitle": "Unirse al", "pageTitleAccent": "Yonyverse", "home": "Inicio", "stepOf": "Paso {{current}} de {{total}}", "steps": { "role": "Rol", "profile": "Perfil", "country": "País", "engagement": "Compromiso", "confirmation": "Confirmación" }, "cancel": "Cancelar", "previous": "Anterior", "next": "Siguiente", "cancelDialog": { "title": "¿Cancelar inscripción?", "description": "¿Estás seguro de que quieres cancelar? Toda la información ingresada se perderá.", "continue": "Continuar inscripción", "confirm": "Sí, cancelar" } },
+  "roleSelection": { "title": "Elige tu", "titleAccent": "Personaje", "subtitle": "Cada rol aporta una contribución única al Yonyverse. Selecciona el que más resuene contigo.", "label": "Tu Rol en el Yonyverse", "placeholder": "Selecciona un rol...", "countryFlower": "Flower País", "roles": { "yony_flowers_tutor": { "name": "Yony Flowers (Tutor)", "description": "Guiar y acompañar a 8 Yony Seeds en su camino de desarrollo" }, "yony_flowers_project": { "name": "Yony Flowers (Portador de Proyecto)", "description": "Llevar un proyecto de impacto a un país específico" }, "yony_brands": { "name": "Yony Brands", "description": "Crear y desarrollar la identidad visual del Yonyverse" }, "yony_lights": { "name": "Yony Lights", "description": "Iluminar y amplificar los relatos del viaje" }, "yony_places": { "name": "Yony Places", "description": "Explorar y conectar los territorios del juego" }, "yony_angels": { "name": "Yony Angels", "description": "Apoyar y nutrir a la comunidad" }, "yony_magics": { "name": "Yony Magics", "description": "Crear experiencias extraordinarias e inmersivas" }, "yony_stars": { "name": "Yony Stars", "description": "Brillar e inspirar a través de la excelencia" }, "yony_guards": { "name": "Yony Guards", "description": "Proteger y mantener la armonía del Yonyverse" } } },
+  "personalInfo": { "title": "Preséntate a la", "titleAccent": "Comunidad", "subtitle": "Esta información nos ayudará a crear tu perfil en el Yonyverse.", "profilePicture": "Foto de perfil (opcional)", "addPhoto": "Agregar foto", "avatarPreview": "Vista previa del avatar", "imageFormat": "JPG, PNG o WEBP • Máx 5MB", "fullName": "Nombre completo *", "fullNamePlaceholder": "Tu nombre y apellido", "email": "Correo electrónico *", "emailPlaceholder": "tu@email.com", "emailNote": "Usaremos esta dirección para mantenerte informado sobre el Yonyverse", "profileReady": "✨ ¡Perfecto! Tu perfil está listo:", "invalidImage": "Por favor selecciona un archivo de imagen válido", "imageTooLarge": "El tamaño de la imagen debe ser menor a 5MB" },
+  "specialization": { "title": "Conexión", "titleAccent": "País", "subtitle": "Elige el país con el que quieres estar conectado en el Yonyverse.", "countryLabel": "Tu País de Conexión *", "countryPlaceholder": "Selecciona un país...", "searchCountries": "Buscar países...", "noCountryFound": "No se encontró ningún país.", "countryNote": "Este país se asociará con tu rol en el ecosistema Yonyverse.", "tutorTitle": "Acuerdo de Misión de Tutor", "tutorDesc": "Como Tutor Yony Flowers, serás responsable de guiar y acompañar a 8 Yony Seeds en su camino de desarrollo. Es un compromiso significativo que requiere dedicación y pasión por la educación y el mentoría.", "tutorAccept": "Acepto la misión de acompañar a 8 Yony Seeds", "tutorAcceptNote": "Al marcar esta casilla, te comprometes con las responsabilidades de Tutor en el Yonyverse.", "confirmed": "¡Genial! Tu conexión con {{country}} está confirmada." },
+  "engagementStep": { "title": "Inscripción –", "titleAccent": "Tu Contribución", "subtitle": "Como parte de tu inscripción, ayúdanos a entender cómo te gustaría contribuir al Yonyverse.", "contributionTitle": "¿Cómo te gustaría contribuir?", "contributions": { "shareKnowledge": "Compartir conocimientos o experiencia", "connectPartners": "Conectar socios o proyectos", "growCommunity": "Ayudar a hacer crecer la comunidad", "promote": "Promover el Yonyverse", "strategicDev": "Apoyar el desarrollo estratégico", "contributeCreatively": "Contribuir creativamente (arte, diseño, narrativa)", "other": "Otro" }, "interestsTitle": "¿Qué áreas te interesan más?", "interests": { "culture": "Cultura", "education": "Educación", "socialImpact": "Impacto social", "environment": "Medio ambiente", "innovation": "Innovación", "globalCollaboration": "Colaboración global" }, "roleTitle": "¿Qué rol te representa mejor?", "roles": { "creator": "Creador", "connector": "Conector", "builder": "Constructor", "explorer": "Explorador", "strategist": "Estratega" }, "optionalTitle": "¿Algo que quieras compartir? (opcional)", "optionalDesc": "Visión, experiencia o ideas que te gustaría aportar al Yonyverse.", "optionalPlaceholder": "Comparte tus ideas aquí..." },
+  "confirmation": { "title": "Confirma tu", "titleAccent": "Inscripción", "subtitle": "Revisa tu información antes de enviar tu solicitud.", "profile": "Perfil", "name": "Nombre:", "email": "Email:", "photo": "Foto:", "uploaded": "Subida ✓", "notProvided": "No proporcionada", "role": "Rol", "mission": "Misión:", "missionDesc": "Reclutar y acompañar a 8 Yony Seeds", "missionAccepted": "✓ Misión aceptada", "country": "País:", "category": "Categoría:", "engagementIntention": "Compromiso e Intención", "yourEngagement": "Tu compromiso:", "yourIntention": "Tu intención:", "submitting": "Enviando...", "submit": "Enviar mi solicitud", "error": "Error", "errorFields": "Por favor completa todos los campos obligatorios.", "errorUpload": "Error al subir el avatar", "errorGeneric": "Ocurrió un error durante la inscripción.", "successTitle": "¡Inscripción exitosa!", "successDesc": "Tu solicitud ha sido enviada con éxito.", "welcomeTitle": "Bienvenido al", "welcomeTitleAccent": "Yonyverse", "welcomeDesc": "Tu inscripción ha sido enviada con éxito. El equipo Yonyverse revisará tu solicitud y te mantendrá informado sobre los próximos pasos.", "nextSteps": "Próximos pasos:", "nextStep1": "Revisión de tu solicitud por el equipo", "nextStep2": "Notificación por email en 48 horas", "nextStep3": "Invitación a unirte a la comunidad oficial", "nextStep4": "El comienzo de tu aventura en el Yonyverse" },
   "onboarding": {
-    "voices": { "title": "Yony", "titleAccent": "Voices", "intro": "Un espacio donde las historias dan vida a los proyectos.", "slide1": "Todo proyecto significativo comienza con una historia.", "slide1desc": "Yony Voices invita a los Yony Seeds a compartir el momento personal, el recuerdo o la inspiración que dio nacimiento a su visión.", "slide2": "Elige uno de los", "slide2accent": "16 temas narrativos", "slide2desc": "Cuenta tu historia a través de un corto video, texto o audio.", "slide3": "Comparte tu historia en", "slide3accent": "redes sociales.", "slide3desc": "Publícala y conéctala a tu proyecto.", "slide4a": "Cada voz ayuda a un proyecto a", "slide4aAccent": "crecer", "slide4b": "Y cada historia ayuda a una Flower a florecer en el", "slide4bAccent": "Yonyverse" },
-    "visions": { "title": "Yony", "titleAccent": "Visions", "intro": "Da visibilidad a tu proyecto a través del arte", "slide1": "Cada proyecto lleva un", "slide1accent": "universo artístico.", "slide1desc": "Este desafío te invita a compartir las creaciones que expresan tu visión.", "slide2": "Elige una de las", "slide2accent": "16 figuras.", "slide2desc": "Cada figura representa una fuente de inspiración.", "shareTitle": "Comparte tu creación en", "shareAccent": "redes sociales.", "shareDesc": "Publícala y conéctala a tu proyecto.", "finalTitle": "Cada creación revela una", "finalAccent": "visión.", "finalDesc": "Y cada visión lleva un proyecto a la luz." },
+    "goToSlide": "Ir a la diapositiva {{num}}",
+    "voices": { "title": "Yony", "titleAccent": "Voices", "intro": "Un espacio donde las historias dan vida a los proyectos.", "slide1": "Todo proyecto significativo comienza con una historia.", "slide1desc": "Yony Voices invita a los Yony Seeds a compartir el momento personal, el recuerdo o la inspiración que dio nacimiento a su visión.", "slide2": "Elige uno de los", "slide2accent": "16 temas narrativos", "slide2desc": "Cuenta tu historia a través de un corto video, texto o audio.", "slide3": "Comparte tu historia en", "slide3accent": "redes sociales.", "slide3desc": "Publícala y conéctala a tu proyecto.", "slide4a": "Cada voz ayuda a un proyecto a", "slide4aAccent": "crecer", "slide4b": "Y cada historia ayuda a una Flower a florecer en el", "slide4bAccent": "Yonyverse", "seedTheme": "Un recuerdo de infancia", "seedTheme2": "Un punto de inflexión", "seedTheme3": "Las palabras de un maestro" },
+    "visions": { "title": "Yony", "titleAccent": "Visions", "intro": "Da visibilidad a tu proyecto a través del arte", "slide1": "Cada proyecto lleva un", "slide1accent": "universo artístico.", "slide1desc": "Este desafío te invita a compartir las creaciones que expresan tu visión.", "slide2": "Elige una de las", "slide2accent": "16 figuras.", "slide2desc": "Cada figura representa una fuente de inspiración.", "shareTitle": "Comparte tu creación en", "shareAccent": "redes sociales.", "shareDesc": "Publícala y conéctala a tu proyecto.", "finalTitle": "Cada creación revela una", "finalAccent": "visión.", "finalDesc": "Y cada visión lleva un proyecto a la luz.", "artForms": { "photography": "Fotografía", "music": "Música", "illustration": "Ilustración", "dance": "Danza", "poetry": "Poesía", "crafts": "Artesanía" }, "participantQuotes": { "amara": "A través de mi lente, capturo la resiliencia de mi comunidad.", "carlos": "Cada melodía lleva la voz del río.", "linh": "Mis dibujos tejen siglos de tradición." } },
     "legends": { "title": "Yony", "titleAccent": "Legends", "intro": "Convertir el misterio en imaginación", "slide1": "Cada leyenda comienza con una", "slide1accent": "situación misteriosa.", "slide1desc": "Un momento aparece… pero su origen permanece desconocido.", "slide2": "Imagina qué causó este", "slide2accent": "momento.", "slide2desc": "E imagina qué podría pasar después.", "slide3": "Elige una de las", "slide3accent": "16 figuras.", "slide3desc": "Cada figura representa una fuente de inspiración.", "shareTitle": "Comparte tu historia en", "shareAccent": "redes sociales.", "shareDesc": "Publícala y conéctala a tu proyecto." },
-    "keys": { "title": "Yony", "titleAccent": "Keys", "intro": "Encuentra los valores que abren el camino", "slide1": "Cada proyecto enfrenta momentos de", "slide1accent": "incertidumbre.", "slide1desc": "Un dilema aparece… y se debe tomar una decisión.", "slide2": "Elige dos valores para guiar tu", "slide2accent": "respuesta.", "slide2desc": "Estos valores se convierten en las llaves que te ayudan a abrir un camino.", "slide3": "Explora los", "slide3accent": "16 dilemas.", "slide3desc": "Cada dilema te invita a reflexionar y elegir tus valores guía.", "slide4": "Elige tus", "slide4accent": "valores guía.", "slide4desc": "Selecciona dos valores que resuenen con tu reflexión.", "shareTitle": "Comparte tu creación en", "shareAccent": "redes sociales.", "shareDesc": "Publícala y conéctala a tu proyecto." },
-    "lights": { "title": "Yony", "titleAccent": "Lights", "intro": "Descubre los creadores que iluminan el mundo", "slide1": "Explora creadores cuya cultura, tradiciones y causas", "slide1accent": "inspiran al mundo.", "slide1desc": "Cada uno lleva una luz que merece ser descubierta.", "slide2title": "Lee una breve", "slide2accent": "parábola.", "slide2desc": "A partir de esta historia, adivina qué creador describe.", "slide3": "Identifica al creador entre", "slide3accent": "cuatro posibles respuestas.", "slide3desc": "Puedes revelar pistas para ayudarte.", "slide4": "Cada respuesta correcta agrega una nueva", "slide4accent": "luz", "slide4desc": "a tu colección.", "slide4sub": "Construye tu constelación personal de creadores inspiradores.", "shareTitle": "Explora luces inspiradoras", "shareAccent": "en redes sociales." },
-    "brands": { "title": "Yony", "titleAccent": "Brands", "intro": "Explora, aprende, juega y apoya marcas que crean impacto social, cultural y ecológico.", "explorer": "Brand", "explorerAccent": "Explorer", "explorerDesc": "Conoce una marca de impacto a través de su historia, misión, valores y acciones.", "match": "Brand", "matchAccent": "Match", "matchDesc": "Asocia cada imagen con la marca de impacto correcta.", "region": "Explorar por", "regionAccent": "Región", "regionDesc": "Filtra marcas por continente o país.", "redistribute": "Redistribuye la", "redistributeAccent": "Luz.", "redistributeDesc": "Redistribuye tus tokens a las Flowers del Yonyverse y apoya sus proyectos." },
+    "keys": { "title": "Yony", "titleAccent": "Keys", "intro": "Encuentra los valores que abren el camino", "slide1": "Cada proyecto enfrenta momentos de", "slide1accent": "incertidumbre.", "slide1desc": "Un dilema aparece… y se debe tomar una decisión.", "slide2": "Elige dos valores para guiar tu", "slide2accent": "respuesta.", "slide2desc": "Estos valores se convierten en las llaves que te ayudan a abrir un camino.", "slide3": "Explora los", "slide3accent": "16 dilemas.", "slide3desc": "Cada dilema te invita a reflexionar y elegir tus valores guía.", "slide4": "Elige tus", "slide4accent": "valores guía.", "slide4desc": "Selecciona dos valores que resuenen con tu reflexión.", "shareTitle": "Comparte tu creación en", "shareAccent": "redes sociales.", "shareDesc": "Publícala y conéctala a tu proyecto.", "dilemmas": { "networkOfSecrets": "La Red de Secretos", "machineOfPossibilities": "La Máquina de Posibilidades", "shadowsOfPast": "Las Sombras del Pasado", "gardenOfIllusions": "El Jardín de las Ilusiones", "horizonProject": "El Proyecto Horizonte", "echoOfVoices": "El Eco de las Voces", "libraryOfSouls": "La Biblioteca de las Almas", "bridgeOfSilences": "El Puente de los Silencios", "hiddenTruths": "Verdades Ocultas", "spiralOfEmotions": "La Espiral de las Emociones", "magicDrum": "El Tambor Mágico", "lakeOfReflections": "El Lago de los Reflejos", "marketOfIdentities": "El Mercado de las Identidades", "brokenClock": "El Reloj Roto", "whisperingCity": "La Ciudad que Susurra", "abandonedTheater": "El Teatro Abandonado" } },
+    "lights": { "title": "Yony", "titleAccent": "Lights", "intro": "Descubre los creadores que iluminan el mundo", "slide1": "Explora creadores cuya cultura, tradiciones y causas", "slide1accent": "inspiran al mundo.", "slide1desc": "Cada uno lleva una luz que merece ser descubierta.", "slide2title": "Lee una breve", "slide2accent": "parábola.", "slide2desc": "A partir de esta historia, adivina qué creador describe.", "slide3": "Identifica al creador entre", "slide3accent": "cuatro posibles respuestas.", "slide3desc": "Puedes revelar pistas para ayudarte.", "slide4": "Cada respuesta correcta agrega una nueva", "slide4accent": "luz", "slide4desc": "a tu colección.", "slide4sub": "Construye tu constelación personal de creadores inspiradores.", "shareTitle": "Explora luces inspiradoras", "shareAccent": "en redes sociales.", "paraboleExample": "\"Allí donde las montañas parecen imposibles de cultivar, ella revela escaleras de tierra que manos antiguas esculpieron…\"", "paraboleLabel": "Parábola", "scoring": { "paraboleOnly": "Solo parábola", "with2clues": "Con 2 pistas", "with3clues": "Con 3 pistas", "wrongAnswer": "Respuesta incorrecta" } },
+    "brands": { "title": "Yony", "titleAccent": "Brands", "intro": "Explora, aprende, juega y apoya marcas que crean impacto social, cultural y ecológico.", "explorer": "Brand", "explorerAccent": "Explorer", "explorerDesc": "Conoce una marca de impacto a través de su historia, misión, valores y acciones.", "explorerLabels": { "mission": "Misión", "values": "Valores", "actions": "Acciones" }, "match": "Brand", "matchAccent": "Match", "matchDesc": "Asocia cada imagen con la marca de impacto correcta.", "region": "Explorar por", "regionAccent": "Región", "regionDesc": "Filtra marcas por continente o país.", "regions": { "europe": "Europa", "africa": "África", "asia": "Asia", "americas": "Américas", "oceania": "Oceanía" }, "redistribute": "Redistribuye la", "redistributeAccent": "Luz.", "redistributeDesc": "Redistribuye tus tokens a las Flowers del Yonyverse y apoya sus proyectos." },
     "places": { "title": "Yony", "titleAccent": "Places", "intro": "Ilumina el patrimonio cultural del mundo.", "introDesc": "Una experiencia urbana inmersiva que transforma lugares significativos en puntos de un movimiento cultural global.", "goTo": "Ve a un", "goToAccent": "Lugar.", "goToDesc": "Encuentra un lugar asociado de Yony Places en una de las ciudades participantes del mundo.", "scan": "Escanea el", "scanAccent": "QR Code.", "scanDesc": "Cada lugar alberga un código QR único vinculado a un objeto cultural.", "discover": "Descubre la", "discoverAccent": "Historia.", "discoverDesc": "Conoce sus orígenes, su viaje y su significado para la comunidad de la que proviene.", "gift": "Recibe un", "giftAccent": "Regalo.", "giftDesc": "Después de cada escaneo, participa en la lotería del lugar. Deja una reseña en Google y recibe tu recompensa.", "noLosers": "Sin perdedores", "giftEnd": " — cada participación es recompensada.", "redistribute": "Redistribuye la", "redistributeAccent": "Luz.", "redistributeDesc1": "Gana Light Tokens después de cada escaneo.", "redistributeDesc2": "Redistribuye tus tokens a las Flowers del Yonyverse y apoya sus proyectos." },
     "travels": { "title": "Yony", "titleAccent": "Travels", "slide1desc1": "Una búsqueda del tesoro cultural internacional.", "slide1desc2": "Sigue viajes por el mundo y descubre tradiciones, lugares e historias.", "explore": "Explora 16", "exploreAccent": "Territorios", "exploreDesc": "Cada territorio te invita a descubrir sus tradiciones, lugares y misterios culturales.", "follow": "Sigue el", "followAccent": "Viaje", "followDesc": "Cada destino revela pistas culturales y conocimientos ocultos.", "solve": "Resuelve los", "solveAccent": "Enigmas", "solveDesc": "Desbloquea los secretos de cada territorio resolviendo enigmas y desafíos culturales.", "collect": "Colecta la", "collectAccent": "Luz", "collectDesc1": "Cada enigma resuelto te recompensa con Light Tokens.", "collectDesc2": "Construye tu colección mientras viajas por el Yonyverse.", "redistribute": "Redistribuye la", "redistributeAccent": "Luz.", "redistributeDesc": "Redistribuye tus tokens a las Flowers del Yonyverse y apoya sus proyectos." },
     "values": { "benevolence": "Benevolencia", "transmission": "Transmisión", "creativity": "Creatividad", "gratitude": "Gratitud", "cohesion": "Cohesión", "empathy": "Empatía", "authenticity": "Autenticidad", "resilience": "Resiliencia", "tolerance": "Tolerancia", "equity": "Equidad", "connection": "Conexión", "intuition": "Intuición", "lucidity": "Lucidez", "perseverance": "Perseverancia", "humility": "Humildad", "patience": "Paciencia" }
   },
-  "seo": {
-    "homeTitle": "Yonyverse — Un Universo Cultural y Lúdico Global",
-    "homeDescription": "Entra en el Yonyverse, un universo global donde sueños, culturas y sabiduría se unen a través de los Yony Games.",
-    "joinTitle": "Unirse al Yonyverse — Elige tu Personaje",
-    "joinDescription": "Forma parte de la comunidad fundadora del Yonyverse. Elige tu rol de personaje y da forma al futuro del juego cultural.",
-    "notFoundTitle": "Página No Encontrada — Yonyverse"
-  }
+  "seo": { "homeTitle": "Yonyverse — Un Universo Cultural y Lúdico Global", "homeDescription": "Entra en el Yonyverse, un universo global donde sueños, culturas y sabiduría se unen a través de los Yony Games.", "joinTitle": "Unirse al Yonyverse — Elige tu Personaje", "joinDescription": "Forma parte de la comunidad fundadora del Yonyverse. Elige tu rol de personaje y da forma al futuro del juego cultural.", "notFoundTitle": "Página No Encontrada — Yonyverse" }
 }

@@ -130,6 +130,22 @@
       "peru": { "name": "Peru", "value": "Benevolence", "desc": "Benevolence spreads generosity through every action." }
     }
   },
+  "portal": {
+    "title": "The",
+    "titleAccent": "Portals",
+    "subtitle": "Choose your path into the Yonyverse.",
+    "characters": { "title": "Characters", "description": "Meet the archetypal roles that shape the Yonyverse universe." },
+    "world": { "title": "Explore the World", "description": "Journey through 16 founding territories and their cultural wisdom." },
+    "games": { "title": "The Games", "description": "Discover the eight games that elevate dreams, cultures and wisdom." },
+    "join": { "title": "Join the Games", "description": "Become part of the founding community and shape the future." }
+  },
+  "timeline": {
+    "title": "The",
+    "titleAccent": "Journey",
+    "subtitle": "256 days. 16 cycles. One epic cultural odyssey.",
+    "cycle": "Cycle",
+    "day": "Day"
+  },
   "join": {
     "title": "The",
     "titleYony": "Yony",
@@ -326,6 +342,7 @@
     "nextStep4": "The beginning of your adventure in the Yonyverse"
   },
   "onboarding": {
+    "goToSlide": "Go to slide {{num}}",
     "voices": {
       "title": "Yony",
       "titleAccent": "Voices",
@@ -341,7 +358,10 @@
       "slide4a": "Each voice helps a project",
       "slide4aAccent": "grow",
       "slide4b": "And each story helps a Flower bloom in the",
-      "slide4bAccent": "Yonyverse"
+      "slide4bAccent": "Yonyverse",
+      "seedTheme": "A Childhood Memory",
+      "seedTheme2": "A Turning Point",
+      "seedTheme3": "A Teacher's Words"
     },
     "visions": {
       "title": "Yony",
@@ -358,7 +378,20 @@
       "shareDesc": "Post it and connect it to your project.",
       "finalTitle": "Each creation reveals a",
       "finalAccent": "vision.",
-      "finalDesc": "And each vision brings a project into the light."
+      "finalDesc": "And each vision brings a project into the light.",
+      "artForms": {
+        "photography": "Photography",
+        "music": "Music",
+        "illustration": "Illustration",
+        "dance": "Dance",
+        "poetry": "Poetry",
+        "crafts": "Crafts"
+      },
+      "participantQuotes": {
+        "amara": "Through my lens, I capture the resilience of my community.",
+        "carlos": "Each melody carries the voice of the river.",
+        "linh": "My drawings weave together centuries of tradition."
+      }
     },
     "legends": {
       "title": "Yony",
@@ -395,7 +428,25 @@
       "slide4desc": "Select two values that resonate with your reflection.",
       "shareTitle": "Share your creation on",
       "shareAccent": "social media.",
-      "shareDesc": "Post it and connect it to your project."
+      "shareDesc": "Post it and connect it to your project.",
+      "dilemmas": {
+        "networkOfSecrets": "The Network of Secrets",
+        "machineOfPossibilities": "The Machine of Possibilities",
+        "shadowsOfPast": "Shadows of the Past",
+        "gardenOfIllusions": "The Garden of Illusions",
+        "horizonProject": "The Horizon Project",
+        "echoOfVoices": "The Echo of Voices",
+        "libraryOfSouls": "The Library of Souls",
+        "bridgeOfSilences": "The Bridge of Silences",
+        "hiddenTruths": "Hidden Truths",
+        "spiralOfEmotions": "The Spiral of Emotions",
+        "magicDrum": "The Magic Drum",
+        "lakeOfReflections": "The Lake of Reflections",
+        "marketOfIdentities": "The Market of Identities",
+        "brokenClock": "The Broken Clock",
+        "whisperingCity": "The Whispering City",
+        "abandonedTheater": "Abandoned Theater"
+      }
     },
     "lights": {
       "title": "Yony",
@@ -415,7 +466,15 @@
       "slide4desc": "to your collection.",
       "slide4sub": "Build your personal constellation of inspiring creators.",
       "shareTitle": "Explore inspiring lights",
-      "shareAccent": "on social media."
+      "shareAccent": "on social media.",
+      "paraboleExample": "\"Là où les montagnes semblent impossibles à cultiver, elle révèle des escaliers de terre que des mains anciennes ont sculptés…\"",
+      "paraboleLabel": "Parabole",
+      "scoring": {
+        "paraboleOnly": "Parabole only",
+        "with2clues": "With 2 clues",
+        "with3clues": "With 3 clues",
+        "wrongAnswer": "Wrong answer"
+      }
     },
     "brands": {
       "title": "Yony",
@@ -424,12 +483,20 @@
       "explorer": "Brand",
       "explorerAccent": "Explorer",
       "explorerDesc": "Learn about an impact brand through its story, mission, values, and actions.",
+      "explorerLabels": { "mission": "Mission", "values": "Values", "actions": "Actions" },
       "match": "Brand",
       "matchAccent": "Match",
       "matchDesc": "Match each image with the correct impact brand.",
       "region": "Explore by",
       "regionAccent": "Region",
       "regionDesc": "Filter brands by continent or country.",
+      "regions": {
+        "europe": "Europe",
+        "africa": "Africa",
+        "asia": "Asia",
+        "americas": "Americas",
+        "oceania": "Oceania"
+      },
       "redistribute": "Redistribute the",
       "redistributeAccent": "Light.",
       "redistributeDesc": "Redistribute your tokens to the Flowers of the Yonyverse and support their projects."
