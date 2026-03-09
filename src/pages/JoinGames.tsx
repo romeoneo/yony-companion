@@ -267,7 +267,7 @@ const JoinGames = () => {
                 disabled={!canProceed()}
                 className="flex items-center gap-2"
               >
-                Suivant
+                Next
                 <ArrowRight className="w-4 h-4" />
               </Button>
             </div>
