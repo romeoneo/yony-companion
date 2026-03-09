@@ -164,7 +164,7 @@ const JoinGames = () => {
               Home
             </Button>
             <h1 className="text-2xl font-serif font-bold flex-1 text-center">
-              Join the <span style={{ color: "#e76830" }}>Yonyverse Games</span>
+              Join the <span style={{ color: "#e76830" }}>Yonyverse</span>
             </h1>
             <div className="text-sm text-muted-foreground shrink-0">
               Step {currentStep} of {totalSteps}
