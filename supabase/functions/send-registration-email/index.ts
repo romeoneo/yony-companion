@@ -28,7 +28,7 @@ serve(async (req) => {
       method: "POST",
       headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
       body: JSON.stringify({
-        from: "Yonyverse <noreply@yonyverse.com>",
+        from: "Yonyverse Community <community@yonyverse.com>",
         to: [email],
         subject: "Welcome to the Yonyverse",
         html: `
