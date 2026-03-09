@@ -18,8 +18,8 @@ const RegistrationConfirmation = () => {
         className="max-w-lg w-full"
       >
         <Card className="p-10 text-center space-y-6">
-          <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto">
-            <Check className="w-10 h-10 text-green-600" />
+          <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+            <Check className="w-10 h-10 text-primary" />
           </div>
 
           <h1 className="text-3xl font-serif font-bold">
