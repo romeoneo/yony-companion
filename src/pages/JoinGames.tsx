@@ -229,7 +229,6 @@ const JoinGames = () => {
                 <SpecializationStep
                   role={registrationData.role}
                   country={registrationData.country}
-                  projectCategory={registrationData.projectCategory}
                   tutorMissionAccepted={registrationData.tutorMissionAccepted}
                   onUpdate={updateData}
                 />
