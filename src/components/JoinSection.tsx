@@ -171,7 +171,7 @@ const JoinSection = () => {
             To bring the games to life across multiple territories, the essential foundations of the journey must be powered by collective support.
           </p>
           <p className="text-muted-foreground mb-8">
-            These resources enable the adventure to unfold, connect participants, and share the story with the world.
+            The Yony Fund mobilizes collective financial and strategic support to help the adventure grow and reach the world.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
             {pillars.map((pillar, i) => {
