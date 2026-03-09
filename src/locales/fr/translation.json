@@ -19,92 +19,30 @@
     "title": "Les",
     "titleAccent": "Personnages",
     "subtitle": "Des rôles archétypaux qui façonnent le Yonyverse.",
-    "seeds": {
-      "name": "Yony Seeds",
-      "subtitle": "Porteurs de Rêves",
-      "description": "Porteurs de rêves présentant des projets à impact durant les neuf mois des Yony Games. Chaque Graine appartient à un groupe Flower de huit Graines représentant un territoire."
-    },
-    "brands": {
-      "name": "Yony Brands",
-      "subtitle": "Partenaires Visionnaires",
-      "description": "Partenaires visionnaires qui alignent leur identité de marque avec les valeurs culturelles des Yony Games, amplifiant la portée des rêves à travers le monde."
-    },
-    "lights": {
-      "name": "Yony Lights",
-      "subtitle": "Luminaires Créatifs",
-      "description": "Luminaires créatifs qui éclairent les récits culturels de chaque territoire à travers l'art, la musique et le récit."
-    },
-    "angels": {
-      "name": "Yony Angels",
-      "subtitle": "Gardiens Généreux",
-      "description": "Gardiens généreux qui fournissent ressources et guidance pour nourrir les rêves des Graines tout au long du voyage."
-    },
-    "stars": {
-      "name": "Yony Stars",
-      "subtitle": "Figures Renommées",
-      "description": "Figures renommées qui prêtent leur influence et leur sagesse pour élever la visibilité et l'impact des Yony Games."
-    },
-    "magics": {
-      "name": "Yony Magics",
-      "subtitle": "Artistes Numériques",
-      "description": "Artistes numériques et technologues qui tissent des expériences immersives, donnant vie à l'univers mythologique."
-    },
-    "guards": {
-      "name": "Yony Guards",
-      "subtitle": "Protecteurs des Valeurs",
-      "description": "Protecteurs des valeurs et de l'intégrité des Yony Games, garantissant équité, respect et authenticité culturelle."
-    },
-    "places": {
-      "name": "Yony Places",
-      "subtitle": "Espaces Sacrés",
-      "description": "Espaces sacrés et lieux qui accueillent les manifestations physiques des Yony Games à travers les 16 territoires fondateurs."
-    }
+    "seeds": { "name": "Yony Seeds", "subtitle": "Porteurs de Rêves", "description": "Porteurs de rêves présentant des projets à impact durant les neuf mois des Yony Games. Chaque Graine appartient à un groupe Flower de huit Graines représentant un territoire." },
+    "brands": { "name": "Yony Brands", "subtitle": "Partenaires Visionnaires", "description": "Partenaires visionnaires qui alignent leur identité de marque avec les valeurs culturelles des Yony Games, amplifiant la portée des rêves à travers le monde." },
+    "lights": { "name": "Yony Lights", "subtitle": "Luminaires Créatifs", "description": "Luminaires créatifs qui éclairent les récits culturels de chaque territoire à travers l'art, la musique et le récit." },
+    "angels": { "name": "Yony Angels", "subtitle": "Gardiens Généreux", "description": "Gardiens généreux qui fournissent ressources et guidance pour nourrir les rêves des Graines tout au long du voyage." },
+    "stars": { "name": "Yony Stars", "subtitle": "Figures Renommées", "description": "Figures renommées qui prêtent leur influence et leur sagesse pour élever la visibilité et l'impact des Yony Games." },
+    "magics": { "name": "Yony Magics", "subtitle": "Artistes Numériques", "description": "Artistes numériques et technologues qui tissent des expériences immersives, donnant vie à l'univers mythologique." },
+    "guards": { "name": "Yony Guards", "subtitle": "Protecteurs des Valeurs", "description": "Protecteurs des valeurs et de l'intégrité des Yony Games, garantissant équité, respect et authenticité culturelle." },
+    "places": { "name": "Yony Places", "subtitle": "Espaces Sacrés", "description": "Espaces sacrés et lieux qui accueillent les manifestations physiques des Yony Games à travers les 16 territoires fondateurs." }
   },
   "games": {
     "title": "Les",
     "titleAccent": "Yony Games",
     "subtitle": "Huit jeux qui élèvent les rêves, les cultures et la sagesse.",
     "discoverGame": "Découvrir le Jeu →",
-    "visibility": {
-      "title": "Jeux de Visibilité",
-      "description": "Ces jeux aident les Yony Seeds à partager leur vision, leurs valeurs, leur personnalité et leur histoire avec leur communauté."
-    },
-    "engagement": {
-      "title": "Jeux d'Engagement",
-      "description": "Les joueurs explorent les jeux, découvrent de nouvelles perspectives et gagnent des Points Lumière à redistribuer aux Yony Flowers."
-    },
-    "voices": {
-      "title": "Yony Voices",
-      "description": "Amplifier les histoires culturelles par la voix et le récit, partageant la sagesse entre communautés."
-    },
-    "visions": {
-      "title": "Yony Visions",
-      "description": "Donner de la visibilité à votre projet à travers l'art — photographie, illustration, musique et au-delà."
-    },
-    "legends": {
-      "title": "Yony Legends",
-      "description": "Transformer le mystère en imagination. Découvrir les légendes cachées dans chaque territoire."
-    },
-    "keys": {
-      "title": "Yony Keys",
-      "description": "Débloquer les connaissances culturelles à travers des énigmes collaboratives et des puzzles de sagesse ancienne."
-    },
-    "lightsGame": {
-      "title": "Yony Lights",
-      "description": "Illuminer les projets à impact à travers le storytelling créatif et la célébration culturelle."
-    },
-    "brandsGame": {
-      "title": "Yony Brands",
-      "description": "Connecter les marques aux valeurs culturelles, créant des partenariats authentiques qui élèvent les rêves."
-    },
-    "placesGame": {
-      "title": "Yony Places",
-      "description": "Découvrir les espaces sacrés et les lieux qui accueillent les jeux physiques à travers les territoires."
-    },
-    "travels": {
-      "title": "Yony Travels",
-      "description": "Découvrir les traditions culturelles et les connexions qui unissent 16 pays inspirants."
-    }
+    "visibility": { "title": "Jeux de Visibilité", "description": "Ces jeux aident les Yony Seeds à partager leur vision, leurs valeurs, leur personnalité et leur histoire avec leur communauté." },
+    "engagement": { "title": "Jeux d'Engagement", "description": "Les joueurs explorent les jeux, découvrent de nouvelles perspectives et gagnent des Points Lumière à redistribuer aux Yony Flowers." },
+    "voices": { "title": "Yony Voices", "description": "Amplifier les histoires culturelles par la voix et le récit, partageant la sagesse entre communautés." },
+    "visions": { "title": "Yony Visions", "description": "Donner de la visibilité à votre projet à travers l'art — photographie, illustration, musique et au-delà." },
+    "legends": { "title": "Yony Legends", "description": "Transformer le mystère en imagination. Découvrir les légendes cachées dans chaque territoire." },
+    "keys": { "title": "Yony Keys", "description": "Débloquer les connaissances culturelles à travers des énigmes collaboratives et des puzzles de sagesse ancienne." },
+    "lightsGame": { "title": "Yony Lights", "description": "Illuminer les projets à impact à travers le storytelling créatif et la célébration culturelle." },
+    "brandsGame": { "title": "Yony Brands", "description": "Connecter les marques aux valeurs culturelles, créant des partenariats authentiques qui élèvent les rêves." },
+    "placesGame": { "title": "Yony Places", "description": "Découvrir les espaces sacrés et les lieux qui accueillent les jeux physiques à travers les territoires." },
+    "travels": { "title": "Yony Travels", "description": "Découvrir les traditions culturelles et les connexions qui unissent 16 pays inspirants." }
   },
   "worldMap": {
     "title": "Le Voyage de",
@@ -130,31 +68,30 @@
       "peru": { "name": "Pérou", "value": "Bienveillance", "desc": "La bienveillance répand la générosité à travers chaque action." }
     }
   },
+  "portal": {
+    "title": "Les",
+    "titleAccent": "Portails",
+    "subtitle": "Choisissez votre chemin dans le Yonyverse.",
+    "characters": { "title": "Personnages", "description": "Rencontrez les rôles archétypaux qui façonnent l'univers Yonyverse." },
+    "world": { "title": "Explorer le Monde", "description": "Voyagez à travers les 16 territoires fondateurs et leur sagesse culturelle." },
+    "games": { "title": "Les Jeux", "description": "Découvrez les huit jeux qui élèvent rêves, cultures et sagesse." },
+    "join": { "title": "Rejoindre les Jeux", "description": "Faites partie de la communauté fondatrice et façonnez l'avenir." }
+  },
+  "timeline": {
+    "title": "Le",
+    "titleAccent": "Voyage",
+    "subtitle": "256 jours. 16 cycles. Une odyssée culturelle épique.",
+    "cycle": "Cycle",
+    "day": "Jour"
+  },
   "join": {
     "title": "Le",
     "titleYony": "Yony",
     "titleAccent": "Challenge",
     "subtitle": "Avant que les jeux ne puissent commencer, deux étapes doivent être accomplies. Une fois atteintes, les dates officielles des neuf mois des Yonyverse games seront annoncées.",
-    "step1": {
-      "label": "Étape 1",
-      "title": "Yony Family - Construire la communauté fondatrice",
-      "desc1": "Les jeux ont besoin de participants pour incarner les personnages de l'aventure.",
-      "desc2": "Chaque catégorie de personnages a un nombre minimum à atteindre.",
-      "goal": "🎯 Objectif : rassembler tous les personnages nécessaires au jeu.",
-      "left": "restant(s)"
-    },
-    "familyProgress": {
-      "title": "Progression Yony Family",
-      "members": "membres",
-      "assembled": "de la communauté fondatrice rassemblée"
-    },
-    "step2": {
-      "label": "Étape 2",
-      "title": "Yony Fund - Alimenter le Voyage Collectif",
-      "desc1": "Pour donner vie aux jeux à travers plusieurs territoires, les fondations essentielles du voyage doivent être alimentées par le soutien collectif.",
-      "desc2": "Le Yony Fund mobilise un soutien financier et stratégique collectif pour aider l'aventure à grandir et atteindre le monde.",
-      "goal": "🎯 Objectif : réunir les ressources nécessaires pour lancer le voyage collectif."
-    },
+    "step1": { "label": "Étape 1", "title": "Yony Family - Construire la communauté fondatrice", "desc1": "Les jeux ont besoin de participants pour incarner les personnages de l'aventure.", "desc2": "Chaque catégorie de personnages a un nombre minimum à atteindre.", "goal": "🎯 Objectif : rassembler tous les personnages nécessaires au jeu.", "left": "restant(s)" },
+    "familyProgress": { "title": "Progression Yony Family", "members": "membres", "assembled": "de la communauté fondatrice rassemblée" },
+    "step2": { "label": "Étape 2", "title": "Yony Fund - Alimenter le Voyage Collectif", "desc1": "Pour donner vie aux jeux à travers plusieurs territoires, les fondations essentielles du voyage doivent être alimentées par le soutien collectif.", "desc2": "Le Yony Fund mobilise un soutien financier et stratégique collectif pour aider l'aventure à grandir et atteindre le monde.", "goal": "🎯 Objectif : réunir les ressources nécessaires pour lancer le voyage collectif." },
     "pillars": {
       "exploration": { "title": "Exploration et voyage", "desc": "Transports et explorations à travers les territoires activés dans le voyage." },
       "collective": { "title": "Opérations collectives", "desc": "Organisation, coordination et facilitation de l'aventure collective." },
@@ -176,32 +113,17 @@
     "joinTheGames": "Rejoindre les Jeux",
     "copyright": "© 2026 Yonyverse. Tous droits réservés."
   },
-  "notFound": {
-    "title": "404",
-    "message": "Oups ! Page non trouvée",
-    "backHome": "Retour à l'accueil"
-  },
+  "notFound": { "title": "404", "message": "Oups ! Page non trouvée", "backHome": "Retour à l'accueil" },
   "joinGames": {
     "pageTitle": "Rejoindre le",
     "pageTitleAccent": "Yonyverse",
     "home": "Accueil",
     "stepOf": "Étape {{current}} sur {{total}}",
-    "steps": {
-      "role": "Rôle",
-      "profile": "Profil",
-      "country": "Pays",
-      "engagement": "Engagement",
-      "confirmation": "Confirmation"
-    },
+    "steps": { "role": "Rôle", "profile": "Profil", "country": "Pays", "engagement": "Engagement", "confirmation": "Confirmation" },
     "cancel": "Annuler",
     "previous": "Précédent",
     "next": "Suivant",
-    "cancelDialog": {
-      "title": "Annuler l'inscription ?",
-      "description": "Êtes-vous sûr de vouloir annuler ? Toutes les informations saisies seront perdues.",
-      "continue": "Continuer l'inscription",
-      "confirm": "Oui, annuler"
-    }
+    "cancelDialog": { "title": "Annuler l'inscription ?", "description": "Êtes-vous sûr de vouloir annuler ? Toutes les informations saisies seront perdues.", "continue": "Continuer l'inscription", "confirm": "Oui, annuler" }
   },
   "roleSelection": {
     "title": "Choisissez votre",
@@ -326,6 +248,7 @@
     "nextStep4": "Le début de votre aventure dans le Yonyverse"
   },
   "onboarding": {
+    "goToSlide": "Aller à la diapositive {{num}}",
     "voices": {
       "title": "Yony",
       "titleAccent": "Voices",
@@ -341,7 +264,10 @@
       "slide4a": "Chaque voix aide un projet à",
       "slide4aAccent": "grandir",
       "slide4b": "Et chaque histoire aide une Flower à éclore dans le",
-      "slide4bAccent": "Yonyverse"
+      "slide4bAccent": "Yonyverse",
+      "seedTheme": "Un souvenir d'enfance",
+      "seedTheme2": "Un tournant",
+      "seedTheme3": "Les mots d'un professeur"
     },
     "visions": {
       "title": "Yony",
@@ -358,7 +284,20 @@
       "shareDesc": "Publiez-la et connectez-la à votre projet.",
       "finalTitle": "Chaque création révèle une",
       "finalAccent": "vision.",
-      "finalDesc": "Et chaque vision amène un projet dans la lumière."
+      "finalDesc": "Et chaque vision amène un projet dans la lumière.",
+      "artForms": {
+        "photography": "Photographie",
+        "music": "Musique",
+        "illustration": "Illustration",
+        "dance": "Danse",
+        "poetry": "Poésie",
+        "crafts": "Artisanat"
+      },
+      "participantQuotes": {
+        "amara": "À travers mon objectif, je capture la résilience de ma communauté.",
+        "carlos": "Chaque mélodie porte la voix de la rivière.",
+        "linh": "Mes dessins tissent ensemble des siècles de tradition."
+      }
     },
     "legends": {
       "title": "Yony",
@@ -395,7 +334,25 @@
       "slide4desc": "Sélectionnez deux valeurs qui résonnent avec votre réflexion.",
       "shareTitle": "Partagez votre création sur",
       "shareAccent": "les réseaux sociaux.",
-      "shareDesc": "Publiez-la et connectez-la à votre projet."
+      "shareDesc": "Publiez-la et connectez-la à votre projet.",
+      "dilemmas": {
+        "networkOfSecrets": "Le Réseau des Secrets",
+        "machineOfPossibilities": "La Machine des Possibles",
+        "shadowsOfPast": "Les Ombres du Passé",
+        "gardenOfIllusions": "Le Jardin des Illusions",
+        "horizonProject": "Le Projet Horizon",
+        "echoOfVoices": "L'Écho des Voix",
+        "libraryOfSouls": "La Bibliothèque des Âmes",
+        "bridgeOfSilences": "Le Pont des Silences",
+        "hiddenTruths": "La Vérité Cachée",
+        "spiralOfEmotions": "La Spirale des Émotions",
+        "magicDrum": "Le Tambour Magique",
+        "lakeOfReflections": "Le Lac des Reflets",
+        "marketOfIdentities": "Le Marché des Identités",
+        "brokenClock": "L'Horloge Brisée",
+        "whisperingCity": "La Ville qui Chuchote",
+        "abandonedTheater": "Le Théâtre Abandonné"
+      }
     },
     "lights": {
       "title": "Yony",
@@ -415,7 +372,15 @@
       "slide4desc": "à votre collection.",
       "slide4sub": "Construisez votre constellation personnelle de créateurs inspirants.",
       "shareTitle": "Explorez des lumières inspirantes",
-      "shareAccent": "sur les réseaux sociaux."
+      "shareAccent": "sur les réseaux sociaux.",
+      "paraboleExample": "\"Là où les montagnes semblent impossibles à cultiver, elle révèle des escaliers de terre que des mains anciennes ont sculptés…\"",
+      "paraboleLabel": "Parabole",
+      "scoring": {
+        "paraboleOnly": "Parabole uniquement",
+        "with2clues": "Avec 2 indices",
+        "with3clues": "Avec 3 indices",
+        "wrongAnswer": "Mauvaise réponse"
+      }
     },
     "brands": {
       "title": "Yony",
@@ -424,12 +389,20 @@
       "explorer": "Brand",
       "explorerAccent": "Explorer",
       "explorerDesc": "Découvrez une marque à impact à travers son histoire, sa mission, ses valeurs et ses actions.",
+      "explorerLabels": { "mission": "Mission", "values": "Valeurs", "actions": "Actions" },
       "match": "Brand",
       "matchAccent": "Match",
       "matchDesc": "Associez chaque image à la bonne marque à impact.",
       "region": "Explorer par",
       "regionAccent": "Région",
       "regionDesc": "Filtrez les marques par continent ou pays.",
+      "regions": {
+        "europe": "Europe",
+        "africa": "Afrique",
+        "asia": "Asie",
+        "americas": "Amériques",
+        "oceania": "Océanie"
+      },
       "redistribute": "Redistribuez la",
       "redistributeAccent": "Lumière.",
       "redistributeDesc": "Redistribuez vos tokens aux Flowers du Yonyverse et soutenez leurs projets."
