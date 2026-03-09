@@ -78,6 +78,7 @@ const JoinSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+        >
           <div className="text-primary font-sans-body text-sm font-semibold uppercase tracking-wider mb-2">Step 1</div>
           <h3 className="font-serif text-2xl font-bold mb-4">Yony Family - Build the founding community</h3>
           <p className="text-muted-foreground mb-2">
