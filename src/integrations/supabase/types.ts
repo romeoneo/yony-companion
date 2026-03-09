@@ -14,7 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      game_registrations: {
+        Row: {
+          avatar_url: string | null
+          country: Database["public"]["Enums"]["country_code"] | null
+          created_at: string
+          email: string
+          engagement_text: string
+          full_name: string
+          id: string
+          intention_text: string
+          is_completed: boolean | null
+          project_category: string | null
+          registration_step: number | null
+          role: Database["public"]["Enums"]["game_role"]
+          tutor_mission_accepted: boolean | null
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          country?: Database["public"]["Enums"]["country_code"] | null
+          created_at?: string
+          email: string
+          engagement_text: string
+          full_name: string
+          id?: string
+          intention_text: string
+          is_completed?: boolean | null
+          project_category?: string | null
+          registration_step?: number | null
+          role: Database["public"]["Enums"]["game_role"]
+          tutor_mission_accepted?: boolean | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          country?: Database["public"]["Enums"]["country_code"] | null
+          created_at?: string
+          email?: string
+          engagement_text?: string
+          full_name?: string
+          id?: string
+          intention_text?: string
+          is_completed?: boolean | null
+          project_category?: string | null
+          registration_step?: number | null
+          role?: Database["public"]["Enums"]["game_role"]
+          tutor_mission_accepted?: boolean | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +76,33 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      country_code:
+        | "france"
+        | "spain"
+        | "italy"
+        | "germany"
+        | "portugal"
+        | "morocco"
+        | "senegal"
+        | "ivory_coast"
+        | "burkina_faso"
+        | "mali"
+        | "algeria"
+        | "tunisia"
+        | "madagascar"
+        | "mauritius"
+        | "canada"
+        | "belgium"
+      game_role:
+        | "yony_flowers_tutor"
+        | "yony_flowers_project"
+        | "yony_brands"
+        | "yony_lights"
+        | "yony_places"
+        | "yony_angels"
+        | "yony_magics"
+        | "yony_stars"
+        | "yony_guards"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +229,36 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      country_code: [
+        "france",
+        "spain",
+        "italy",
+        "germany",
+        "portugal",
+        "morocco",
+        "senegal",
+        "ivory_coast",
+        "burkina_faso",
+        "mali",
+        "algeria",
+        "tunisia",
+        "madagascar",
+        "mauritius",
+        "canada",
+        "belgium",
+      ],
+      game_role: [
+        "yony_flowers_tutor",
+        "yony_flowers_project",
+        "yony_brands",
+        "yony_lights",
+        "yony_places",
+        "yony_angels",
+        "yony_magics",
+        "yony_stars",
+        "yony_guards",
+      ],
+    },
   },
 } as const
