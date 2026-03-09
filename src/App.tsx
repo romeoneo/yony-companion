@@ -71,6 +71,13 @@ const App = () => (
           <Route path="/:lang/unirse" element={<JoinGamesRoute />} />
           <Route path="/:lang/juntar-se" element={<JoinGamesRoute />} />
 
+          {/* Registration confirmation */}
+          <Route path="/:lang/registration-confirmation" element={<LanguageWrapper><RegistrationConfirmation /></LanguageWrapper>} />
+          <Route path="/registration-confirmation" element={<RegistrationConfirmation />} />
+
+          {/* Admin */}
+          <Route path="/admin/registrations" element={<AdminRegistrations />} />
+
           {/* Legacy redirect */}
           <Route path="/join-games" element={<JoinRedirect />} />
 
