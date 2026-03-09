@@ -214,7 +214,7 @@ const JoinSection = () => {
             className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-primary text-primary-foreground font-semibold font-sans-body text-lg hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/20"
           >
             <Flame className="w-5 h-5" />
-            Join the Founding Community
+            Join the Yony Family
           </a>
           <p className="text-muted-foreground text-sm mt-4">
             Be among the first — limited spots available for each character role.
