@@ -20,13 +20,13 @@
     "titleAccent": "Personnages",
     "subtitle": "Des rôles archétypaux qui façonnent le Yonyverse.",
     "seeds": { "name": "Yony Seeds", "subtitle": "Porteurs de Rêves", "description": "Porteurs de rêves présentant des projets à impact durant les neuf mois des Yony Games. Chaque Graine appartient à un groupe Flower de huit Graines représentant un territoire." },
-    "brands": { "name": "Yony Brands", "subtitle": "Partenaires Visionnaires", "description": "Partenaires visionnaires qui alignent leur identité de marque avec les valeurs culturelles des Yony Games, amplifiant la portée des rêves à travers le monde." },
-    "lights": { "name": "Yony Lights", "subtitle": "Luminaires Créatifs", "description": "Luminaires créatifs qui éclairent les récits culturels de chaque territoire à travers l'art, la musique et le récit." },
-    "angels": { "name": "Yony Angels", "subtitle": "Gardiens Généreux", "description": "Gardiens généreux qui fournissent ressources et guidance pour nourrir les rêves des Graines tout au long du voyage." },
-    "stars": { "name": "Yony Stars", "subtitle": "Figures Renommées", "description": "Figures renommées qui prêtent leur influence et leur sagesse pour élever la visibilité et l'impact des Yony Games." },
-    "magics": { "name": "Yony Magics", "subtitle": "Artistes Numériques", "description": "Artistes numériques et technologues qui tissent des expériences immersives, donnant vie à l'univers mythologique." },
-    "guards": { "name": "Yony Guards", "subtitle": "Protecteurs des Valeurs", "description": "Protecteurs des valeurs et de l'intégrité des Yony Games, garantissant équité, respect et authenticité culturelle." },
-    "places": { "name": "Yony Places", "subtitle": "Espaces Sacrés", "description": "Espaces sacrés et lieux qui accueillent les manifestations physiques des Yony Games à travers les 16 territoires fondateurs." }
+    "brands": { "name": "Yony Brands", "subtitle": "Marques Impactantes", "description": "Partenaires visionnaires qui alignent leur identité de marque avec les valeurs culturelles des Yony Games, amplifiant la portée des rêves à travers le monde." },
+    "lights": { "name": "Yony Lights", "subtitle": "Influenceurs Inspirants", "description": "Luminaires créatifs qui éclairent les récits culturels de chaque territoire à travers l'art, la musique et le récit." },
+    "angels": { "name": "Yony Angels", "subtitle": "Mentors d'Impact", "description": "Gardiens généreux qui fournissent ressources et guidance pour nourrir les rêves des Graines tout au long du voyage." },
+    "stars": { "name": "Yony Stars", "subtitle": "Égéries du Féminin", "description": "Figures renommées qui prêtent leur influence et leur sagesse pour élever la visibilité et l'impact des Yony Games." },
+    "magics": { "name": "Yony Magics", "subtitle": "Alchimistes Créatifs", "description": "Artistes numériques et technologues qui tissent des expériences immersives, donnant vie à l'univers mythologique." },
+    "guards": { "name": "Yony Guards", "subtitle": "Gardiens des Jeux", "description": "Protecteurs des valeurs et de l'intégrité des Yony Games, garantissant équité, respect et authenticité culturelle." },
+    "places": { "name": "Yony Places", "subtitle": "Lieux Engagés", "description": "Espaces sacrés et lieux qui accueillent les manifestations physiques des Yony Games à travers les 16 territoires fondateurs." }
   },
   "games": {
     "title": "Les",
