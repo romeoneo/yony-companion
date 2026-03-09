@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import logoYonyverseFull from "@/assets/logo-yonyverse-full.png";
 
@@ -15,47 +16,37 @@ const particles = [
 ];
 
 const HeroSection = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6 py-24">
-      {/* Floating light particles — CSS driven */}
       {particles.map((p, i) => (
         <div
           key={i}
           className="hero-particle"
           style={{
-            left: p.x,
-            top: p.y,
-            width: p.size,
-            height: p.size,
-            "--drift-y": `${p.driftY}px`,
-            "--drift-x": `${p.driftX}px`,
-            "--duration": `${p.duration}s`,
-            "--delay": `${p.delay}s`,
+            left: p.x, top: p.y, width: p.size, height: p.size,
+            "--drift-y": `${p.driftY}px`, "--drift-x": `${p.driftX}px`,
+            "--duration": `${p.duration}s`, "--delay": `${p.delay}s`,
             "--particle-opacity": p.opacity,
           } as React.CSSProperties}
         />
       ))}
 
-      {/* Logo with living glow */}
       <motion.div
         initial={{ opacity: 0, scale: 0.92 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
         className="z-10 relative"
       >
-        {/* Inner radial glow behind egg area */}
         <div
           className="absolute pointer-events-none"
           style={{
-            width: "40%",
-            height: "50%",
-            left: "50%",
-            top: "30%",
+            width: "40%", height: "50%", left: "50%", top: "30%",
             background: "radial-gradient(ellipse, hsl(40 80% 55% / 0.2), transparent 70%)",
             animation: "hero-egg-inner-glow 4s ease-in-out infinite",
           }}
         />
-
         <motion.img
           src={logoYonyverseFull}
           alt="Yonyverse Logo"
@@ -67,7 +58,6 @@ const HeroSection = () => {
         />
       </motion.div>
 
-      {/* Narrative */}
       <motion.div
         className="max-w-2xl text-center mt-16 z-10"
         initial={{ opacity: 0, y: 12 }}
@@ -75,22 +65,18 @@ const HeroSection = () => {
         transition={{ duration: 0.9, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
       >
         <p className="text-muted-foreground text-base md:text-lg mb-8 italic" style={{ lineHeight: "2.2" }}>
-          Yonyverse is a symbolic garden where dreams and projects{" "}
-          <span className="hidden md:inline"><br /></span>can take root and grow.
+          {t("hero.narrative1")}
         </p>
         <p className="text-muted-foreground text-base md:text-lg mb-8" style={{ lineHeight: "2.2" }}>
-          Within this space, the Yony Games bring visions to life.{" "}
-          <span className="hidden md:inline"><br /></span>They create a shared ground where cultures, ideas, and talents meet.
+          {t("hero.narrative2")}
         </p>
         <p className="text-muted-foreground text-base md:text-lg mb-8" style={{ lineHeight: "2.2" }}>
-          Through participation, individuals and communities gain visibility<br />and inspire one another.
+          {t("hero.narrative3")}
         </p>
         <p className="text-foreground text-lg md:text-xl italic font-medium mb-10" style={{ lineHeight: "2.2" }}>
-          From the Egg springs the world Earth desires.{" "}
-          <span className="hidden md:inline"><br /></span>We Are Born To Impact.
+          {t("hero.narrative4")}
         </p>
 
-        {/* CTA */}
         <motion.div
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
           initial={{ opacity: 0, y: 10 }}
@@ -98,16 +84,16 @@ const HeroSection = () => {
           transition={{ duration: 0.7, delay: 1.6 }}
         >
           <a
-            href="#join"
+            href="#games"
             className="px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold font-sans-body text-base hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/20"
           >
-            Join the Games
+            {t("hero.exploreGames")}
           </a>
           <a
             href="#games"
             className="px-8 py-3.5 rounded-full border border-border text-foreground font-sans-body text-base hover:bg-secondary transition-colors"
           >
-            Explore the Universe
+            {t("hero.exploreUniverse")}
           </a>
         </motion.div>
       </motion.div>
