@@ -130,10 +130,14 @@ const JoinGames = () => {
     }
   };
 
+  const [cancelDialogOpen, setCancelDialogOpen] = useState(false);
+
   const handleCancel = () => {
-    if (window.confirm("Are you sure you want to cancel your registration? All entered information will be lost.")) {
-      navigate("/");
-    }
+    setCancelDialogOpen(true);
+  };
+
+  const confirmCancel = () => {
+    navigate("/");
   };
 
   const canProceed = () => {
