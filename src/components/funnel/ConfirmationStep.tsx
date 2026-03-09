@@ -255,8 +255,7 @@ const ConfirmationStep = ({ registrationData, roleConfig }: ConfirmationStepProp
             onClick={handleSubmit}
             disabled={isSubmitting}
             size="lg"
-            className="px-12 py-4 text-lg"
-            style={{ backgroundColor: "#e76830", borderColor: "#e76830" }}
+            className="px-12 py-4 text-lg bg-primary hover:bg-primary/90"
           >
             {isSubmitting ? (
               <>
