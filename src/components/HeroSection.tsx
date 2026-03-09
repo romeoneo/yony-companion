@@ -78,7 +78,7 @@ const HeroSection = () => {
         </p>
 
         <motion.div
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex items-center justify-center"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.6 }}
@@ -88,12 +88,6 @@ const HeroSection = () => {
             className="px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold font-sans-body text-base hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/20"
           >
             {t("hero.exploreGames")}
-          </a>
-          <a
-            href="#games"
-            className="px-8 py-3.5 rounded-full border border-border text-foreground font-sans-body text-base hover:bg-secondary transition-colors"
-          >
-            {t("hero.exploreUniverse")}
           </a>
         </motion.div>
       </motion.div>

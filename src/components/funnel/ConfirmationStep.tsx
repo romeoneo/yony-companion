@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Check, Send, Loader } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -22,17 +23,14 @@ const countryNames: Record<string, string> = {
 };
 
 const ConfirmationStep = ({ registrationData, roleConfig }: ConfirmationStepProps) => {
+  const { t } = useTranslation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async () => {
     if (!registrationData.role || !registrationData.fullName || !registrationData.email) {
-      toast({
-        title: "Error",
-        description: "Please fill in all required fields.",
-        variant: "destructive"
-      });
+      toast({ title: t("confirmation.error"), description: t("confirmation.errorFields"), variant: "destructive" });
       return;
     }
 
@@ -44,21 +42,25 @@ const ConfirmationStep = ({ registrationData, roleConfig }: ConfirmationStepProp
       if (registrationData.avatarFile) {
         const fileExt = registrationData.avatarFile.name.split('.').pop();
         const fileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.${fileExt}`;
-
-        const { error: uploadError } = await supabase.storage
-          .from('avatars')
-          .upload(fileName, registrationData.avatarFile);
-
-        if (uploadError) {
-          throw new Error('Error uploading avatar');
-        }
-
-        const { data: { publicUrl } } = supabase.storage
-          .from('avatars')
-          .getPublicUrl(fileName);
-
+        const { error: uploadError } = await supabase.storage.from('avatars').upload(fileName, registrationData.avatarFile);
+        if (uploadError) throw new Error(t("confirmation.errorUpload"));
+        const { data: { publicUrl } } = supabase.storage.from('avatars').getPublicUrl(fileName);
         avatarUrl = publicUrl;
       }
+
+      // Build engagement text from new structured data
+      const engagementParts: string[] = [];
+      if (registrationData.contributionTypes?.length) {
+        engagementParts.push(`Contributions: ${registrationData.contributionTypes.map(k => t(`engagementStep.contributions.${k}`)).join(', ')}`);
+      }
+      if (registrationData.areasOfInterest?.length) {
+        engagementParts.push(`Interests: ${registrationData.areasOfInterest.map(k => t(`engagementStep.interests.${k}`)).join(', ')}`);
+      }
+      if (registrationData.roleIdentity) {
+        engagementParts.push(`Role: ${t(`engagementStep.roles.${registrationData.roleIdentity}`)}`);
+      }
+      const engagementText = engagementParts.join(' | ');
+      const intentionText = registrationData.optionalMessage || '';
 
       const { error: insertError } = await supabase
         .from('game_registrations')
@@ -68,32 +70,21 @@ const ConfirmationStep = ({ registrationData, roleConfig }: ConfirmationStepProp
           role: registrationData.role,
           country: registrationData.country || null,
           project_category: registrationData.projectCategory || null,
-          engagement_text: registrationData.engagementText || '',
-          intention_text: registrationData.intentionText || '',
+          engagement_text: engagementText,
+          intention_text: intentionText,
           avatar_url: avatarUrl,
           tutor_mission_accepted: registrationData.tutorMissionAccepted || false,
           registration_step: 5,
           is_completed: true
         });
 
-      if (insertError) {
-        throw insertError;
-      }
+      if (insertError) throw insertError;
 
       setIsSubmitted(true);
-
-      toast({
-        title: "Registration successful!",
-        description: "Your application has been submitted successfully.",
-      });
-
+      toast({ title: t("confirmation.successTitle"), description: t("confirmation.successDesc") });
     } catch (error: any) {
       console.error('Error submitting registration:', error);
-      toast({
-        title: "Error",
-        description: error.message || "An error occurred during registration.",
-        variant: "destructive"
-      });
+      toast({ title: t("confirmation.error"), description: error.message || t("confirmation.errorGeneric"), variant: "destructive" });
     } finally {
       setIsSubmitting(false);
     }
@@ -101,31 +92,21 @@ const ConfirmationStep = ({ registrationData, roleConfig }: ConfirmationStepProp
 
   if (isSubmitted) {
     return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="text-center py-12"
-      >
+      <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-12">
         <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
           <Check className="w-10 h-10 text-green-600" />
         </div>
-
         <h2 className="text-3xl font-serif font-bold mb-4">
-          Welcome to the <span style={{ color: "#e76830" }}>Yonyverse</span>!
+          {t("confirmation.welcomeTitle")} <span style={{ color: "#e76830" }}>{t("confirmation.welcomeTitleAccent")}</span>!
         </h2>
-
-        <p className="text-lg text-muted-foreground mb-6 max-w-md mx-auto">
-          Your registration has been submitted successfully. The Yonyverse team will review
-          your application and keep you informed about the next steps.
-        </p>
-
+        <p className="text-lg text-muted-foreground mb-6 max-w-md mx-auto">{t("confirmation.welcomeDesc")}</p>
         <div className="bg-secondary/50 p-6 rounded-xl max-w-lg mx-auto">
-          <h3 className="font-semibold mb-2">Next steps:</h3>
+          <h3 className="font-semibold mb-2">{t("confirmation.nextSteps")}</h3>
           <ul className="text-sm text-muted-foreground space-y-1 text-left">
-            <li>• Review of your application by the team</li>
-            <li>• Email notification within 48 hours</li>
-            <li>• Invitation to join the official community</li>
-            <li>• The beginning of your adventure in the Yonyverse</li>
+            <li>• {t("confirmation.nextStep1")}</li>
+            <li>• {t("confirmation.nextStep2")}</li>
+            <li>• {t("confirmation.nextStep3")}</li>
+            <li>• {t("confirmation.nextStep4")}</li>
           </ul>
         </div>
       </motion.div>
@@ -136,11 +117,9 @@ const ConfirmationStep = ({ registrationData, roleConfig }: ConfirmationStepProp
     <div>
       <div className="text-center mb-8">
         <h2 className="text-3xl font-serif font-bold mb-4">
-          Confirm your <span style={{ color: "#e76830" }}>Registration</span>
+          {t("confirmation.title")} <span style={{ color: "#e76830" }}>{t("confirmation.titleAccent")}</span>
         </h2>
-        <p className="text-muted-foreground text-lg">
-          Review your information before submitting your application.
-        </p>
+        <p className="text-muted-foreground text-lg">{t("confirmation.subtitle")}</p>
       </div>
 
       <div className="max-w-2xl mx-auto space-y-6">
@@ -149,23 +128,21 @@ const ConfirmationStep = ({ registrationData, roleConfig }: ConfirmationStepProp
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <div className="w-2 h-2 bg-primary rounded-full"></div>
-              Profile
+              {t("confirmation.profile")}
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
             <div className="flex justify-between">
-              <span className="text-muted-foreground">Name:</span>
+              <span className="text-muted-foreground">{t("confirmation.name")}</span>
               <span className="font-medium">{registrationData.fullName}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-muted-foreground">Email:</span>
+              <span className="text-muted-foreground">{t("confirmation.email")}</span>
               <span className="font-medium">{registrationData.email}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-muted-foreground">Photo:</span>
-              <span className="font-medium">
-                {registrationData.avatarFile ? "Uploaded ✓" : "Not provided"}
-              </span>
+              <span className="text-muted-foreground">{t("confirmation.photo")}</span>
+              <span className="font-medium">{registrationData.avatarFile ? t("confirmation.uploaded") : t("confirmation.notProvided")}</span>
             </div>
           </CardContent>
         </Card>
@@ -175,90 +152,72 @@ const ConfirmationStep = ({ registrationData, roleConfig }: ConfirmationStepProp
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-              Role
+              {t("confirmation.role")}
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="flex items-center gap-3 mb-4">
-              <Badge
-                variant="secondary"
-                className="px-3 py-1"
-                style={{ backgroundColor: `${roleConfig[registrationData.role!]?.color}20` }}
-              >
-                {roleConfig[registrationData.role!]?.name}
-              </Badge>
-            </div>
-
+            <Badge variant="secondary" className="px-3 py-1" style={{ backgroundColor: `${roleConfig[registrationData.role!]?.color}20` }}>
+              {roleConfig[registrationData.role!]?.name}
+            </Badge>
             {registrationData.role === 'yony_flowers_tutor' && (
-              <div className="bg-secondary/30 p-3 rounded-lg">
-                <p className="text-sm">
-                  <strong>Mission:</strong> Recruit and mentor 8 Yony Seeds
-                </p>
-                <p className="text-sm text-green-600">
-                  ✓ Mission accepted
-                </p>
-              </div>
-            )}
-
-            {registrationData.role === 'yony_flowers_project' && (
-              <div className="bg-secondary/30 p-3 rounded-lg space-y-2">
-                <p className="text-sm">
-                  <strong>Country:</strong> {registrationData.country ? countryNames[registrationData.country] : ''}
-                </p>
-                <p className="text-sm">
-                  <strong>Category:</strong> {registrationData.projectCategory}
-                </p>
+              <div className="bg-secondary/30 p-3 rounded-lg mt-3">
+                <p className="text-sm"><strong>{t("confirmation.mission")}</strong> {t("confirmation.missionDesc")}</p>
+                <p className="text-sm text-green-600">{t("confirmation.missionAccepted")}</p>
               </div>
             )}
           </CardContent>
         </Card>
 
-        {/* Engagement Summary */}
+        {/* Contribution Summary */}
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              Engagement & Intention
+              {t("confirmation.engagementIntention")}
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div>
-              <h4 className="font-medium mb-2">Your engagement:</h4>
-              <p className="text-sm text-muted-foreground bg-secondary/30 p-3 rounded-lg">
-                {registrationData.engagementText}
-              </p>
-            </div>
-            <div>
-              <h4 className="font-medium mb-2">Your intention:</h4>
-              <p className="text-sm text-muted-foreground bg-secondary/30 p-3 rounded-lg">
-                {registrationData.intentionText}
-              </p>
-            </div>
+            {(registrationData.contributionTypes?.length ?? 0) > 0 && (
+              <div>
+                <h4 className="font-medium mb-2">{t("engagementStep.contributionTitle")}</h4>
+                <div className="flex flex-wrap gap-2">
+                  {registrationData.contributionTypes!.map((key) => (
+                    <Badge key={key} variant="outline" className="text-xs">{t(`engagementStep.contributions.${key}`)}</Badge>
+                  ))}
+                </div>
+              </div>
+            )}
+            {(registrationData.areasOfInterest?.length ?? 0) > 0 && (
+              <div>
+                <h4 className="font-medium mb-2">{t("engagementStep.interestsTitle")}</h4>
+                <div className="flex flex-wrap gap-2">
+                  {registrationData.areasOfInterest!.map((key) => (
+                    <Badge key={key} variant="outline" className="text-xs">{t(`engagementStep.interests.${key}`)}</Badge>
+                  ))}
+                </div>
+              </div>
+            )}
+            {registrationData.roleIdentity && (
+              <div>
+                <h4 className="font-medium mb-2">{t("engagementStep.roleTitle")}</h4>
+                <Badge variant="secondary">{t(`engagementStep.roles.${registrationData.roleIdentity}`)}</Badge>
+              </div>
+            )}
+            {registrationData.optionalMessage && (
+              <div>
+                <h4 className="font-medium mb-2">{t("engagementStep.optionalTitle")}</h4>
+                <p className="text-sm text-muted-foreground bg-secondary/30 p-3 rounded-lg">{registrationData.optionalMessage}</p>
+              </div>
+            )}
           </CardContent>
         </Card>
 
-        {/* Submit Button */}
-        <motion.div
-          className="text-center pt-4"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          <Button
-            onClick={handleSubmit}
-            disabled={isSubmitting}
-            size="lg"
-            className="px-12 py-4 text-lg bg-primary hover:bg-primary/90"
-          >
+        <motion.div className="text-center pt-4" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+          <Button onClick={handleSubmit} disabled={isSubmitting} size="lg" className="px-12 py-4 text-lg bg-primary hover:bg-primary/90">
             {isSubmitting ? (
-              <>
-                <Loader className="w-5 h-5 animate-spin mr-2" />
-                Submitting...
-              </>
+              <><Loader className="w-5 h-5 animate-spin mr-2" />{t("confirmation.submitting")}</>
             ) : (
-              <>
-                <Send className="w-5 h-5 mr-2" />
-                Submit my application
-              </>
+              <><Send className="w-5 h-5 mr-2" />{t("confirmation.submit")}</>
             )}
           </Button>
         </motion.div>

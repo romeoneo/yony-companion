@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -47,98 +48,47 @@ export interface RegistrationData {
   intentionText?: string;
   avatarFile?: File;
   tutorMissionAccepted?: boolean;
+  contributionTypes?: string[];
+  areasOfInterest?: string[];
+  roleIdentity?: string;
+  optionalMessage?: string;
 }
 
 const roleConfig = {
-  yony_flowers_tutor: {
-    name: "Yony Flowers (Tutor)",
-    icon: Users,
-    color: "hsl(var(--primary))",
-    description: "Guide and mentor 8 Yony Seeds in their development journey"
-  },
-  yony_flowers_project: {
-    name: "Yony Flowers (Project Bearer)",
-    icon: Sparkles,
-    color: "hsl(var(--primary))",
-    description: "Bring an impact project to a specific country"
-  },
-  yony_brands: {
-    name: "Yony Brands",
-    icon: Trophy,
-    color: "#e76830",
-    description: "Create and develop the visual identity of the Yonyverse"
-  },
-  yony_lights: {
-    name: "Yony Lights",
-    icon: Sparkles,
-    color: "#f59e0b",
-    description: "Illuminate and amplify the stories of the journey"
-  },
-  yony_places: {
-    name: "Yony Places",
-    icon: Globe,
-    color: "#10b981",
-    description: "Explore and connect the territories of the game"
-  },
-  yony_angels: {
-    name: "Yony Angels",
-    icon: Heart,
-    color: "#ec4899",
-    description: "Support and nurture the community"
-  },
-  yony_magics: {
-    name: "Yony Magics",
-    icon: Wand2,
-    color: "#8b5cf6",
-    description: "Create extraordinary and immersive experiences"
-  },
-  yony_stars: {
-    name: "Yony Stars",
-    icon: Star,
-    color: "#06b6d4",
-    description: "Shine and inspire through excellence"
-  },
-  yony_guards: {
-    name: "Yony Guards",
-    icon: Shield,
-    color: "#374151",
-    description: "Protect and maintain the harmony of the Yonyverse"
-  }
+  yony_flowers_tutor: { name: "Yony Flowers (Tutor)", icon: Users, color: "hsl(var(--primary))", description: "Guide and mentor 8 Yony Seeds in their development journey" },
+  yony_flowers_project: { name: "Yony Flowers (Project Bearer)", icon: Sparkles, color: "hsl(var(--primary))", description: "Bring an impact project to a specific country" },
+  yony_brands: { name: "Yony Brands", icon: Trophy, color: "#e76830", description: "Create and develop the visual identity of the Yonyverse" },
+  yony_lights: { name: "Yony Lights", icon: Sparkles, color: "#f59e0b", description: "Illuminate and amplify the stories of the journey" },
+  yony_places: { name: "Yony Places", icon: Globe, color: "#10b981", description: "Explore and connect the territories of the game" },
+  yony_angels: { name: "Yony Angels", icon: Heart, color: "#ec4899", description: "Support and nurture the community" },
+  yony_magics: { name: "Yony Magics", icon: Wand2, color: "#8b5cf6", description: "Create extraordinary and immersive experiences" },
+  yony_stars: { name: "Yony Stars", icon: Star, color: "#06b6d4", description: "Shine and inspire through excellence" },
+  yony_guards: { name: "Yony Guards", icon: Shield, color: "#374151", description: "Protect and maintain the harmony of the Yonyverse" },
 };
 
 const JoinGames = () => {
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
-  const [registrationData, setRegistrationData] = useState<RegistrationData>({});
+  const [registrationData, setRegistrationData] = useState<RegistrationData>({
+    contributionTypes: [],
+    areasOfInterest: [],
+    roleIdentity: "",
+    optionalMessage: "",
+  });
   const totalSteps = 5;
-
   const progressPercentage = (currentStep / totalSteps) * 100;
 
   const updateData = (data: Partial<RegistrationData>) => {
     setRegistrationData(prev => ({ ...prev, ...data }));
   };
 
-  const nextStep = () => {
-    if (currentStep < totalSteps) {
-      setCurrentStep(currentStep + 1);
-    }
-  };
-
-  const prevStep = () => {
-    if (currentStep > 1) {
-      setCurrentStep(currentStep - 1);
-    }
-  };
+  const nextStep = () => { if (currentStep < totalSteps) setCurrentStep(currentStep + 1); };
+  const prevStep = () => { if (currentStep > 1) setCurrentStep(currentStep - 1); };
 
   const [cancelDialogOpen, setCancelDialogOpen] = useState(false);
-
-  const handleCancel = () => {
-    setCancelDialogOpen(true);
-  };
-
-  const confirmCancel = () => {
-    navigate("/");
-  };
+  const handleCancel = () => setCancelDialogOpen(true);
+  const confirmCancel = () => navigate(`/${i18n.language}`);
 
   const canProceed = () => {
     switch (currentStep) {
@@ -147,169 +97,104 @@ const JoinGames = () => {
       case 2:
         return !!(registrationData.fullName && registrationData.email);
       case 3:
-        // All roles need a country, Yony Flowers Tutor needs mission acceptance
         if (registrationData.role === 'yony_flowers_tutor') {
           return !!(registrationData.country && registrationData.tutorMissionAccepted);
         }
         return !!registrationData.country;
       case 4:
-        // Yony Flowers Project needs project category in addition to engagement texts
-        if (registrationData.role === 'yony_flowers_project') {
-          return !!(registrationData.engagementText && registrationData.intentionText && registrationData.projectCategory);
-        }
-        return !!(registrationData.engagementText && registrationData.intentionText);
+        return (
+          (registrationData.contributionTypes?.length ?? 0) > 0 &&
+          (registrationData.areasOfInterest?.length ?? 0) > 0 &&
+          !!registrationData.roleIdentity
+        );
       default:
         return true;
     }
   };
 
+  const stepLabels = [
+    t("joinGames.steps.role"),
+    t("joinGames.steps.profile"),
+    t("joinGames.steps.country"),
+    t("joinGames.steps.engagement"),
+    t("joinGames.steps.confirmation"),
+  ];
+
   return (
     <div className="min-h-screen bg-background">
-      {/* Header with Progress */}
       <div className="border-b bg-card">
         <div className="max-w-4xl mx-auto px-6 py-6">
           <div className="flex items-center gap-4 mb-4">
-            <Button
-              variant="outline"
-              onClick={handleCancel}
-              className="flex items-center gap-2 shrink-0"
-            >
+            <Button variant="outline" onClick={handleCancel} className="flex items-center gap-2 shrink-0">
               <Home className="w-4 h-4" />
-              Home
+              {t("joinGames.home")}
             </Button>
             <h1 className="text-2xl font-serif font-bold flex-1 text-center">
-              Join the <span style={{ color: "#e76830" }}>Yonyverse</span>
+              {t("joinGames.pageTitle")} <span style={{ color: "#e76830" }}>{t("joinGames.pageTitleAccent")}</span>
             </h1>
             <div className="text-sm text-muted-foreground shrink-0">
-              Step {currentStep} of {totalSteps}
+              {t("joinGames.stepOf", { current: currentStep, total: totalSteps })}
             </div>
           </div>
-
           <div className="space-y-2">
             <div className="flex justify-between text-xs text-muted-foreground">
-              <span>Role</span>
-              <span>Profile</span>
-              <span>Country</span>
-              <span>Engagement</span>
-              <span>Confirmation</span>
+              {stepLabels.map((label, i) => <span key={i}>{label}</span>)}
             </div>
             <Progress value={progressPercentage} className="h-2" />
           </div>
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="max-w-4xl mx-auto px-6 py-8">
         <Card className="p-8">
           <AnimatePresence mode="wait">
             {currentStep === 1 && (
-              <motion.div
-                key="step1"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-              >
-                <RoleSelectionStep
-                  selectedRole={registrationData.role}
-                  onRoleSelect={(role) => updateData({ role })}
-                  roleConfig={roleConfig}
-                />
+              <motion.div key="step1" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
+                <RoleSelectionStep selectedRole={registrationData.role} onRoleSelect={(role) => updateData({ role })} roleConfig={roleConfig} />
               </motion.div>
             )}
-
             {currentStep === 2 && (
-              <motion.div
-                key="step2"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-              >
-                <PersonalInfoStep
-                  fullName={registrationData.fullName || ""}
-                  email={registrationData.email || ""}
-                  avatarFile={registrationData.avatarFile}
-                  onUpdate={updateData}
-                />
+              <motion.div key="step2" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
+                <PersonalInfoStep fullName={registrationData.fullName || ""} email={registrationData.email || ""} avatarFile={registrationData.avatarFile} onUpdate={updateData} />
               </motion.div>
             )}
-
             {currentStep === 3 && (
-              <motion.div
-                key="step3"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-              >
-                <SpecializationStep
-                  role={registrationData.role}
-                  country={registrationData.country}
-                  tutorMissionAccepted={registrationData.tutorMissionAccepted}
-                  onUpdate={updateData}
-                />
+              <motion.div key="step3" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
+                <SpecializationStep role={registrationData.role} country={registrationData.country} tutorMissionAccepted={registrationData.tutorMissionAccepted} onUpdate={updateData} />
               </motion.div>
             )}
-
             {currentStep === 4 && (
-              <motion.div
-                key="step4"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-              >
+              <motion.div key="step4" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
                 <EngagementStep
-                  engagementText={registrationData.engagementText || ""}
-                  intentionText={registrationData.intentionText || ""}
-                  projectCategory={registrationData.projectCategory}
-                  role={registrationData.role}
+                  contributionTypes={registrationData.contributionTypes || []}
+                  areasOfInterest={registrationData.areasOfInterest || []}
+                  roleIdentity={registrationData.roleIdentity || ""}
+                  optionalMessage={registrationData.optionalMessage || ""}
                   onUpdate={updateData}
                 />
               </motion.div>
             )}
-
             {currentStep === 5 && (
-              <motion.div
-                key="step5"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-              >
-                <ConfirmationStep
-                  registrationData={registrationData}
-                  roleConfig={roleConfig}
-                />
+              <motion.div key="step5" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
+                <ConfirmationStep registrationData={registrationData} roleConfig={roleConfig} />
               </motion.div>
             )}
           </AnimatePresence>
 
-          {/* Navigation */}
           {currentStep < 5 && (
             <div className="flex justify-between mt-8 pt-6 border-t">
               <div className="flex gap-2">
-                <Button
-                  variant="outline"
-                  onClick={handleCancel}
-                  className="flex items-center gap-2"
-                >
+                <Button variant="outline" onClick={handleCancel} className="flex items-center gap-2">
                   <X className="w-4 h-4" />
-                  Cancel
+                  {t("joinGames.cancel")}
                 </Button>
-                <Button
-                  variant="outline"
-                  onClick={prevStep}
-                  disabled={currentStep === 1}
-                  className="flex items-center gap-2"
-                >
+                <Button variant="outline" onClick={prevStep} disabled={currentStep === 1} className="flex items-center gap-2">
                   <ArrowLeft className="w-4 h-4" />
-                  Previous
+                  {t("joinGames.previous")}
                 </Button>
               </div>
-
-              <Button
-                onClick={nextStep}
-                disabled={!canProceed()}
-                className="flex items-center gap-2"
-              >
-                Next
+              <Button onClick={nextStep} disabled={!canProceed()} className="flex items-center gap-2">
+                {t("joinGames.next")}
                 <ArrowRight className="w-4 h-4" />
               </Button>
             </div>
@@ -320,15 +205,13 @@ const JoinGames = () => {
       <AlertDialog open={cancelDialogOpen} onOpenChange={setCancelDialogOpen}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Cancel registration?</AlertDialogTitle>
-            <AlertDialogDescription>
-              Are you sure you want to cancel? All entered information will be lost.
-            </AlertDialogDescription>
+            <AlertDialogTitle>{t("joinGames.cancelDialog.title")}</AlertDialogTitle>
+            <AlertDialogDescription>{t("joinGames.cancelDialog.description")}</AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Continue registration</AlertDialogCancel>
+            <AlertDialogCancel>{t("joinGames.cancelDialog.continue")}</AlertDialogCancel>
             <AlertDialogAction onClick={confirmCancel} className="bg-destructive text-destructive-foreground hover:bg-destructive/90">
-              Yes, cancel
+              {t("joinGames.cancelDialog.confirm")}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

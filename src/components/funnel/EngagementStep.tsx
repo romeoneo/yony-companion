@@ -1,154 +1,165 @@
-import { motion } from "framer-motion";
-import { GameRole } from "@/pages/JoinGames";
+import { useTranslation } from "react-i18next";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 interface EngagementStepProps {
-  engagementText: string;
-  intentionText: string;
-  projectCategory?: string;
-  role?: GameRole;
+  contributionTypes: string[];
+  areasOfInterest: string[];
+  roleIdentity: string;
+  optionalMessage: string;
   onUpdate: (data: Partial<{
-    engagementText: string;
-    intentionText: string;
-    projectCategory: string;
+    contributionTypes: string[];
+    areasOfInterest: string[];
+    roleIdentity: string;
+    optionalMessage: string;
   }>) => void;
 }
 
-const projectCategories = [
-  'Social Initiatives',
-  'Education & Training',
-  'Innovation & Technology',
-  'Nature & Environment',
-  'Health & Wellness',
-  'Arts & Culture',
-  'Tourism & Traditions',
-  'Other'
-];
+const CONTRIBUTION_KEYS = [
+  "shareKnowledge",
+  "connectPartners",
+  "growCommunity",
+  "promote",
+  "strategicDev",
+  "contributeCreatively",
+  "other",
+] as const;
 
-const getEngagementPrompt = (role?: GameRole) => {
-  switch (role) {
-    case 'yony_flowers_tutor':
-      return "As a Tutor, describe your teaching philosophy and approach to mentoring young talents. What methods do you use to inspire and guide your students?";
-    case 'yony_flowers_project':
-      return "Describe the impact project you want to bring to your chosen country. What problem does it solve and how will it benefit the local community?";
-    case 'yony_brands':
-      return "How do you envision contributing to the visual identity and brand development of the Yonyverse? What's your creative approach?";
-    case 'yony_lights':
-      return "How would you illuminate and amplify the stories within the Yonyverse? What storytelling techniques do you excel at?";
-    case 'yony_places':
-      return "Describe how you would explore and connect different territories in the Yonyverse. What's your approach to cultural discovery?";
-    case 'yony_angels':
-      return "How do you plan to support and nurture the Yonyverse community? What's your approach to community building?";
-    case 'yony_magics':
-      return "Describe the extraordinary and immersive experiences you would create for the Yonyverse. What makes your approach unique?";
-    case 'yony_stars':
-      return "How do you plan to shine and inspire excellence within the Yonyverse? What's your strategy for motivation and achievement?";
-    case 'yony_guards':
-      return "How would you protect and maintain harmony in the Yonyverse? What's your approach to conflict resolution and community management?";
-    default:
-      return "Describe your vision and approach for contributing to the Yonyverse. What unique value do you bring?";
-  }
-};
+const INTEREST_KEYS = [
+  "culture",
+  "education",
+  "socialImpact",
+  "environment",
+  "innovation",
+  "globalCollaboration",
+] as const;
 
-const getIntentionPrompt = (role?: GameRole) => {
-  switch (role) {
-    case 'yony_flowers_tutor':
-      return "What drives your passion for education and mentorship? How do you see yourself growing through this experience?";
-    case 'yony_flowers_project':
-      return "What personal motivations led you to this project idea? How will this experience contribute to your own growth?";
-    default:
-      return "What are your personal motivations for joining the Yonyverse? How do you hope to grow through this experience?";
-  }
-};
+const ROLE_KEYS = [
+  "creator",
+  "connector",
+  "builder",
+  "explorer",
+  "strategist",
+] as const;
 
-const EngagementStep = ({ engagementText, intentionText, projectCategory, role, onUpdate }: EngagementStepProps) => {
+const EngagementStep = ({
+  contributionTypes,
+  areasOfInterest,
+  roleIdentity,
+  optionalMessage,
+  onUpdate,
+}: EngagementStepProps) => {
+  const { t } = useTranslation();
+
+  const toggleContribution = (key: string) => {
+    const updated = contributionTypes.includes(key)
+      ? contributionTypes.filter((k) => k !== key)
+      : [...contributionTypes, key];
+    onUpdate({ contributionTypes: updated });
+  };
+
+  const toggleInterest = (key: string) => {
+    const updated = areasOfInterest.includes(key)
+      ? areasOfInterest.filter((k) => k !== key)
+      : [...areasOfInterest, key];
+    onUpdate({ areasOfInterest: updated });
+  };
+
   return (
     <div className="max-w-3xl mx-auto">
       <div className="text-center mb-8">
         <h2 className="text-3xl font-serif font-bold mb-4">
-          Your <span style={{ color: "#e76830" }}>Engagement</span>
+          {t("engagementStep.title")}{" "}
+          <span style={{ color: "#e76830" }}>{t("engagementStep.titleAccent")}</span>
         </h2>
         <p className="text-muted-foreground text-lg">
-          Tell us about your vision, expertise, and personal motivations for joining the Yonyverse.
+          {t("engagementStep.subtitle")}
         </p>
       </div>
 
-      <div className="space-y-6">
-        {/* Specialization Domain - for Yony Flowers Project */}
-        {role === 'yony_flowers_project' && (
-          <div className="space-y-2">
-            <Label htmlFor="project-category" className="text-base font-medium">
-              Project Category / Domain of Specialization *
-            </Label>
-            <Select
-              value={projectCategory || ""}
-              onValueChange={(value) => onUpdate({ projectCategory: value })}
-            >
-              <SelectTrigger id="project-category" className="h-14">
-                <SelectValue placeholder="Select your project category..." />
-              </SelectTrigger>
-              <SelectContent>
-                {projectCategories.map((category) => (
-                  <SelectItem key={category} value={category}>
-                    {category}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-            <p className="text-sm text-muted-foreground">
-              This defines your area of specialization and helps us understand your project focus.
-            </p>
+      <div className="space-y-8">
+        {/* Section 1 – Contribution Type */}
+        <div className="space-y-3">
+          <Label className="text-base font-medium">
+            {t("engagementStep.contributionTitle")}
+          </Label>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {CONTRIBUTION_KEYS.map((key) => (
+              <label
+                key={key}
+                className="flex items-center gap-3 p-3 rounded-lg border border-border hover:bg-secondary/50 transition-colors cursor-pointer"
+              >
+                <Checkbox
+                  checked={contributionTypes.includes(key)}
+                  onCheckedChange={() => toggleContribution(key)}
+                />
+                <span className="text-sm">{t(`engagementStep.contributions.${key}`)}</span>
+              </label>
+            ))}
           </div>
-        )}
-
-        {/* Vision & Approach */}
-        <div className="space-y-2">
-          <Label htmlFor="engagement" className="text-base font-medium">
-            Your Vision & Approach *
-          </Label>
-          <Textarea
-            id="engagement"
-            value={engagementText}
-            onChange={(e) => onUpdate({ engagementText: e.target.value })}
-            placeholder={getEngagementPrompt(role)}
-            className="min-h-32 resize-none"
-          />
-          <p className="text-sm text-muted-foreground">
-            Minimum 50 characters. Share your professional vision and approach for your role.
-          </p>
         </div>
 
-        {/* Personal Intentions */}
-        <div className="space-y-2">
-          <Label htmlFor="intention" className="text-base font-medium">
-            Personal Motivations & Growth *
+        {/* Section 2 – Areas of Interest */}
+        <div className="space-y-3">
+          <Label className="text-base font-medium">
+            {t("engagementStep.interestsTitle")}
           </Label>
-          <Textarea
-            id="intention"
-            value={intentionText}
-            onChange={(e) => onUpdate({ intentionText: e.target.value })}
-            placeholder={getIntentionPrompt(role)}
-            className="min-h-32 resize-none"
-          />
-          <p className="text-sm text-muted-foreground">
-            Minimum 50 characters. Tell us about your personal motivations and expected growth.
-          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {INTEREST_KEYS.map((key) => (
+              <label
+                key={key}
+                className="flex items-center gap-3 p-3 rounded-lg border border-border hover:bg-secondary/50 transition-colors cursor-pointer"
+              >
+                <Checkbox
+                  checked={areasOfInterest.includes(key)}
+                  onCheckedChange={() => toggleInterest(key)}
+                />
+                <span className="text-sm">{t(`engagementStep.interests.${key}`)}</span>
+              </label>
+            ))}
+          </div>
         </div>
 
-        {/* Progress indicator */}
-        {engagementText.length >= 50 && intentionText.length >= 50 && (
-          <motion.div
-            className="p-4 rounded-lg bg-green-50 border border-green-200"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
+        {/* Section 3 – Role Identity */}
+        <div className="space-y-3">
+          <Label className="text-base font-medium">
+            {t("engagementStep.roleTitle")}
+          </Label>
+          <RadioGroup
+            value={roleIdentity}
+            onValueChange={(value) => onUpdate({ roleIdentity: value })}
+            className="grid grid-cols-2 sm:grid-cols-3 gap-3"
           >
-            <p className="text-sm font-medium text-green-700">
-              ✨ Great! Your engagement responses meet the minimum requirements.
-            </p>
-          </motion.div>
-        )}
+            {ROLE_KEYS.map((key) => (
+              <label
+                key={key}
+                className="flex items-center gap-3 p-3 rounded-lg border border-border hover:bg-secondary/50 transition-colors cursor-pointer"
+              >
+                <RadioGroupItem value={key} />
+                <span className="text-sm">{t(`engagementStep.roles.${key}`)}</span>
+              </label>
+            ))}
+          </RadioGroup>
+        </div>
+
+        {/* Section 4 – Optional message */}
+        <div className="space-y-2">
+          <Label htmlFor="optional-message" className="text-base font-medium">
+            {t("engagementStep.optionalTitle")}
+          </Label>
+          <p className="text-sm text-muted-foreground">
+            {t("engagementStep.optionalDesc")}
+          </p>
+          <Textarea
+            id="optional-message"
+            value={optionalMessage}
+            onChange={(e) => onUpdate({ optionalMessage: e.target.value })}
+            placeholder={t("engagementStep.optionalPlaceholder")}
+            className="min-h-20 resize-none"
+          />
+        </div>
       </div>
     </div>
   );
