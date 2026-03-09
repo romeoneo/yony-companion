@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowRight, Users, Sparkles, Trophy, Globe, Heart, Wand2, Star, Shield } from "lucide-react";
+import { ArrowLeft, ArrowRight, Users, Sparkles, Trophy, Globe, Heart, Wand2, Star, Shield, Home, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -43,59 +44,60 @@ const roleConfig = {
     name: "Yony Flowers (Tutor)",
     icon: Users,
     color: "hsl(var(--primary))",
-    description: "Guide et forme 8 Yony Seeds dans leur développement"
+    description: "Guide and mentor 8 Yony Seeds in their development journey"
   },
   yony_flowers_project: {
-    name: "Yony Flowers (Porteur de projet)", 
+    name: "Yony Flowers (Project Bearer)",
     icon: Sparkles,
     color: "hsl(var(--primary))",
-    description: "Apporte un projet d'impact dans un pays spécifique"
+    description: "Bring an impact project to a specific country"
   },
   yony_brands: {
     name: "Yony Brands",
     icon: Trophy,
     color: "#e76830",
-    description: "Crée et développe l'identité visuelle du Yonyverse"
+    description: "Create and develop the visual identity of the Yonyverse"
   },
   yony_lights: {
     name: "Yony Lights",
     icon: Sparkles,
     color: "#f59e0b",
-    description: "Illumine et amplifie les histoires du voyage"
+    description: "Illuminate and amplify the stories of the journey"
   },
   yony_places: {
-    name: "Yony Places", 
+    name: "Yony Places",
     icon: Globe,
     color: "#10b981",
-    description: "Explore et connecte les territoires du jeu"
+    description: "Explore and connect the territories of the game"
   },
   yony_angels: {
     name: "Yony Angels",
     icon: Heart,
     color: "#ec4899",
-    description: "Accompagne et soutient la communauté"
+    description: "Support and nurture the community"
   },
   yony_magics: {
     name: "Yony Magics",
     icon: Wand2,
     color: "#8b5cf6",
-    description: "Crée des expériences extraordinaires et immersives"
+    description: "Create extraordinary and immersive experiences"
   },
   yony_stars: {
     name: "Yony Stars",
     icon: Star,
     color: "#06b6d4",
-    description: "Brille et inspire par son excellence"
+    description: "Shine and inspire through excellence"
   },
   yony_guards: {
-    name: "Yony Guards", 
+    name: "Yony Guards",
     icon: Shield,
     color: "#374151",
-    description: "Protège et maintient l'harmonie du Yonyverse"
+    description: "Protect and maintain the harmony of the Yonyverse"
   }
 };
 
 const JoinGames = () => {
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
   const [registrationData, setRegistrationData] = useState<RegistrationData>({});
   const totalSteps = 5;
@@ -115,6 +117,12 @@ const JoinGames = () => {
   const prevStep = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
+    }
+  };
+
+  const handleCancel = () => {
+    if (window.confirm("Are you sure you want to cancel your registration? All entered information will be lost.")) {
+      navigate("/");
     }
   };
 
@@ -144,15 +152,23 @@ const JoinGames = () => {
       {/* Header with Progress */}
       <div className="border-b bg-card">
         <div className="max-w-4xl mx-auto px-6 py-6">
-          <div className="flex items-center justify-between mb-4">
-            <h1 className="text-2xl font-serif font-bold">
+          <div className="flex items-center gap-4 mb-4">
+            <Button
+              variant="outline"
+              onClick={handleCancel}
+              className="flex items-center gap-2 shrink-0"
+            >
+              <Home className="w-4 h-4" />
+              Home
+            </Button>
+            <h1 className="text-2xl font-serif font-bold flex-1 text-center">
               Join the <span style={{ color: "#e76830" }}>Yonyverse Games</span>
             </h1>
-            <div className="text-sm text-muted-foreground">
+            <div className="text-sm text-muted-foreground shrink-0">
               Step {currentStep} of {totalSteps}
             </div>
           </div>
-          
+
           <div className="space-y-2">
             <div className="flex justify-between text-xs text-muted-foreground">
               <span>Role</span>
@@ -252,15 +268,25 @@ const JoinGames = () => {
           {/* Navigation */}
           {currentStep < 5 && (
             <div className="flex justify-between mt-8 pt-6 border-t">
-              <Button
-                variant="outline"
-                onClick={prevStep}
-                disabled={currentStep === 1}
-                className="flex items-center gap-2"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Previous
-              </Button>
+              <div className="flex gap-2">
+                <Button
+                  variant="outline"
+                  onClick={handleCancel}
+                  className="flex items-center gap-2"
+                >
+                  <X className="w-4 h-4" />
+                  Cancel
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={prevStep}
+                  disabled={currentStep === 1}
+                  className="flex items-center gap-2"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  Previous
+                </Button>
+              </div>
 
               <Button
                 onClick={nextStep}

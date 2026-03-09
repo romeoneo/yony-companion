@@ -14,40 +14,40 @@ interface EngagementStepProps {
 const getEngagementPrompts = (role?: GameRole) => {
   const prompts = {
     yony_flowers_tutor: {
-      engagement: "Qu'est-ce qui vous motive à devenir un tuteur et à accompagner 8 Yony Seeds dans leur développement ?",
-      intention: "Quelle vision portez-vous pour l'impact que vous et vos protégés aurez ensemble ?"
+      engagement: "What motivates you to become a tutor and mentor 8 Yony Seeds in their development?",
+      intention: "What vision do you carry for the impact you and your mentees will have together?"
     },
     yony_flowers_project: {
-      engagement: "Parlez-nous de votre projet d'impact. Quelle problématique souhaitez-vous résoudre ?",
-      intention: "Comment voyez-vous votre contribution au Yonyverse et l'évolution de votre projet ?"
+      engagement: "Tell us about your impact project. What problem do you want to solve?",
+      intention: "How do you see your contribution to the Yonyverse and the evolution of your project?"
     },
     yony_brands: {
-      engagement: "Qu'est-ce qui vous passionne dans la création d'identités visuelles et de marques ?",
-      intention: "Comment souhaitez-vous contribuer à l'identité visuelle du Yonyverse ?"
+      engagement: "What are you passionate about when it comes to creating visual identities and brands?",
+      intention: "How do you wish to contribute to the visual identity of the Yonyverse?"
     },
     yony_lights: {
-      engagement: "Pourquoi est-il important pour vous d'illuminer et d'amplifier les histoires ?",
-      intention: "Quelles histoires du Yonyverse souhaitez-vous mettre en lumière ?"
+      engagement: "Why is it important for you to illuminate and amplify stories?",
+      intention: "Which Yonyverse stories do you want to bring into the light?"
     },
     yony_places: {
-      engagement: "Qu'est-ce qui vous attire dans l'exploration et la connexion des territoires ?",
-      intention: "Comment envisagez-vous de connecter les différents lieux du Yonyverse ?"
+      engagement: "What draws you to exploring and connecting territories?",
+      intention: "How do you envision connecting the different places of the Yonyverse?"
     },
     yony_angels: {
-      engagement: "Qu'est-ce qui vous pousse à accompagner et soutenir les autres ?",
-      intention: "Quel type de soutien souhaitez-vous apporter à la communauté ?"
+      engagement: "What drives you to support and nurture others?",
+      intention: "What kind of support do you wish to bring to the community?"
     },
     yony_magics: {
-      engagement: "Quelle est votre approche pour créer des expériences extraordinaires ?",
-      intention: "Quels types d'expériences magiques voulez-vous créer pour le Yonyverse ?"
+      engagement: "What is your approach to creating extraordinary experiences?",
+      intention: "What kinds of magical experiences do you want to create for the Yonyverse?"
     },
     yony_stars: {
-      engagement: "Qu'est-ce qui vous inspire à briller et inspirer les autres par votre excellence ?",
-      intention: "Dans quel domaine souhaitez-vous exceller et servir d'exemple ?"
+      engagement: "What inspires you to shine and inspire others through excellence?",
+      intention: "In what area do you wish to excel and lead by example?"
     },
     yony_guards: {
-      engagement: "Pourquoi la protection et l'harmonie de la communauté sont-elles importantes pour vous ?",
-      intention: "Comment comptez-vous maintenir l'équilibre et la sécurité du Yonyverse ?"
+      engagement: "Why are community protection and harmony important to you?",
+      intention: "How do you plan to maintain the balance and safety of the Yonyverse?"
     }
   };
 
@@ -61,10 +61,10 @@ const EngagementStep = ({ engagementText, intentionText, role, onUpdate }: Engag
     <div>
       <div className="text-center mb-8">
         <h2 className="text-3xl font-serif font-bold mb-4">
-          Votre <span style={{ color: "#e76830" }}>Engagement</span>
+          Your <span style={{ color: "#e76830" }}>Engagement</span>
         </h2>
         <p className="text-muted-foreground text-lg">
-          Partagez votre motivation et votre vision avec la communauté du Yonyverse.
+          Share your motivation and vision with the Yonyverse community.
         </p>
       </div>
 
@@ -81,7 +81,7 @@ const EngagementStep = ({ engagementText, intentionText, role, onUpdate }: Engag
             </div>
             <div className="flex-1">
               <Label htmlFor="engagement" className="text-lg font-medium block mb-2">
-                Votre engagement *
+                Your engagement *
               </Label>
               <p className="text-sm text-muted-foreground mb-3">
                 {prompts.engagement}
@@ -90,12 +90,12 @@ const EngagementStep = ({ engagementText, intentionText, role, onUpdate }: Engag
                 id="engagement"
                 value={engagementText}
                 onChange={(e) => onUpdate({ engagementText: e.target.value })}
-                placeholder="Exprimez votre passion et ce qui vous motive à rejoindre ce rôle..."
+                placeholder="Express your passion and what motivates you to take on this role..."
                 className="min-h-[120px] text-base"
                 maxLength={500}
               />
               <div className="text-xs text-muted-foreground mt-1 text-right">
-                {engagementText.length}/500 caractères
+                {engagementText.length}/500 characters
               </div>
             </div>
           </div>
@@ -114,7 +114,7 @@ const EngagementStep = ({ engagementText, intentionText, role, onUpdate }: Engag
             </div>
             <div className="flex-1">
               <Label htmlFor="intention" className="text-lg font-medium block mb-2">
-                Votre intention *
+                Your intention *
               </Label>
               <p className="text-sm text-muted-foreground mb-3">
                 {prompts.intention}
@@ -123,18 +123,18 @@ const EngagementStep = ({ engagementText, intentionText, role, onUpdate }: Engag
                 id="intention"
                 value={intentionText}
                 onChange={(e) => onUpdate({ intentionText: e.target.value })}
-                placeholder="Décrivez votre vision et l'impact que vous souhaitez avoir..."
+                placeholder="Describe your vision and the impact you wish to have..."
                 className="min-h-[120px] text-base"
                 maxLength={500}
               />
               <div className="text-xs text-muted-foreground mt-1 text-right">
-                {intentionText.length}/500 caractères
+                {intentionText.length}/500 characters
               </div>
             </div>
           </div>
         </motion.div>
 
-        {/* Inspiration tip */}
+        {/* Tip */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -144,17 +144,16 @@ const EngagementStep = ({ engagementText, intentionText, role, onUpdate }: Engag
           <div className="flex items-start gap-3">
             <Lightbulb className="w-5 h-5 text-yellow-500 mt-1" />
             <div>
-              <h4 className="font-medium mb-2">Conseil pour une candidature authentique</h4>
+              <h4 className="font-medium mb-2">Tip for an authentic application</h4>
               <p className="text-sm text-muted-foreground">
-                Soyez sincère et spécifique. La communauté du Yonyverse valorise l'authenticité 
-                et la passion genuine. N'hésitez pas à partager vos expériences personnelles 
-                et ce qui rend votre approche unique.
+                Be sincere and specific. The Yonyverse community values authenticity
+                and genuine passion. Feel free to share your personal experiences
+                and what makes your approach unique.
               </p>
             </div>
           </div>
         </motion.div>
 
-        {/* Progress indicator */}
         {engagementText && intentionText && (
           <motion.div
             className="p-4 rounded-lg bg-primary/10 border border-primary/20 text-center"
@@ -162,7 +161,7 @@ const EngagementStep = ({ engagementText, intentionText, role, onUpdate }: Engag
             animate={{ opacity: 1, y: 0 }}
           >
             <p className="text-sm text-primary font-medium">
-              ✨ Excellent ! Votre engagement et votre intention sont clairement exprimés.
+              ✨ Excellent! Your engagement and intention are clearly expressed.
             </p>
           </motion.div>
         )}

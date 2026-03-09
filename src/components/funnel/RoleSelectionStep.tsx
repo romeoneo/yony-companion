@@ -20,10 +20,10 @@ const RoleSelectionStep = ({ selectedRole, onRoleSelect, roleConfig }: RoleSelec
     <div>
       <div className="text-center mb-8">
         <h2 className="text-3xl font-serif font-bold mb-4">
-          Choisissez votre <span style={{ color: "#e76830" }}>Personnage</span>
+          Choose your <span style={{ color: "#e76830" }}>Character</span>
         </h2>
         <p className="text-muted-foreground text-lg">
-          Chaque rôle apporte une contribution unique au Yonyverse. Sélectionnez celui qui résonne le plus avec vous.
+          Each role brings a unique contribution to the Yonyverse. Select the one that resonates most with you.
         </p>
       </div>
 
@@ -77,7 +77,7 @@ const RoleSelectionStep = ({ selectedRole, onRoleSelect, roleConfig }: RoleSelec
               {/* Special indicators */}
               {roleKey.startsWith('yony_flowers') && (
                 <div className="mt-3 px-2 py-1 rounded-full bg-secondary text-xs font-medium text-secondary-foreground inline-block">
-                  Fleur des Pays
+                  Country Flower
                 </div>
               )}
             </motion.div>
@@ -92,7 +92,7 @@ const RoleSelectionStep = ({ selectedRole, onRoleSelect, roleConfig }: RoleSelec
           animate={{ opacity: 1, y: 0 }}
         >
           <p className="text-sm text-primary font-medium">
-            ✨ Excellent choix ! Vous avez sélectionné : <strong>{roleConfig[selectedRole].name}</strong>
+            ✨ Great choice! You selected: <strong>{roleConfig[selectedRole].name}</strong>
           </p>
         </motion.div>
       )}
