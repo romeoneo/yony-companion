@@ -80,6 +80,34 @@ const ConfirmationStep = ({ registrationData, roleConfig }: ConfirmationStepProp
 
       if (insertError) throw insertError;
 
+      // Also insert into new registrations table
+      const contributionLabels = registrationData.contributionTypes?.map(k => t(`engagementStep.contributions.${k}`)) || [];
+      const interestLabels = registrationData.areasOfInterest?.map(k => t(`engagementStep.interests.${k}`)) || [];
+      const roleName = roleConfig[registrationData.role!]?.name || registrationData.role;
+
+      await supabase.from('registrations').insert({
+        name: registrationData.fullName,
+        email: registrationData.email,
+        country: registrationData.country || null,
+        contribution_types: contributionLabels,
+        interest_areas: interestLabels,
+        role: roleName,
+        message: registrationData.optionalMessage || '',
+      });
+
+      // Send emails via edge function (fire and forget)
+      supabase.functions.invoke('send-registration-email', {
+        body: {
+          name: registrationData.fullName,
+          email: registrationData.email,
+          country: registrationData.country || null,
+          role: roleName,
+          contribution_types: contributionLabels,
+          interest_areas: interestLabels,
+          message: registrationData.optionalMessage || '',
+        },
+      }).catch(err => console.error('Email sending failed:', err));
+
       setIsSubmitted(true);
       toast({ title: t("confirmation.successTitle"), description: t("confirmation.successDesc") });
     } catch (error: any) {

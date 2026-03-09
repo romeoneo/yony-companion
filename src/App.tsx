@@ -7,6 +7,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate, useParams, useNavigate } from "react-router-dom";
 import Index from "./pages/Index";
 import JoinGames from "./pages/JoinGames";
+import RegistrationConfirmation from "./pages/RegistrationConfirmation";
+import AdminRegistrations from "./pages/AdminRegistrations";
 import NotFound from "./pages/NotFound";
 import { routeSlugs } from "./i18n";
 
@@ -68,6 +70,13 @@ const App = () => (
           <Route path="/:lang/rejoindre" element={<JoinGamesRoute />} />
           <Route path="/:lang/unirse" element={<JoinGamesRoute />} />
           <Route path="/:lang/juntar-se" element={<JoinGamesRoute />} />
+
+          {/* Registration confirmation */}
+          <Route path="/:lang/registration-confirmation" element={<LanguageWrapper><RegistrationConfirmation /></LanguageWrapper>} />
+          <Route path="/registration-confirmation" element={<RegistrationConfirmation />} />
+
+          {/* Admin */}
+          <Route path="/admin/registrations" element={<AdminRegistrations />} />
 
           {/* Legacy redirect */}
           <Route path="/join-games" element={<JoinRedirect />} />

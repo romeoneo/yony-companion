@@ -93,5 +93,12 @@
     "travels": { "title": "Yony", "titleAccent": "Travels", "slide1desc1": "Una búsqueda del tesoro cultural internacional.", "slide1desc2": "Sigue viajes por el mundo y descubre tradiciones, lugares e historias.", "explore": "Explora 16", "exploreAccent": "Territorios", "exploreDesc": "Cada territorio te invita a descubrir sus tradiciones, lugares y misterios culturales.", "follow": "Sigue el", "followAccent": "Viaje", "followDesc": "Cada destino revela pistas culturales y conocimientos ocultos.", "solve": "Resuelve los", "solveAccent": "Enigmas", "solveDesc": "Desbloquea los secretos de cada territorio resolviendo enigmas y desafíos culturales.", "collect": "Colecta la", "collectAccent": "Luz", "collectDesc1": "Cada enigma resuelto te recompensa con Light Tokens.", "collectDesc2": "Construye tu colección mientras viajas por el Yonyverse.", "redistribute": "Redistribuye la", "redistributeAccent": "Luz.", "redistributeDesc": "Redistribuye tus tokens a las Flowers del Yonyverse y apoya sus proyectos." },
     "values": { "benevolence": "Benevolencia", "transmission": "Transmisión", "creativity": "Creatividad", "gratitude": "Gratitud", "cohesion": "Cohesión", "empathy": "Empatía", "authenticity": "Autenticidad", "resilience": "Resiliencia", "tolerance": "Tolerancia", "equity": "Equidad", "connection": "Conexión", "intuition": "Intuición", "lucidity": "Lucidez", "perseverance": "Perseverancia", "humility": "Humildad", "patience": "Paciencia" }
   },
+  "registrationConfirmation": {
+    "title": "Gracias por unirte al Yonyverse",
+    "received": "Tu inscripción ha sido recibida.",
+    "emailSent": "Se te ha enviado un correo de confirmación.",
+    "nextSteps": "Nuestro equipo revisará tu perfil y te contactará pronto.",
+    "backHome": "Volver al inicio"
+  },
   "seo": { "homeTitle": "Yonyverse — Un Universo Cultural y Lúdico Global", "homeDescription": "Entra en el Yonyverse, un universo global donde sueños, culturas y sabiduría se unen a través de los Yony Games.", "joinTitle": "Unirse al Yonyverse — Elige tu Personaje", "joinDescription": "Forma parte de la comunidad fundadora del Yonyverse. Elige tu rol de personaje y da forma al futuro del juego cultural.", "notFoundTitle": "Página No Encontrada — Yonyverse" }
 }
