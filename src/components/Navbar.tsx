@@ -52,7 +52,7 @@ const Navbar = () => {
             href="/join-games"
             className="ml-2 px-5 py-2 rounded-full bg-primary text-primary-foreground text-sm font-semibold font-sans-body hover:bg-primary/90 transition-colors"
           >
-            Join the Games
+            Join
           </a>
         </nav>
 
@@ -92,7 +92,7 @@ const Navbar = () => {
                 onClick={() => setMobileOpen(false)}
                 className="mt-2 px-5 py-3 rounded-full bg-primary text-primary-foreground text-sm font-semibold font-sans-body text-center"
               >
-                Join the Games
+                Join
               </a>
             </div>
           </motion.nav>
