@@ -570,6 +570,13 @@
       "patience": "Patience"
     }
   },
+  "registrationConfirmation": {
+    "title": "Thank you for joining the Yonyverse",
+    "received": "Your registration has been received.",
+    "emailSent": "A confirmation email has been sent to you.",
+    "nextSteps": "Our team will review your profile and contact you soon.",
+    "backHome": "Back to Home"
+  },
   "seo": {
     "homeTitle": "Yonyverse — A Global Cultural Gaming Universe",
     "homeDescription": "Enter Yonyverse, a global universe where dreams, cultures and wisdom come together through the Yony Games.",
