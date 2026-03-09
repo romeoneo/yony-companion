@@ -78,9 +78,8 @@ const JoinSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-        >
-          <h3 className="font-serif text-2xl font-bold mb-2">Yony Family - Build the founding community</h3>
-          <div className="text-primary font-sans-body text-sm font-semibold uppercase tracking-wider mb-4">Step 1</div>
+          <div className="text-primary font-sans-body text-sm font-semibold uppercase tracking-wider mb-2">Step 1</div>
+          <h3 className="font-serif text-2xl font-bold mb-4">Yony Family - Build the founding community</h3>
           <p className="text-muted-foreground mb-2">
             The games need participants to embody the characters of the adventure.
           </p>
