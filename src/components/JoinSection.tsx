@@ -1,32 +1,30 @@
+import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { Compass, Users, Sparkles, Globe, Flame } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
+import { routeSlugs } from "@/i18n";
 
 function AnimatedCounter({ target, duration = 1.5 }: { target: number; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true });
   const [count, setCount] = useState(0);
-
   useEffect(() => {
     if (!inView) return;
     let start = 0;
     const step = Math.ceil(target / (duration * 60));
-    const id = setInterval(() => {
-      start += step;
-      if (start >= target) {
-        setCount(target);
-        clearInterval(id);
-      } else {
-        setCount(start);
-      }
-    }, 1000 / 60);
+    const id = setInterval(() => { start += step; if (start >= target) { setCount(target); clearInterval(id); } else { setCount(start); } }, 1000 / 60);
     return () => clearInterval(id);
   }, [inView, target, duration]);
-
   return <span ref={ref}>{count}</span>;
 }
 
 const JoinSection = () => {
+  const { t } = useTranslation();
+  const { lang } = useParams<{ lang: string }>();
+  const currentLang = lang || "en";
+  const joinSlug = routeSlugs[currentLang]?.["join-games"] || "join";
+
   const roles = [
     { role: "Yony Flowers", current: 6, target: 256 },
     { role: "Yony Brands", current: 4, target: 256 },
@@ -42,89 +40,42 @@ const JoinSection = () => {
   const totalTarget = roles.reduce((s, r) => s + r.target, 0);
   const totalPct = Math.round((totalCurrent / totalTarget) * 100);
 
-  const pillars = [
-    { icon: Compass, title: "Exploration and travel", desc: "Transportation and explorations across the territories activated in the journey." },
-    { icon: Users, title: "Collective operations", desc: "Organization, coordination, and facilitation of the collective adventure." },
-    { icon: Sparkles, title: "Story and visibility", desc: "Content creation and global visibility of the journey." },
-    { icon: Globe, title: "Digital platform", desc: "Development and operation of the Yonyverse platform." },
-  ];
+  const pillarKeys = ["exploration", "collective", "story", "digital"] as const;
+  const pillarIcons = [Compass, Users, Sparkles, Globe];
 
   return (
     <section id="join" className="py-24 px-6 relative overflow-hidden">
-      {/* Background accent */}
-      <div className="absolute inset-0 pointer-events-none" style={{
-        background: "radial-gradient(ellipse at 50% 0%, hsl(var(--copper) / 0.04), transparent 70%)"
-      }} />
-
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 0%, hsl(var(--copper) / 0.04), transparent 70%)" }} />
       <div className="max-w-6xl mx-auto relative">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-            The <span className="text-foreground">Yony</span>{" "}
-            <span style={{ color: "#e76830" }} className="italic">Challenge</span>
+            {t("join.title")} <span className="text-foreground">{t("join.titleYony")}</span>{" "}
+            <span style={{ color: "#e76830" }} className="italic">{t("join.titleAccent")}</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Before the games can begin, two steps must be completed. Once they are achieved, the official dates of the nine-month Yonyverse games will be announced.
-          </p>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">{t("join.subtitle")}</p>
         </motion.div>
 
         {/* Step 1 */}
-        <motion.div
-          className="mb-16 p-8 rounded-3xl bg-card sacred-border"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <div className="text-primary font-sans-body text-sm font-semibold uppercase tracking-wider mb-2">Step 1</div>
-          <h3 className="font-serif text-2xl font-bold mb-4">Yony Family - Build the founding community</h3>
-          <p className="text-muted-foreground mb-2">
-            The games need participants to embody the characters of the adventure.
-          </p>
-          <p className="text-muted-foreground mb-2">
-            Each category of characters has a minimum number that must be reached.
-          </p>
-          <p className="text-muted-foreground mb-6">
-            🎯 Goal: gather all the characters required for the game.
-          </p>
+        <motion.div className="mb-16 p-8 rounded-3xl bg-card sacred-border" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+          <div className="text-primary font-sans-body text-sm font-semibold uppercase tracking-wider mb-2">{t("join.step1.label")}</div>
+          <h3 className="font-serif text-2xl font-bold mb-4">{t("join.step1.title")}</h3>
+          <p className="text-muted-foreground mb-2">{t("join.step1.desc1")}</p>
+          <p className="text-muted-foreground mb-2">{t("join.step1.desc2")}</p>
+          <p className="text-muted-foreground mb-6">{t("join.step1.goal")}</p>
           <div className="flex gap-3 overflow-x-auto pb-2 -mx-2 px-2">
             {roles.map((r, i) => {
               const pct = Math.round((r.current / r.target) * 100);
               const spotsLeft = r.target - r.current;
               return (
-                <motion.div
-                  key={r.role}
-                  className="flex-shrink-0 flex-1 min-w-[130px] p-3 rounded-xl bg-secondary relative"
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.06 }}
-                >
-                  {/* Urgency badge */}
-                  {spotsLeft < 40 && (
-                    <span className="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-primary text-primary-foreground text-[10px] font-bold">
-                      {spotsLeft} left
-                    </span>
-                  )}
+                <motion.div key={r.role} className="flex-shrink-0 flex-1 min-w-[130px] p-3 rounded-xl bg-secondary relative" initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}>
+                  {spotsLeft < 40 && (<span className="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-primary text-primary-foreground text-[10px] font-bold">{spotsLeft} {t("join.step1.left")}</span>)}
                   <div className="text-xs font-medium text-foreground mb-1">{r.role}</div>
                   <div className="flex items-baseline gap-1 text-xs text-muted-foreground mb-2">
-                    <span className="text-sm font-serif font-bold text-foreground">
-                      <AnimatedCounter target={r.current} duration={1} />
-                    </span>
-                    <span>/ {r.target}</span>
-                    <span>· {pct}%</span>
+                    <span className="text-sm font-serif font-bold text-foreground"><AnimatedCounter target={r.current} duration={1} /></span>
+                    <span>/ {r.target}</span><span>· {pct}%</span>
                   </div>
                   <div className="w-full h-[3px] rounded-full bg-border">
-                    <motion.div
-                      className="h-full rounded-full bg-primary"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${pct}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1.2, delay: i * 0.08 }}
-                    />
+                    <motion.div className="h-full rounded-full bg-primary" initial={{ width: 0 }} whileInView={{ width: `${pct}%` }} viewport={{ once: true }} transition={{ duration: 1.2, delay: i * 0.08 }} />
                   </div>
                 </motion.div>
               );
@@ -132,93 +83,50 @@ const JoinSection = () => {
           </div>
         </motion.div>
 
-        {/* Yony Family Progress banner */}
-        <motion.div
-          className="mb-16 p-6 rounded-2xl bg-primary/5 border border-primary/20 text-center"
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-        >
+        {/* Progress */}
+        <motion.div className="mb-16 p-6 rounded-2xl bg-primary/5 border border-primary/20 text-center" initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
           <div className="flex items-center justify-center gap-2 mb-2">
             <Flame className="w-5 h-5 text-primary" />
-            <span className="text-sm font-semibold font-sans-body text-primary uppercase tracking-wider">Yony Family Progress</span>
+            <span className="text-sm font-semibold font-sans-body text-primary uppercase tracking-wider">{t("join.familyProgress.title")}</span>
           </div>
           <div className="text-3xl font-serif font-bold text-foreground mb-1">
-            <AnimatedCounter target={totalCurrent} /> <span className="text-muted-foreground text-lg font-normal">/ {totalTarget} members</span>
+            <AnimatedCounter target={totalCurrent} /> <span className="text-muted-foreground text-lg font-normal">/ {totalTarget} {t("join.familyProgress.members")}</span>
           </div>
           <div className="w-full max-w-md mx-auto h-2 rounded-full bg-border mt-3">
-            <motion.div
-              className="h-full rounded-full bg-primary"
-              initial={{ width: 0 }}
-              whileInView={{ width: `${totalPct}%` }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.5, ease: "easeOut" }}
-            />
+            <motion.div className="h-full rounded-full bg-primary" initial={{ width: 0 }} whileInView={{ width: `${totalPct}%` }} viewport={{ once: true }} transition={{ duration: 1.5, ease: "easeOut" }} />
           </div>
-          <p className="text-xs text-muted-foreground mt-2">{totalPct}% of founding community assembled</p>
+          <p className="text-xs text-muted-foreground mt-2">{totalPct}% {t("join.familyProgress.assembled")}</p>
         </motion.div>
 
         {/* Step 2 */}
-        <motion.div
-          className="p-8 rounded-3xl bg-card sacred-border"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <div className="text-primary font-sans-body text-sm font-semibold uppercase tracking-wider mb-2">Step 2</div>
-          <h3 className="font-serif text-2xl font-bold mb-4">Yony Fund - Power the Collective Journey</h3>
-          <p className="text-muted-foreground mb-2">
-            To bring the games to life across multiple territories, the essential foundations of the journey must be powered by collective support.
-          </p>
-          <p className="text-muted-foreground mb-8">
-            The Yony Fund mobilizes collective financial and strategic support to help the adventure grow and reach the world.
-          </p>
+        <motion.div className="p-8 rounded-3xl bg-card sacred-border" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+          <div className="text-primary font-sans-body text-sm font-semibold uppercase tracking-wider mb-2">{t("join.step2.label")}</div>
+          <h3 className="font-serif text-2xl font-bold mb-4">{t("join.step2.title")}</h3>
+          <p className="text-muted-foreground mb-2">{t("join.step2.desc1")}</p>
+          <p className="text-muted-foreground mb-8">{t("join.step2.desc2")}</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-            {pillars.map((pillar, i) => {
-              const Icon = pillar.icon;
+            {pillarKeys.map((key, i) => {
+              const Icon = pillarIcons[i];
               return (
-                <motion.div
-                  key={pillar.title}
-                  className="p-5 rounded-xl bg-secondary flex gap-4 items-start"
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  whileHover={{ y: -2 }}
-                >
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
-                  </div>
+                <motion.div key={key} className="p-5 rounded-xl bg-secondary flex gap-4 items-start" initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} whileHover={{ y: -2 }}>
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5"><Icon className="w-5 h-5 text-primary" strokeWidth={1.5} /></div>
                   <div>
-                    <div className="text-sm font-medium text-foreground mb-1">{pillar.title}</div>
-                    <div className="text-xs text-muted-foreground leading-relaxed">{pillar.desc}</div>
+                    <div className="text-sm font-medium text-foreground mb-1">{t(`join.pillars.${key}.title`)}</div>
+                    <div className="text-xs text-muted-foreground leading-relaxed">{t(`join.pillars.${key}.desc`)}</div>
                   </div>
                 </motion.div>
               );
             })}
           </div>
-          <p className="text-muted-foreground">
-            🎯 Goal: raise the resources needed to launch the collective journey.
-          </p>
+          <p className="text-muted-foreground">{t("join.step2.goal")}</p>
         </motion.div>
 
-        {/* Final CTA */}
-        <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <a
-            href="/join-games"
-            className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-primary text-primary-foreground font-semibold font-sans-body text-lg hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/20"
-          >
-            <Flame className="w-5 h-5" />
-            Join the Yony Family
+        {/* CTA */}
+        <motion.div className="text-center mt-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+          <a href={`/${currentLang}/${joinSlug}`} className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-primary text-primary-foreground font-semibold font-sans-body text-lg hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/20">
+            <Flame className="w-5 h-5" />{t("join.cta")}
           </a>
-          <p className="text-muted-foreground text-sm mt-4">
-            Be among the first — limited spots available for each character role.
-          </p>
+          <p className="text-muted-foreground text-sm mt-4">{t("join.ctaSubtext")}</p>
         </motion.div>
       </div>
     </section>
