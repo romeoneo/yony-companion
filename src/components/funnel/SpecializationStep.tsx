@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Globe, Target, Users, Check } from "lucide-react";
+import { Target, Users, Check, ChevronsUpDown, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Input } from "@/components/ui/input";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
+import { cn } from "@/lib/utils";
 import { GameRole, CountryCode, RegistrationData } from "@/pages/JoinGames";
 
 interface SpecializationStepProps {
@@ -16,40 +19,109 @@ interface SpecializationStepProps {
 
 const countries = [
   { code: 'france', name: 'France', flag: '🇫🇷' },
-  { code: 'spain', name: 'Espagne', flag: '🇪🇸' },
-  { code: 'italy', name: 'Italie', flag: '🇮🇹' },
-  { code: 'germany', name: 'Allemagne', flag: '🇩🇪' },
+  { code: 'spain', name: 'Spain', flag: '🇪🇸' },
+  { code: 'italy', name: 'Italy', flag: '🇮🇹' },
+  { code: 'germany', name: 'Germany', flag: '🇩🇪' },
   { code: 'portugal', name: 'Portugal', flag: '🇵🇹' },
-  { code: 'morocco', name: 'Maroc', flag: '🇲🇦' },
-  { code: 'senegal', name: 'Sénégal', flag: '🇸🇳' },
-  { code: 'ivory_coast', name: 'Côte d\'Ivoire', flag: '🇨🇮' },
+  { code: 'morocco', name: 'Morocco', flag: '🇲🇦' },
+  { code: 'senegal', name: 'Senegal', flag: '🇸🇳' },
+  { code: 'ivory_coast', name: "Ivory Coast", flag: '🇨🇮' },
   { code: 'burkina_faso', name: 'Burkina Faso', flag: '🇧🇫' },
   { code: 'mali', name: 'Mali', flag: '🇲🇱' },
-  { code: 'algeria', name: 'Algérie', flag: '🇩🇿' },
-  { code: 'tunisia', name: 'Tunisie', flag: '🇹🇳' },
+  { code: 'algeria', name: 'Algeria', flag: '🇩🇿' },
+  { code: 'tunisia', name: 'Tunisia', flag: '🇹🇳' },
   { code: 'madagascar', name: 'Madagascar', flag: '🇲🇬' },
-  { code: 'mauritius', name: 'Maurice', flag: '🇲🇺' },
+  { code: 'mauritius', name: 'Mauritius', flag: '🇲🇺' },
   { code: 'canada', name: 'Canada', flag: '🇨🇦' },
-  { code: 'belgium', name: 'Belgique', flag: '🇧🇪' }
+  { code: 'belgium', name: 'Belgium', flag: '🇧🇪' }
 ];
 
 const projectCategories = [
-  "Impact Social",
-  "Environnement & Durabilité", 
-  "Éducation & Formation",
-  "Santé & Bien-être",
-  "Innovation Technologique",
+  "Social Initiatives",
+  "Education & Training",
+  "Innovation & Technology",
+  "Nature & Environment",
+  "Health & Wellness",
   "Arts & Culture",
-  "Entrepreneuriat",
-  "Développement Communautaire"
+  "Tourism & Traditions",
+  "Other"
 ];
 
-const SpecializationStep = ({ 
-  role, 
-  country, 
-  projectCategory, 
-  tutorMissionAccepted, 
-  onUpdate 
+const CountrySelector = ({
+  country,
+  onUpdate,
+}: {
+  country?: CountryCode;
+  onUpdate: (data: Partial<RegistrationData>) => void;
+}) => {
+  const [open, setOpen] = useState(false);
+  const selectedCountry = countries.find(c => c.code === country);
+
+  return (
+    <div className="space-y-2">
+      <Label className="text-lg font-medium flex items-center gap-2">
+        <Search className="w-5 h-5" />
+        Country of impact *
+      </Label>
+      <Popover open={open} onOpenChange={setOpen}>
+        <PopoverTrigger asChild>
+          <Button
+            variant="outline"
+            role="combobox"
+            aria-expanded={open}
+            className="w-full justify-between text-base font-normal h-11"
+          >
+            {selectedCountry ? (
+              <span className="flex items-center gap-2">
+                <span className="text-lg">{selectedCountry.flag}</span>
+                {selectedCountry.name}
+              </span>
+            ) : (
+              <span className="text-muted-foreground">Search for a country...</span>
+            )}
+            <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent className="w-full p-0" align="start">
+          <Command>
+            <CommandInput placeholder="Search country..." />
+            <CommandList>
+              <CommandEmpty>No country found.</CommandEmpty>
+              <CommandGroup>
+                {countries.map((c) => (
+                  <CommandItem
+                    key={c.code}
+                    value={c.name}
+                    onSelect={() => {
+                      onUpdate({ country: c.code as CountryCode });
+                      setOpen(false);
+                    }}
+                  >
+                    <span className="mr-2 text-lg">{c.flag}</span>
+                    {c.name}
+                    <Check
+                      className={cn(
+                        "ml-auto h-4 w-4",
+                        country === c.code ? "opacity-100" : "opacity-0"
+                      )}
+                    />
+                  </CommandItem>
+                ))}
+              </CommandGroup>
+            </CommandList>
+          </Command>
+        </PopoverContent>
+      </Popover>
+    </div>
+  );
+};
+
+const SpecializationStep = ({
+  role,
+  country,
+  projectCategory,
+  tutorMissionAccepted,
+  onUpdate
 }: SpecializationStepProps) => {
 
   if (role === 'yony_flowers_tutor') {
@@ -57,10 +129,10 @@ const SpecializationStep = ({
       <div>
         <div className="text-center mb-8">
           <h2 className="text-3xl font-serif font-bold mb-4">
-            Mission <span style={{ color: "#e76830" }}>Tuteur</span>
+            Tutor <span style={{ color: "#e76830" }}>Mission</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            En tant que Tuteur Yony Flowers, vous avez une mission spéciale.
+            As a Yony Flowers Tutor, you have a special mission.
           </p>
         </div>
 
@@ -75,19 +147,19 @@ const SpecializationStep = ({
                 <Users className="w-6 h-6 text-primary" />
               </div>
               <div>
-                <h3 className="text-xl font-serif font-semibold mb-3">Votre Mission : Recruter 8 Yony Seeds</h3>
+                <h3 className="text-xl font-serif font-semibold mb-3">Your Mission: Recruit 8 Yony Seeds</h3>
                 <p className="text-muted-foreground mb-4">
-                  Votre rôle est de découvrir et d'inviter <strong>8 porteurs de rêves</strong> (Yony Seeds) 
-                  à rejoindre le Yonyverse. Ces personnes porteront des projets d'impact dans différentes 
-                  catégories et pays.
+                  Your role is to discover and invite <strong>8 dream bearers</strong> (Yony Seeds)
+                  to join the Yonyverse. These people will carry impact projects across different
+                  categories and countries.
                 </p>
                 <div className="bg-background/50 p-4 rounded-lg">
-                  <h4 className="font-semibold mb-2">Vos responsabilités :</h4>
+                  <h4 className="font-semibold mb-2">Your responsibilities:</h4>
                   <ul className="space-y-1 text-sm text-muted-foreground">
-                    <li>• Identifier des porteurs de projets d'impact authentiques</li>
-                    <li>• Les accompagner dans leur inscription au Yonyverse</li>
-                    <li>• Maintenir un lien avec vos 8 Yony Seeds</li>
-                    <li>• Faciliter leur intégration dans la communauté</li>
+                    <li>• Identify authentic impact project carriers</li>
+                    <li>• Guide them through their Yonyverse registration</li>
+                    <li>• Maintain a connection with your 8 Yony Seeds</li>
+                    <li>• Facilitate their integration into the community</li>
                   </ul>
                 </div>
               </div>
@@ -101,28 +173,28 @@ const SpecializationStep = ({
             transition={{ delay: 0.3 }}
           >
             <p className="text-lg font-medium mb-6">
-              Acceptez-vous cette mission de mentorat ?
+              Do you accept this mentoring mission?
             </p>
-            
+
             <div className="flex gap-4 justify-center">
               <Button
                 variant={tutorMissionAccepted === false ? "default" : "outline"}
                 onClick={() => onUpdate({ tutorMissionAccepted: false })}
                 className="px-8"
               >
-                Pas maintenant
+                Not right now
               </Button>
               <Button
                 variant={tutorMissionAccepted === true ? "default" : "outline"}
                 onClick={() => onUpdate({ tutorMissionAccepted: true })}
                 className="px-8 flex items-center gap-2"
-                style={{ 
+                style={{
                   backgroundColor: tutorMissionAccepted ? "#e76830" : undefined,
-                  borderColor: tutorMissionAccepted ? "#e76830" : undefined 
+                  borderColor: tutorMissionAccepted ? "#e76830" : undefined
                 }}
               >
                 <Check className="w-4 h-4" />
-                J'accepte la mission
+                I accept the mission
               </Button>
             </div>
           </motion.div>
@@ -136,55 +208,32 @@ const SpecializationStep = ({
       <div>
         <div className="text-center mb-8">
           <h2 className="text-3xl font-serif font-bold mb-4">
-            Votre <span style={{ color: "#e76830" }}>Projet</span>
+            Your <span style={{ color: "#e76830" }}>Project</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Choisissez le pays et la catégorie qui correspondent à votre projet d'impact.
+            Choose the country and category that match your impact project.
           </p>
         </div>
 
         <div className="max-w-2xl mx-auto space-y-8">
-          {/* Country Selection */}
-          <div>
-            <Label className="text-lg font-medium mb-4 flex items-center gap-2">
-              <Globe className="w-5 h-5" />
-              Pays d'impact *
-            </Label>
-            <RadioGroup 
-              value={country} 
-              onValueChange={(value) => onUpdate({ country: value as CountryCode })}
-              className="grid grid-cols-2 md:grid-cols-3 gap-3"
-            >
-              {countries.map((countryOption) => (
-                <div key={countryOption.code} className="flex items-center space-x-2">
-                  <RadioGroupItem value={countryOption.code} id={countryOption.code} />
-                  <Label 
-                    htmlFor={countryOption.code}
-                    className="flex items-center gap-2 cursor-pointer text-sm font-normal"
-                  >
-                    <span className="text-lg">{countryOption.flag}</span>
-                    {countryOption.name}
-                  </Label>
-                </div>
-              ))}
-            </RadioGroup>
-          </div>
+          {/* Country Selection – searchable dropdown */}
+          <CountrySelector country={country} onUpdate={onUpdate} />
 
           {/* Project Category */}
           <div>
             <Label className="text-lg font-medium mb-4 flex items-center gap-2">
               <Target className="w-5 h-5" />
-              Catégorie de projet *
+              Project category *
             </Label>
-            <RadioGroup 
-              value={projectCategory} 
+            <RadioGroup
+              value={projectCategory}
               onValueChange={(value) => onUpdate({ projectCategory: value })}
               className="grid grid-cols-1 md:grid-cols-2 gap-3"
             >
               {projectCategories.map((category) => (
                 <div key={category} className="flex items-center space-x-2">
                   <RadioGroupItem value={category} id={category} />
-                  <Label 
+                  <Label
                     htmlFor={category}
                     className="cursor-pointer text-sm font-normal"
                   >
@@ -193,19 +242,6 @@ const SpecializationStep = ({
                 </div>
               ))}
             </RadioGroup>
-          </div>
-
-          {/* Custom category option */}
-          <div>
-            <Label htmlFor="customCategory" className="text-sm font-medium">
-              Autre catégorie (si non listée)
-            </Label>
-            <Input
-              id="customCategory"
-              placeholder="Décrivez votre catégorie de projet..."
-              onChange={(e) => onUpdate({ projectCategory: e.target.value })}
-              className="mt-2"
-            />
           </div>
         </div>
 
@@ -216,7 +252,7 @@ const SpecializationStep = ({
             animate={{ opacity: 1, y: 0 }}
           >
             <p className="text-sm text-primary font-medium">
-              ✨ Projet configuré : <strong>{projectCategory}</strong> en <strong>{countries.find(c => c.code === country)?.name}</strong>
+              ✨ Project configured: <strong>{projectCategory}</strong> in <strong>{countries.find(c => c.code === country)?.name}</strong>
             </p>
           </motion.div>
         )}
@@ -224,15 +260,15 @@ const SpecializationStep = ({
     );
   }
 
-  // For other roles, show a simpler confirmation
+  // For other roles
   return (
     <div>
       <div className="text-center mb-8">
         <h2 className="text-3xl font-serif font-bold mb-4">
-          Prêt à <span style={{ color: "#e76830" }}>commencer</span> !
+          Ready to <span style={{ color: "#e76830" }}>begin</span>!
         </h2>
         <p className="text-muted-foreground text-lg">
-          Votre rôle est configuré. Passons à la définition de votre engagement.
+          Your role is set. Let's move on to defining your engagement.
         </p>
       </div>
 
@@ -242,9 +278,9 @@ const SpecializationStep = ({
         animate={{ opacity: 1, y: 0 }}
       >
         <Check className="w-8 h-8 text-primary mx-auto mb-3" />
-        <p className="font-medium">Configuration terminée !</p>
+        <p className="font-medium">Configuration complete!</p>
         <p className="text-sm text-muted-foreground">
-          Vous pouvez passer à l'étape suivante.
+          You can proceed to the next step.
         </p>
       </motion.div>
     </div>
