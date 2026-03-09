@@ -155,9 +155,9 @@ const JoinGames = () => {
           
           <div className="space-y-2">
             <div className="flex justify-between text-xs text-muted-foreground">
-              <span>Rôle</span>
-              <span>Profil</span>
-              <span>Spécialisation</span>
+              <span>Role</span>
+              <span>Profile</span>
+              <span>Specialization</span>
               <span>Engagement</span>
               <span>Confirmation</span>
             </div>
