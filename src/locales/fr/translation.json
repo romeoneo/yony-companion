@@ -476,6 +476,13 @@
       "patience": "Patience"
     }
   },
+  "registrationConfirmation": {
+    "title": "Merci d'avoir rejoint le Yonyverse",
+    "received": "Votre inscription a bien été reçue.",
+    "emailSent": "Un email de confirmation vous a été envoyé.",
+    "nextSteps": "Notre équipe examinera votre profil et vous contactera prochainement.",
+    "backHome": "Retour à l'accueil"
+  },
   "seo": {
     "homeTitle": "Yonyverse — Un Univers Culturel et Ludique Mondial",
     "homeDescription": "Entrez dans le Yonyverse, un univers mondial où rêves, cultures et sagesse se rejoignent à travers les Yony Games.",
