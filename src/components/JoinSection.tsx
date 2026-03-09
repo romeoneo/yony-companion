@@ -72,32 +72,6 @@ const JoinSection = () => {
           </p>
         </motion.div>
 
-        {/* Global progress banner */}
-        <motion.div
-          className="mb-10 p-6 rounded-2xl bg-primary/5 border border-primary/20 text-center"
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex items-center justify-center gap-2 mb-2">
-            <Flame className="w-5 h-5 text-primary" />
-            <span className="text-sm font-semibold font-sans-body text-primary uppercase tracking-wider">Community Progress</span>
-          </div>
-          <div className="text-3xl font-serif font-bold text-foreground mb-1">
-            <AnimatedCounter target={totalCurrent} /> <span className="text-muted-foreground text-lg font-normal">/ {totalTarget} members</span>
-          </div>
-          <div className="w-full max-w-md mx-auto h-2 rounded-full bg-border mt-3">
-            <motion.div
-              className="h-full rounded-full bg-primary"
-              initial={{ width: 0 }}
-              whileInView={{ width: `${totalPct}%` }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.5, ease: "easeOut" }}
-            />
-          </div>
-          <p className="text-xs text-muted-foreground mt-2">{totalPct}% of founding community assembled</p>
-        </motion.div>
-
         {/* Step 1 */}
         <motion.div
           className="mb-16 p-8 rounded-3xl bg-card sacred-border"
@@ -105,7 +79,7 @@ const JoinSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h3 className="font-serif text-2xl font-bold mb-2">Build the founding community</h3>
+          <h3 className="font-serif text-2xl font-bold mb-2">Yony Family - Build the founding community</h3>
           <div className="text-primary font-sans-body text-sm font-semibold uppercase tracking-wider mb-4">Step 1</div>
           <p className="text-muted-foreground mb-2">
             The games need participants to embody the characters of the adventure.
@@ -158,6 +132,32 @@ const JoinSection = () => {
           </div>
         </motion.div>
 
+        {/* Yony Family Progress banner */}
+        <motion.div
+          className="mb-16 p-6 rounded-2xl bg-primary/5 border border-primary/20 text-center"
+          initial={{ opacity: 0, scale: 0.96 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <Flame className="w-5 h-5 text-primary" />
+            <span className="text-sm font-semibold font-sans-body text-primary uppercase tracking-wider">Yony Family Progress</span>
+          </div>
+          <div className="text-3xl font-serif font-bold text-foreground mb-1">
+            <AnimatedCounter target={totalCurrent} /> <span className="text-muted-foreground text-lg font-normal">/ {totalTarget} members</span>
+          </div>
+          <div className="w-full max-w-md mx-auto h-2 rounded-full bg-border mt-3">
+            <motion.div
+              className="h-full rounded-full bg-primary"
+              initial={{ width: 0 }}
+              whileInView={{ width: `${totalPct}%` }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+            />
+          </div>
+          <p className="text-xs text-muted-foreground mt-2">{totalPct}% of founding community assembled</p>
+        </motion.div>
+
         {/* Step 2 */}
         <motion.div
           className="p-8 rounded-3xl bg-card sacred-border"
@@ -166,7 +166,7 @@ const JoinSection = () => {
           viewport={{ once: true }}
         >
           <div className="text-primary font-sans-body text-sm font-semibold uppercase tracking-wider mb-2">Step 2</div>
-          <h3 className="font-serif text-2xl font-bold mb-4">Power the Collective Journey</h3>
+          <h3 className="font-serif text-2xl font-bold mb-4">Yony Fund - Power the Collective Journey</h3>
           <p className="text-muted-foreground mb-2">
             To bring the games to life across multiple territories, the essential foundations of the journey must be powered by collective support.
           </p>
@@ -214,7 +214,7 @@ const JoinSection = () => {
             className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-primary text-primary-foreground font-semibold font-sans-body text-lg hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/20"
           >
             <Flame className="w-5 h-5" />
-            Join the Founding Community
+            Join the Yony Family
           </a>
           <p className="text-muted-foreground text-sm mt-4">
             Be among the first — limited spots available for each character role.
