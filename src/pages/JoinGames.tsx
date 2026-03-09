@@ -245,6 +245,7 @@ const JoinGames = () => {
                 <EngagementStep
                   engagementText={registrationData.engagementText || ""}
                   intentionText={registrationData.intentionText || ""}
+                  projectCategory={registrationData.projectCategory}
                   role={registrationData.role}
                   onUpdate={updateData}
                 />
