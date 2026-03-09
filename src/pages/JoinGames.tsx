@@ -146,10 +146,10 @@ const JoinGames = () => {
         <div className="max-w-4xl mx-auto px-6 py-6">
           <div className="flex items-center justify-between mb-4">
             <h1 className="text-2xl font-serif font-bold">
-              Rejoindre les <span style={{ color: "#e76830" }}>Jeux du Yonyverse</span>
+              Join the <span style={{ color: "#e76830" }}>Yonyverse Games</span>
             </h1>
             <div className="text-sm text-muted-foreground">
-              Étape {currentStep} sur {totalSteps}
+              Step {currentStep} of {totalSteps}
             </div>
           </div>
           
