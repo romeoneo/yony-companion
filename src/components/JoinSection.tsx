@@ -210,7 +210,7 @@ const JoinSection = () => {
           viewport={{ once: true }}
         >
           <a
-            href="#join"
+            href="/join-games"
             className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-primary text-primary-foreground font-semibold font-sans-body text-lg hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/20"
           >
             <Flame className="w-5 h-5" />
