@@ -8,10 +8,14 @@
     "exploreGames": "Explore the Games"
   },
   "hero": {
-    "narrative1": "Yonyverse is a symbolic garden where dreams and projects can take root and grow.",
-    "narrative2": "Within this space, the Yony Games bring visions to life. They create a shared ground where cultures, ideas, and talents meet.",
-    "narrative3": "Through participation, individuals and communities gain visibility and inspire one another.",
-    "narrative4": "From the Egg springs the world Earth desires. We Are Born To Impact.",
+    "title": "Yonyverse",
+    "subtitle": "A symbolic garden where dreams and projects take root and grow.",
+    "intro": "The Yony Games bring visions to life. They create a shared ground where cultures, ideas, and talents meet.",
+    "listDreams": "Dreams become projects.",
+    "listCultures": "Cultures connect.",
+    "listTalents": "Talents rise.",
+    "signature": "From the Egg springs the world Earth desires.",
+    "slogan": "We Are Born To Impact.",
     "exploreGames": "Explore the Games",
     "exploreUniverse": "Explore the Universe"
   },
