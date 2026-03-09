@@ -88,11 +88,11 @@ const Navbar = () => {
                 </a>
               ))}
               <a
-                href="/join-games"
+                href="#games"
                 onClick={() => setMobileOpen(false)}
                 className="mt-2 px-5 py-3 rounded-full bg-primary text-primary-foreground text-sm font-semibold font-sans-body text-center"
               >
-                Join
+                Explore the Games
               </a>
             </div>
           </motion.nav>
