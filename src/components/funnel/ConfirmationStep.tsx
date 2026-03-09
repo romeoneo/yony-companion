@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, Send, Loader, AlertCircle } from "lucide-react";
+import { Check, Send, Loader } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -231,19 +231,6 @@ const ConfirmationStep = ({ registrationData, roleConfig }: ConfirmationStepProp
           </CardContent>
         </Card>
 
-        {/* Warning notice */}
-        <div className="bg-secondary/50 border border-border p-4 rounded-lg flex items-start gap-3">
-          <AlertCircle className="w-5 h-5 text-orange-500 mt-0.5" />
-          <div>
-            <p className="text-sm font-medium text-foreground">
-              Information importante
-            </p>
-            <p className="text-xs text-muted-foreground">
-              Une fois soumise, votre candidature ne pourra plus être modifiée. 
-              Assurez-vous que toutes les informations sont correctes.
-            </p>
-          </div>
-        </div>
 
         {/* Submit Button */}
         <motion.div 
