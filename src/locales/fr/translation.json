@@ -8,10 +8,14 @@
     "exploreGames": "Explorer les Jeux"
   },
   "hero": {
-    "narrative1": "Le Yonyverse est un jardin symbolique où les rêves et les projets peuvent prendre racine et grandir.",
-    "narrative2": "Au sein de cet espace, les Yony Games donnent vie aux visions. Ils créent un terrain commun où cultures, idées et talents se rencontrent.",
-    "narrative3": "Par la participation, individus et communautés gagnent en visibilité et s'inspirent mutuellement.",
-    "narrative4": "De l'Œuf jaillit le monde que la Terre désire. We Are Born To Impact.",
+    "title": "Yonyverse",
+    "subtitle": "Un jardin symbolique où les rêves et les projets prennent racine et grandissent.",
+    "intro": "Les Yony Games donnent vie aux visions. Ils créent un terrain commun où cultures, idées et talents se rencontrent.",
+    "listDreams": "Les rêves deviennent des projets.",
+    "listCultures": "Les cultures se connectent.",
+    "listTalents": "Les talents s'élèvent.",
+    "signature": "De l'Œuf jaillit le monde que la Terre désire.",
+    "slogan": "We Are Born To Impact.",
     "exploreGames": "Explorer les Jeux",
     "exploreUniverse": "Explorer l'Univers"
   },

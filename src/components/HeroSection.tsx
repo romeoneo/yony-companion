@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
+import { Sprout, Handshake, Sparkles } from "lucide-react";
 import logoYonyverseFull from "@/assets/logo-yonyverse-full.png";
 
 const particles = [
@@ -14,6 +15,22 @@ const particles = [
   { x: "20%", y: "45%", size: 1.5, driftY: -50, driftX: 10, duration: 9.5, delay: 1, opacity: 0.2 },
   { x: "72%", y: "75%", size: 2.5, driftY: -55, driftX: -7, duration: 7, delay: 3.5, opacity: 0.25 },
 ];
+
+const listItems = [
+  { icon: Sprout, key: "hero.listDreams" },
+  { icon: Handshake, key: "hero.listCultures" },
+  { icon: Sparkles, key: "hero.listTalents" },
+] as const;
+
+const stagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.18 } },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const } },
+};
 
 const HeroSection = () => {
   const { t } = useTranslation();
@@ -33,6 +50,7 @@ const HeroSection = () => {
         />
       ))}
 
+      {/* Logo with glow */}
       <motion.div
         initial={{ opacity: 0, scale: 0.92 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -58,31 +76,53 @@ const HeroSection = () => {
         />
       </motion.div>
 
+      {/* Content */}
       <motion.div
-        className="max-w-2xl text-center mt-16 z-10"
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
+        className="max-w-xl text-center mt-16 z-10 flex flex-col items-center gap-10"
+        variants={stagger}
+        initial="hidden"
+        animate="visible"
       >
-        <p className="text-muted-foreground text-base md:text-lg mb-8 italic" style={{ lineHeight: "2.2" }}>
-          {t("hero.narrative1")}
-        </p>
-        <p className="text-muted-foreground text-base md:text-lg mb-8" style={{ lineHeight: "2.2" }}>
-          {t("hero.narrative2")}
-        </p>
-        <p className="text-muted-foreground text-base md:text-lg mb-8" style={{ lineHeight: "2.2" }}>
-          {t("hero.narrative3")}
-        </p>
-        <p className="text-foreground text-lg md:text-xl italic font-medium mb-10" style={{ lineHeight: "2.2" }}>
-          {t("hero.narrative4")}
-        </p>
-
-        <motion.div
-          className="flex items-center justify-center"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1.6 }}
+        {/* Subtitle */}
+        <motion.p
+          variants={fadeUp}
+          className="text-muted-foreground text-base md:text-lg italic"
+          style={{ lineHeight: "2.2" }}
         >
+          {t("hero.subtitle")}
+        </motion.p>
+
+        {/* Intro */}
+        <motion.p
+          variants={fadeUp}
+          className="text-muted-foreground text-base md:text-lg"
+          style={{ lineHeight: "2.2" }}
+        >
+          {t("hero.intro")}
+        </motion.p>
+
+        {/* Icon list */}
+        <motion.ul variants={fadeUp} className="flex flex-col items-center gap-4">
+          {listItems.map(({ icon: Icon, key }) => (
+            <li key={key} className="flex items-center gap-3 text-foreground text-base md:text-lg font-medium">
+              <Icon className="w-5 h-5 shrink-0" style={{ color: "#e4592f" }} />
+              {t(key)}
+            </li>
+          ))}
+        </motion.ul>
+
+        {/* Signature */}
+        <motion.div variants={fadeUp} className="flex flex-col items-center gap-2 mt-2">
+          <p className="text-muted-foreground text-base md:text-lg italic" style={{ lineHeight: "2.2" }}>
+            {t("hero.signature")}
+          </p>
+          <p className="text-foreground text-xl md:text-2xl font-bold font-serif-display" style={{ lineHeight: "1.6" }}>
+            {t("hero.slogan")}
+          </p>
+        </motion.div>
+
+        {/* CTA */}
+        <motion.div variants={fadeUp}>
           <a
             href="#games"
             className="px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold font-sans-body text-base hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/20"
