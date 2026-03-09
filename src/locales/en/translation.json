@@ -107,10 +107,10 @@
     }
   },
   "worldMap": {
-    "title": "Journey of the",
-    "titleAccent": "Yony Egg",
+    "title": "The Journey of the",
+    "titleAccent": "Egg",
     "subtitle": "16 founding territories. 16 values. 16 cycles. 256 days.",
-    "description": "An Egg will journey across the 16 territories, embodying a shared will for transformation, connection, and the rebirth of a new world founded on harmony.",
+    "description": "An Egg will be carried across the 16 territories activated during the Games. A central symbol of Yonyverse, it plays the role of the Olympic flame: a living sign of transformation, connection between peoples, and the rebirth of a new world founded on harmony.",
     "territories": {
       "benin": { "name": "Benin", "value": "Lucidity", "desc": "Lucidity reveals the truth that guides the journey." },
       "gabon": { "name": "Gabon", "value": "Connection", "desc": "Connection reminds us that every being is linked." },

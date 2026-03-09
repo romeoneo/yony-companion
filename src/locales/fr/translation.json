@@ -46,9 +46,9 @@
   },
   "worldMap": {
     "title": "Le Voyage de",
-    "titleAccent": "l'Œuf Yony",
+    "titleAccent": "l'Œuf",
     "subtitle": "16 territoires fondateurs. 16 valeurs. 16 cycles. 256 jours.",
-    "description": "Un Œuf voyagera à travers les 16 territoires, incarnant une volonté partagée de transformation, de connexion et de renaissance d'un nouveau monde fondé sur l'harmonie.",
+    "description": "Un Œuf sera porté à travers les 16 territoires activés pendant les Jeux. Symbole de Yonyverse, il tient le rôle de la flamme olympique : un signe vivant de transformation, de connexion entre les peuples et de renaissance d'un monde nouveau fondé sur l'harmonie.",
     "territories": {
       "benin": { "name": "Bénin", "value": "Lucidité", "desc": "La lucidité révèle la vérité qui guide le voyage." },
       "gabon": { "name": "Gabon", "value": "Reliance", "desc": "La reliance nous rappelle que chaque être est lié." },

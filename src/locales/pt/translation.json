@@ -26,8 +26,8 @@
     "travels": { "title": "Yony Travels", "description": "Descobrir as tradições culturais e as conexões que unem 16 países inspiradores." }
   },
   "worldMap": {
-    "title": "Jornada do", "titleAccent": "Ovo Yony", "subtitle": "16 territórios fundadores. 16 valores. 16 ciclos. 256 dias.",
-    "description": "Um Ovo viajará pelos 16 territórios, encarnando uma vontade compartilhada de transformação, conexão e renascimento de um novo mundo fundado na harmonia.",
+    "title": "A Jornada do", "titleAccent": "Ovo", "subtitle": "16 territórios fundadores. 16 valores. 16 ciclos. 256 dias.",
+    "description": "Um Ovo será levado através dos 16 territórios ativados durante os Jogos. Símbolo do Yonyverse, ele desempenha o papel da chama olímpica: um sinal vivo de transformação, conexão entre os povos e renascimento de um novo mundo fundado na harmonia.",
     "territories": {
       "benin": { "name": "Benim", "value": "Lucidez", "desc": "A lucidez revela a verdade que guia a jornada." },
       "gabon": { "name": "Gabão", "value": "Conexão", "desc": "A conexão nos lembra que cada ser está ligado." },
