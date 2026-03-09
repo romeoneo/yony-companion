@@ -1,4 +1,14 @@
 import { useState } from "react";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight, Users, Sparkles, Trophy, Globe, Heart, Wand2, Star, Shield, Home, X } from "lucide-react";
@@ -120,10 +130,14 @@ const JoinGames = () => {
     }
   };
 
+  const [cancelDialogOpen, setCancelDialogOpen] = useState(false);
+
   const handleCancel = () => {
-    if (window.confirm("Are you sure you want to cancel your registration? All entered information will be lost.")) {
-      navigate("/");
-    }
+    setCancelDialogOpen(true);
+  };
+
+  const confirmCancel = () => {
+    navigate("/");
   };
 
   const canProceed = () => {
@@ -302,6 +316,23 @@ const JoinGames = () => {
           )}
         </Card>
       </div>
+
+      <AlertDialog open={cancelDialogOpen} onOpenChange={setCancelDialogOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Cancel registration?</AlertDialogTitle>
+            <AlertDialogDescription>
+              Are you sure you want to cancel? All entered information will be lost.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Continue registration</AlertDialogCancel>
+            <AlertDialogAction onClick={confirmCancel} className="bg-destructive text-destructive-foreground hover:bg-destructive/90">
+              Yes, cancel
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };
