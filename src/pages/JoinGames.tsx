@@ -133,14 +133,16 @@ const JoinGames = () => {
       case 2:
         return !!(registrationData.fullName && registrationData.email);
       case 3:
+        // All roles need a country, Yony Flowers Tutor needs mission acceptance
         if (registrationData.role === 'yony_flowers_tutor') {
-          return registrationData.tutorMissionAccepted;
+          return !!(registrationData.country && registrationData.tutorMissionAccepted);
         }
-        if (registrationData.role === 'yony_flowers_project') {
-          return !!(registrationData.country && registrationData.projectCategory);
-        }
-        return true;
+        return !!registrationData.country;
       case 4:
+        // Yony Flowers Project needs project category in addition to engagement texts
+        if (registrationData.role === 'yony_flowers_project') {
+          return !!(registrationData.engagementText && registrationData.intentionText && registrationData.projectCategory);
+        }
         return !!(registrationData.engagementText && registrationData.intentionText);
       default:
         return true;
