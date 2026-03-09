@@ -6,7 +6,7 @@ import logoHeader from "@/assets/logo-yonyverse-header.png";
 const links = [
   { label: "Characters", href: "#characters" },
   { label: "Games", href: "#games" },
-  { label: "World", href: "#world" },
+  { label: "Journey", href: "#world" },
   { label: "Challenge", href: "#join" },
 ];
 
