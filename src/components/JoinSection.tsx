@@ -143,6 +143,22 @@ const JoinSection = () => {
             <Flame className="w-5 h-5 text-primary" />
             <span className="text-sm font-semibold font-sans-body text-primary uppercase tracking-wider">Yony Family Progress</span>
           </div>
+          <div className="text-3xl font-serif font-bold text-foreground mb-1">
+            <AnimatedCounter target={totalCurrent} /> <span className="text-muted-foreground text-lg font-normal">/ {totalTarget} members</span>
+          </div>
+          <div className="w-full max-w-md mx-auto h-2 rounded-full bg-border mt-3">
+            <motion.div
+              className="h-full rounded-full bg-primary"
+              initial={{ width: 0 }}
+              whileInView={{ width: `${totalPct}%` }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+            />
+          </div>
+          <p className="text-xs text-muted-foreground mt-2">{totalPct}% of founding community assembled</p>
+        </motion.div>
+
+        {/* Step 2 */}
         <motion.div
           className="p-8 rounded-3xl bg-card sacred-border"
           initial={{ opacity: 0, y: 20 }}
@@ -150,7 +166,7 @@ const JoinSection = () => {
           viewport={{ once: true }}
         >
           <div className="text-primary font-sans-body text-sm font-semibold uppercase tracking-wider mb-2">Step 2</div>
-          <h3 className="font-serif text-2xl font-bold mb-4">Power the Collective Journey</h3>
+          <h3 className="font-serif text-2xl font-bold mb-4">Yony Fund - Power the Collective Journey</h3>
           <p className="text-muted-foreground mb-2">
             To bring the games to life across multiple territories, the essential foundations of the journey must be powered by collective support.
           </p>
