@@ -15,16 +15,11 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
 
-  // New centered menu items
   const menuLinks = [
-    { label: "Philosophy", href: "#characters" },
-    { label: "Team", href: "#characters" },
-    { label: "Offers", href: "#characters" },
-    { label: "Explorer", href: "#characters" },
-    { label: "Life", href: "#characters" },
-    { label: "Community", href: "#characters" },
-    { label: "Challenges", href: "#characters" },
-    { label: "Impact", href: "#characters" },
+    { label: "Yony Magics", href: "#characters" },
+    { label: "Yony Games", href: "#games" },
+    { label: "Yony Travels", href: "#world" },
+    { label: "Yony Challenge", href: "#challenge" },
   ];
 
   const joinSlug = routeSlugs[currentLang]?.["join-games"] || "join";
