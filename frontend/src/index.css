@@ -96,6 +96,14 @@ body {
     background-clip: text;
   }
 
+  /* Yony Magics gradient - orange to bronze/gold */
+  .text-gradient-yony {
+    background: linear-gradient(90deg, hsl(25 100% 55%) 0%, hsl(35 80% 50%) 50%, hsl(40 70% 45%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
   .glow-golden {
     box-shadow: 0 0 40px hsl(40 80% 55% / 0.3), 0 0 80px hsl(40 80% 55% / 0.15);
   }

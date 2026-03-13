@@ -101,15 +101,19 @@ export default function TabsContent({ archetype }: Props) {
         return (
           <div className="max-w-5xl mx-auto px-4 py-8 grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-2xl font-serif-display font-bold text-white mb-2">
-                Notre <span className="text-primary italic">Mission</span>
+              <h3 className="text-2xl font-serif-display font-bold mb-2">
+                <span className="text-white">Notre </span>
+                <span className="text-gradient-yony italic">Mission</span>
               </h3>
               {archetype.missionLong.map((p, i) => (
                 <p key={i} className="text-sm font-sans-body text-white/60 mt-3 leading-relaxed">{p}</p>
               ))}
             </div>
             <div>
-              <h3 className="text-xl font-serif-display font-bold text-white mb-4">Nos Valeurs</h3>
+              <h3 className="text-xl font-serif-display font-bold mb-4">
+                <span className="text-white">Nos </span>
+                <span className="text-gradient-yony italic">Valeurs</span>
+              </h3>
               {archetype.values.map((v, i) => (
                 <div key={i} className="mb-4 pl-4 border-l-2 border-primary/30">
                   <p className="font-sans-body font-semibold text-white text-sm">{v.title}</p>

@@ -38,16 +38,19 @@ export default function ArchetypeSelector({ selected, onSelect }: Props) {
     }
   };
 
-  const handleSwipe = (e: React.TouchEvent) => {
-    // Mobile swipe support is handled by CSS scroll-snap
-  };
-
   return (
     <div className="sticky top-14 z-40 bg-black/95 backdrop-blur-xl border-b border-white/10">
-      <div className="flex flex-col items-center gap-2 py-4 px-4">
-        <p className="text-xs font-sans-body tracking-[0.3em] uppercase text-white/50">
-          Yony Magics — 8 Archétypes
-        </p>
+      <div className="flex flex-col items-center gap-4 py-6 px-4">
+        {/* New styled title - "Les Yony Magics" */}
+        <div className="text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif-display font-bold">
+            <span className="text-white">Les </span>
+            <span className="text-gradient-yony italic">Yony Magics</span>
+          </h2>
+          <p className="text-sm md:text-base font-sans-body text-white/50 mt-2">
+            Les 8 Personnages-clés
+          </p>
+        </div>
         
         <div className="relative w-full max-w-3xl">
           {/* Scroll buttons for desktop */}
@@ -63,8 +66,7 @@ export default function ArchetypeSelector({ selected, onSelect }: Props) {
           <div
             ref={scrollRef}
             onScroll={checkScroll}
-            onTouchMove={handleSwipe}
-            className="flex gap-2 overflow-x-auto scrollbar-hide px-2 md:px-8 scroll-smooth snap-x snap-mandatory touch-pan-x"
+            className="flex gap-2 overflow-x-auto scrollbar-hide px-2 md:px-8 scroll-smooth snap-x snap-mandatory touch-pan-x justify-center"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {archetypes.map((a) => (

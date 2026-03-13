@@ -5,6 +5,7 @@ import ArchetypeSelector from "./ArchetypeSelector";
 import HeroBanner from "./HeroBanner";
 import ProfileCard from "./ProfileCard";
 import TabsContent from "./TabsContent";
+import ProgressStats from "./ProgressStats";
 
 export default function CharactersDiaporama() {
   const [selected, setSelected] = useState<ArchetypeKey>("light");
@@ -29,10 +30,8 @@ export default function CharactersDiaporama() {
     if (Math.abs(diff) > threshold) {
       const currentIndex = archetypes.findIndex((a) => a.key === selected);
       if (diff > 0 && currentIndex < archetypes.length - 1) {
-        // Swipe left - next archetype
         setSelected(archetypes[currentIndex + 1].key);
       } else if (diff < 0 && currentIndex > 0) {
-        // Swipe right - previous archetype
         setSelected(archetypes[currentIndex - 1].key);
       }
     }
@@ -56,27 +55,36 @@ export default function CharactersDiaporama() {
   return (
     <section 
       id="characters" 
-      className={`min-h-screen bg-black ${archetype.themeClass}`}
+      className={`min-h-screen ${archetype.themeClass}`}
       ref={containerRef}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      <ArchetypeSelector selected={selected} onSelect={setSelected} />
+      {/* Gradient transition from beige to black */}
+      <div className="h-24 bg-gradient-to-b from-background via-background/50 to-black" />
       
-      <AnimatePresence mode="wait">
-        <motion.div 
-          key={archetype.key}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <HeroBanner archetype={archetype} />
-          <ProfileCard archetype={archetype} />
-          <TabsContent archetype={archetype} />
-        </motion.div>
-      </AnimatePresence>
+      {/* Main content with black background */}
+      <div className="bg-black">
+        <ArchetypeSelector selected={selected} onSelect={setSelected} />
+        
+        <AnimatePresence mode="wait">
+          <motion.div 
+            key={archetype.key}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <HeroBanner archetype={archetype} />
+            <ProfileCard archetype={archetype} />
+            <TabsContent archetype={archetype} />
+          </motion.div>
+        </AnimatePresence>
+      </div>
+      
+      {/* Progress Stats Section */}
+      <ProgressStats />
 
       {/* Swipe indicator for mobile */}
       <div className="md:hidden fixed bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-50 bg-black/80 px-4 py-2 rounded-full">
