@@ -44,8 +44,8 @@ export default function ArchetypeSelector({ selected, onSelect }: Props) {
         {/* New styled title - "Les Yony Magics" */}
         <div className="text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif-display font-bold">
-            <span className="text-white">Les </span>
-            <span className="text-gradient-yony italic">Yony Magics</span>
+            <span className="text-white">Yony </span>
+            <span className="text-gradient-yony italic">Magics</span>
           </h2>
           <p className="text-sm md:text-base font-sans-body text-white/50 mt-2">
             Les 8 Personnages-clés
