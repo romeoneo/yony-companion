@@ -46,7 +46,7 @@ const JoinSection = () => {
   const pillarIcons = [Compass, Users, Sparkles, Globe];
 
   return (
-    <section id="join" className="py-24 px-6 relative overflow-hidden">
+    <section id="challenge" className="scroll-mt-24 py-24 px-6 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 0%, hsl(var(--copper) / 0.04), transparent 70%)" }} />
       <div className="max-w-6xl mx-auto relative">
         <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
