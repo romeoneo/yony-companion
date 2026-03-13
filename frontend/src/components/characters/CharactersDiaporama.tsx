@@ -5,7 +5,6 @@ import ArchetypeSelector from "./ArchetypeSelector";
 import HeroBanner from "./HeroBanner";
 import ProfileCard from "./ProfileCard";
 import TabsContent from "./TabsContent";
-import ProgressStats from "./ProgressStats";
 
 export default function CharactersDiaporama() {
   const [selected, setSelected] = useState<ArchetypeKey>("light");
@@ -82,9 +81,6 @@ export default function CharactersDiaporama() {
           </motion.div>
         </AnimatePresence>
       </div>
-      
-      {/* Progress Stats Section */}
-      <ProgressStats />
 
       {/* Swipe indicator for mobile */}
       <div className="md:hidden fixed bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-50 bg-black/80 px-4 py-2 rounded-full">

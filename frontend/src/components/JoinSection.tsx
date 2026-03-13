@@ -25,6 +25,7 @@ const JoinSection = () => {
   const currentLang = lang || "en";
   const joinSlug = routeSlugs[currentLang]?.["join-games"] || "join";
 
+  // Tous sur base 256
   const roles = [
     { role: "Yony Flowers", current: 6, target: 256 },
     { role: "Yony Brands", current: 4, target: 256 },
@@ -32,13 +33,14 @@ const JoinSection = () => {
     { role: "Yony Places", current: 6, target: 256 },
     { role: "Yony Angels", current: 4, target: 256 },
     { role: "Yony Magics", current: 11, target: 256 },
-    { role: "Yony Stars", current: 22, target: 88 },
-    { role: "Yony Guards", current: 6, target: 40 },
+    { role: "Yony Stars", current: 22, target: 256 },
+    { role: "Yony Guards", current: 6, target: 256 },
+    { role: "Yony Medias", current: 2, target: 256 },
   ];
 
-  const totalCurrent = roles.reduce((s, r) => s + r.current, 0);
-  const totalTarget = roles.reduce((s, r) => s + r.target, 0);
-  const totalPct = Math.round((totalCurrent / totalTarget) * 100);
+  const totalCurrent = roles.reduce((s, r) => s + r.current, 0); // = 74
+  const totalTarget = 2048; // Objectif communauté fondatrice
+  const totalPct = Math.round((totalCurrent / totalTarget) * 100); // = 4%
 
   const pillarKeys = ["exploration", "collective", "story", "digital"] as const;
   const pillarIcons = [Compass, Users, Sparkles, Globe];
