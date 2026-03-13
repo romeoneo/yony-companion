@@ -37,6 +37,14 @@ const ConfirmationStep = ({ registrationData, roleConfig }: ConfirmationStepProp
     setIsSubmitting(true);
 
     try {
+      // If Supabase is not configured, mock the submission
+      if (!supabase || !import.meta.env.VITE_SUPABASE_URL) {
+        await new Promise(resolve => setTimeout(resolve, 1200));
+        setIsSubmitted(true);
+        toast({ title: "Bienvenue dans le Yonyverse !", description: t("confirmation.successDesc") });
+        return;
+      }
+
       let avatarUrl = null;
 
       if (registrationData.avatarFile) {
@@ -48,7 +56,6 @@ const ConfirmationStep = ({ registrationData, roleConfig }: ConfirmationStepProp
         avatarUrl = publicUrl;
       }
 
-      // Build engagement text from new structured data
       const engagementParts: string[] = [];
       if (registrationData.contributionTypes?.length) {
         engagementParts.push(`Contributions: ${registrationData.contributionTypes.map(k => t(`engagementStep.contributions.${k}`)).join(', ')}`);
@@ -80,7 +87,6 @@ const ConfirmationStep = ({ registrationData, roleConfig }: ConfirmationStepProp
 
       if (insertError) throw insertError;
 
-      // Also insert into new registrations table
       const contributionLabels = registrationData.contributionTypes?.map(k => t(`engagementStep.contributions.${k}`)) || [];
       const interestLabels = registrationData.areasOfInterest?.map(k => t(`engagementStep.interests.${k}`)) || [];
       const roleName = roleConfig[registrationData.role!]?.name || registrationData.role;
@@ -95,7 +101,6 @@ const ConfirmationStep = ({ registrationData, roleConfig }: ConfirmationStepProp
         message: registrationData.optionalMessage || '',
       });
 
-      // Send emails via edge function (fire and forget)
       supabase.functions.invoke('send-registration-email', {
         body: {
           name: registrationData.fullName,
