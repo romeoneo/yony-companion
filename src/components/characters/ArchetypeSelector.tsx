@@ -39,15 +39,14 @@ export default function ArchetypeSelector({ selected, onSelect }: Props) {
   };
 
   return (
-    <div className="sticky top-14 z-40 bg-black/95 backdrop-blur-xl border-b border-white/10">
-      <div className="flex flex-col items-center gap-4 py-6 px-4">
-        {/* New styled title - "Les Yony Magics" */}
+    <div className="sticky top-14 z-40 bg-black border-b border-white/10">
+      <div className="flex flex-col items-center gap-16 py-6 px-4">
         <div className="text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif-display font-bold">
             <span className="text-white">Yony </span>
             <span className="text-gradient-yony italic">Magics</span>
           </h2>
-          <p className="text-sm md:text-base font-sans-body text-white/50 mt-2">
+          <p className="text-sm md:text-base font-sans-body text-white/50 mt-8">
             Les 8 Personnages-clés
           </p>
         </div>

@@ -51,8 +51,8 @@ const JoinSection = () => {
       <div className="max-w-6xl mx-auto relative">
         <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-            {t("join.title")} <span className="text-foreground">{t("join.titleYony")}</span>{" "}
-            <span style={{ color: "#e76830" }} className="italic">{t("join.titleAccent")}</span>
+            <span className="text-foreground">Yony </span>
+            <span className="text-gradient-copper italic">Challenge</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">{t("join.subtitle")}</p>
         </motion.div>
