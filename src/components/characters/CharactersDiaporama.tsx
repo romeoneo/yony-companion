@@ -60,8 +60,7 @@ export default function CharactersDiaporama() {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Gradient transition from beige to black */}
-      <div className="h-24 bg-gradient-to-b from-background via-background/50 to-black" />
+      {/* Direct transition to black */}
       
       {/* Main content with black background */}
       <div className="bg-black">
