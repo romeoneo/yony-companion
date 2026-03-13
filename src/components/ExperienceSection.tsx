@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const ExperienceSection = () => {
   const { t } = useTranslation();
   return (
-    <section className="py-24 px-6">
+    <section id="challenge" className="py-24 px-6">
       <div className="max-w-5xl mx-auto">
         <motion.div className="text-center mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
