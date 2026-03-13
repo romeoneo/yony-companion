@@ -23,7 +23,7 @@ const WorldMapSection = () => {
       <div className="max-w-6xl mx-auto">
         <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-            {t("worldMap.title")} <span className="text-gradient-copper italic">{t("worldMap.titleAccent")}</span>
+            <span className="text-foreground">Yony </span><span className="text-gradient-copper italic">Travels</span>
           </h2>
           <p className="text-muted-foreground text-lg">{t("worldMap.subtitle")}</p>
           <p className="text-muted-foreground text-base leading-[2.2] mt-2 max-w-2xl mx-auto">{t("worldMap.description")}</p>

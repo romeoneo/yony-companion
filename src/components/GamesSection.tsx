@@ -114,7 +114,7 @@ const GamesSection = () => {
     <section id="games" className="py-24 px-6">
       <div className="max-w-7xl mx-auto">
         <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">{t("games.title")} <span className="text-gradient-copper italic">{t("games.titleAccent")}</span></h2>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4"><span className="text-foreground">Yony </span><span className="text-gradient-copper italic">Games</span></h2>
           <p className="text-muted-foreground text-lg">{t("games.subtitle")}</p>
         </motion.div>
         <div className="space-y-20">

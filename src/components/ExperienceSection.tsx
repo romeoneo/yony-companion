@@ -8,7 +8,7 @@ const ExperienceSection = () => {
       <div className="max-w-5xl mx-auto">
         <motion.div className="text-center mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-            {t("experience.title")} <span className="text-gradient-copper italic">{t("experience.titleAccent")}</span>
+            <span className="text-foreground">Yony </span><span className="text-gradient-copper italic">Challenge</span>
           </h2>
           <p className="text-muted-foreground text-base leading-[2.2] max-w-2xl mx-auto">{t("experience.description")}</p>
         </motion.div>
