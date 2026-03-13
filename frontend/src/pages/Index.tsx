@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import CharactersSection from "@/components/CharactersSection";
+import CharactersDiaporama from "@/components/characters/CharactersDiaporama";
 import GamesSection from "@/components/GamesSection";
 import WorldMapSection from "@/components/WorldMapSection";
 import ExperienceSection from "@/components/ExperienceSection";
@@ -15,7 +15,7 @@ const Index = () => {
       <SEOHead titleKey="seo.homeTitle" descriptionKey="seo.homeDescription" />
       <Navbar />
       <HeroSection />
-      <CharactersSection />
+      <CharactersDiaporama />
       <GamesSection />
       <WorldMapSection />
       <JoinSection />

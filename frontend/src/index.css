@@ -231,3 +231,59 @@ body {
   animation: hero-particle-drift var(--duration, 6s) ease-in-out infinite;
   animation-delay: var(--delay, 0s);
 }
+
+/* Hide scrollbar utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Archetype theme classes - Paired colors */
+/* Water elements: Angel & Guard - Two distinct blues */
+.theme-angel { 
+  --primary: 185 85% 50%; /* Cyan/Turquoise */
+  --primary-foreground: 0 0% 100%;
+}
+.theme-guard { 
+  --primary: 230 65% 45%; /* Deep blue */
+  --primary-foreground: 0 0% 100%;
+}
+
+/* Fire elements: Light & Star - Orange tones */
+.theme-light { 
+  --primary: 25 100% 55%; /* Bright orange */
+  --primary-foreground: 0 0% 100%;
+}
+.theme-star { 
+  --primary: 20 85% 45%; /* Deep orange/amber */
+  --primary-foreground: 0 0% 100%;
+}
+
+/* Earth elements: Seed & Place - Greens */
+.theme-seed { 
+  --primary: 160 60% 50%; /* Teal green */
+  --primary-foreground: 0 0% 100%;
+}
+.theme-place { 
+  --primary: 145 50% 35%; /* Forest green */
+  --primary-foreground: 0 0% 100%;
+}
+
+/* Air elements: Media & Brand */
+.theme-wind { 
+  --primary: 220 15% 55%; /* Steel gray */
+  --primary-foreground: 0 0% 100%;
+}
+.theme-brand { 
+  --primary: 42 80% 55%; /* Gold */
+  --primary-foreground: 0 0% 10%;
+}
+
+/* Smooth transitions for theme changes */
+.theme-angel, .theme-guard, .theme-light, .theme-star, 
+.theme-seed, .theme-place, .theme-wind, .theme-brand {
+  transition: --primary 0.3s ease;
+}
