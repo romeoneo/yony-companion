@@ -2,13 +2,6 @@ import logoFooter from "@/assets/logo-yonyverse-footer.png";
 
 const Footer = () => {
 
-  const links = [
-    { label: t("footer.aboutYonyverse"), href: "#" },
-    { label: t("footer.theYonyGames"), href: "#games" },
-    { label: t("footer.theEggOfYony"), href: "#" },
-    { label: t("footer.joinTheGames"), href: "#join" },
-  ];
-
   return (
     <footer className="py-12 px-6 border-t border-border">
       <div className="max-w-6xl mx-auto text-center">
