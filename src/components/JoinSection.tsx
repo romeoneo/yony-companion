@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
-import { Compass, Users, Sparkles, Globe, Flame } from "lucide-react";
+import { Compass, Users, Sparkles, Globe, Flame, Flower2 } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
 import { routeSlugs } from "@/i18n";
 
@@ -19,15 +19,33 @@ function AnimatedCounter({ target, duration = 1.5 }: { target: number; duration?
   return <span ref={ref}>{count}</span>;
 }
 
+/** Renders 8 circles: filled up to Math.ceil(current / 32) */
+function ProgressCircles({ current, total = 256 }: { current: number; total?: number }) {
+  const filled = Math.min(8, Math.ceil(current / 32));
+  return (
+    <div className="flex items-center gap-2">
+      {Array.from({ length: 8 }).map((_, i) => (
+        <div
+          key={i}
+          className={`w-4 h-4 rounded-full transition-colors ${i < filled ? "bg-primary" : "bg-border"}`}
+        />
+      ))}
+    </div>
+  );
+}
+
 const JoinSection = () => {
   const { t } = useTranslation();
   const { lang } = useParams<{ lang: string }>();
   const currentLang = lang || "en";
   const joinSlug = routeSlugs[currentLang]?.["join-games"] || "join";
 
-  // Tous sur base 256
+  // Garden data: 5 flowers so far out of 256
+  const gardenCurrent = 5;
+  const gardenTarget = 256;
+
+  // Family roles (without Yony Flowers)
   const roles = [
-    { role: "Yony Flowers", current: 6, target: 256 },
     { role: "Yony Brands", current: 4, target: 256 },
     { role: "Yony Lights", current: 13, target: 256 },
     { role: "Yony Places", current: 6, target: 256 },
@@ -38,9 +56,14 @@ const JoinSection = () => {
     { role: "Yony Medias", current: 2, target: 256 },
   ];
 
-  const totalCurrent = roles.reduce((s, r) => s + r.current, 0); // = 74
-  const totalTarget = 2048; // Objectif communauté fondatrice
-  const totalPct = Math.round((totalCurrent / totalTarget) * 100); // = 4%
+  const totalCurrent = roles.reduce((s, r) => s + r.current, 0); // 68 (was 74 minus Flowers)
+  const totalTarget = 1792; // 8 roles × 256 = 2048 minus Seeds
+  const totalPct = Math.round((totalCurrent / totalTarget) * 100);
+
+  // Garden progress
+  const gardenPct = Math.round((gardenCurrent / gardenTarget) * 100);
+  // Seeds percentage: gardenCurrent * 8 seeds per flower / (256*8=2048)
+  const seedsPct = Math.round(((gardenCurrent * 8) / 2048) * 100);
 
   const pillarKeys = ["exploration", "collective", "story", "digital"] as const;
   const pillarIcons = [Compass, Users, Sparkles, Globe];
@@ -57,20 +80,56 @@ const JoinSection = () => {
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">{t("join.subtitle")}</p>
         </motion.div>
 
-        {/* Step 1 */}
+        {/* Step 1 — Yony Garden */}
         <motion.div className="mb-16 p-8 rounded-3xl bg-card sacred-border" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <div className="text-primary font-sans-body text-sm font-semibold uppercase tracking-wider mb-2">{t("join.step1.label")}</div>
-          <h3 className="font-serif text-2xl font-bold mb-4">{t("join.step1.title")}</h3>
-          <p className="text-muted-foreground mb-2">{t("join.step1.desc1")}</p>
-          <p className="text-muted-foreground mb-2">{t("join.step1.desc2")}</p>
-          <p className="text-muted-foreground mb-6">{t("join.step1.goal")}</p>
+          <div className="text-primary font-sans-body text-sm font-semibold uppercase tracking-wider mb-2">{t("join.garden.label")}</div>
+          <h3 className="font-serif text-2xl font-bold mb-4">{t("join.garden.title")}</h3>
+          <p className="text-muted-foreground mb-2">{t("join.garden.desc1")}</p>
+          <p className="text-muted-foreground mb-2">{t("join.garden.desc2")}</p>
+          <p className="text-muted-foreground mb-2">{t("join.garden.desc3")}</p>
+          <p className="text-muted-foreground mb-2">{t("join.garden.desc4")}</p>
+          <p className="text-muted-foreground mb-6">{t("join.garden.goal")}</p>
+
+          {/* Single counter card */}
+          <motion.div className="p-4 rounded-xl bg-secondary" initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <div className="flex items-center gap-2 mb-3">
+              <Flower2 className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-foreground">Yony Flowers</span>
+            </div>
+            <div className="flex items-baseline gap-1 text-xs text-muted-foreground mb-3">
+              <span className="text-sm font-serif font-bold text-foreground"><AnimatedCounter target={gardenCurrent} duration={1} /></span>
+              <span>/ {gardenTarget}</span>
+            </div>
+            <ProgressCircles current={gardenCurrent} total={gardenTarget} />
+          </motion.div>
+        </motion.div>
+
+        {/* Garden Progress */}
+        <motion.div className="mb-16 p-6 rounded-2xl bg-primary/5 border border-primary/20 text-center" initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <Flame className="w-5 h-5 text-primary" />
+            <span className="text-sm font-semibold font-sans-body text-primary uppercase tracking-wider">{t("join.gardenProgress.title")}</span>
+          </div>
+          <div className="flex justify-center mb-3">
+            <ProgressCircles current={gardenCurrent} total={gardenTarget} />
+          </div>
+          <p className="text-xs text-muted-foreground">{seedsPct}% {t("join.gardenProgress.text")}</p>
+        </motion.div>
+
+        {/* Step 2 — Yony Family */}
+        <motion.div className="mb-16 p-8 rounded-3xl bg-card sacred-border" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+          <div className="text-primary font-sans-body text-sm font-semibold uppercase tracking-wider mb-2">{t("join.step2.label")}</div>
+          <h3 className="font-serif text-2xl font-bold mb-4">{t("join.step2.title")}</h3>
+          <p className="text-muted-foreground mb-2">{t("join.step2.desc1")}</p>
+          <p className="text-muted-foreground mb-2">{t("join.step2.desc2")}</p>
+          <p className="text-muted-foreground mb-6">{t("join.step2.goal")}</p>
           <div className="flex gap-3 overflow-x-auto pb-2 -mx-2 px-2">
             {roles.map((r, i) => {
               const pct = Math.round((r.current / r.target) * 100);
               const spotsLeft = r.target - r.current;
               return (
                 <motion.div key={r.role} className="flex-shrink-0 flex-1 min-w-[130px] p-3 rounded-xl bg-secondary relative" initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}>
-                  {spotsLeft < 40 && (<span className="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-primary text-primary-foreground text-[10px] font-bold">{spotsLeft} {t("join.step1.left")}</span>)}
+                  {spotsLeft < 40 && (<span className="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-primary text-primary-foreground text-[10px] font-bold">{spotsLeft} {t("join.step2.left")}</span>)}
                   <div className="text-xs font-medium text-foreground mb-1">{r.role}</div>
                   <div className="flex items-baseline gap-1 text-xs text-muted-foreground mb-2">
                     <span className="text-sm font-serif font-bold text-foreground"><AnimatedCounter target={r.current} duration={1} /></span>
@@ -85,7 +144,7 @@ const JoinSection = () => {
           </div>
         </motion.div>
 
-        {/* Progress */}
+        {/* Family Progress */}
         <motion.div className="mb-16 p-6 rounded-2xl bg-primary/5 border border-primary/20 text-center" initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
           <div className="flex items-center justify-center gap-2 mb-2">
             <Flame className="w-5 h-5 text-primary" />
@@ -100,12 +159,12 @@ const JoinSection = () => {
           <p className="text-xs text-muted-foreground mt-2">{totalPct}% {t("join.familyProgress.assembled")}</p>
         </motion.div>
 
-        {/* Step 2 */}
+        {/* Step 3 — Yony Fund */}
         <motion.div className="p-8 rounded-3xl bg-card sacred-border" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <div className="text-primary font-sans-body text-sm font-semibold uppercase tracking-wider mb-2">{t("join.step2.label")}</div>
-          <h3 className="font-serif text-2xl font-bold mb-4">{t("join.step2.title")}</h3>
-          <p className="text-muted-foreground mb-2">{t("join.step2.desc1")}</p>
-          <p className="text-muted-foreground mb-8">{t("join.step2.desc2")}</p>
+          <div className="text-primary font-sans-body text-sm font-semibold uppercase tracking-wider mb-2">{t("join.step3.label")}</div>
+          <h3 className="font-serif text-2xl font-bold mb-4">{t("join.step3.title")}</h3>
+          <p className="text-muted-foreground mb-2">{t("join.step3.desc1")}</p>
+          <p className="text-muted-foreground mb-8">{t("join.step3.desc2")}</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
             {pillarKeys.map((key, i) => {
               const Icon = pillarIcons[i];
@@ -120,7 +179,7 @@ const JoinSection = () => {
               );
             })}
           </div>
-          <p className="text-muted-foreground">{t("join.step2.goal")}</p>
+          <p className="text-muted-foreground">{t("join.step3.goal")}</p>
         </motion.div>
 
         {/* CTA */}
