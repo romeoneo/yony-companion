@@ -154,10 +154,20 @@
     "title": "The",
     "titleYony": "Yony",
     "titleAccent": "Challenge",
-    "subtitle": "Before the games can begin, two steps must be completed. Once they are achieved, the official dates of the nine-month Yonyverse games will be announced.",
-    "step1": {
+    "subtitle": "Before the games can begin, three steps must be completed. Once they are achieved, the official dates of the nine-month Yonyverse games will be announced.",
+    "garden": {
       "label": "Step 1",
-      "title": "Yony Family - Build the founding community",
+      "title": "Yony Garden – Grow the projects",
+      "desc1": "Yony Seeds are project bearers who come together to form Yony Flowers.",
+      "desc2": "Each Flower gathers 8 Yony Seeds (8 project bearers).",
+      "desc3": "Flowers are distributed across different countries.",
+      "desc4": "The Yony Garden represents the first step of the Yonyverse: growing the projects that will form the ecosystem.",
+      "goal": "🎯 Goal: gather 256 Yony Flowers worldwide."
+    },
+    "gardenProgress": { "title": "Yony Garden Progress", "text": "of project bearers gathered" },
+    "step2": {
+      "label": "Step 2",
+      "title": "Yony Family – Build the founding community",
       "desc1": "The games need participants to embody the characters of the adventure.",
       "desc2": "Each category of characters has a minimum number that must be reached.",
       "goal": "🎯 Goal: gather all the characters required for the game.",
@@ -168,9 +178,9 @@
       "members": "members",
       "assembled": "of founding community assembled"
     },
-    "step2": {
-      "label": "Step 2",
-      "title": "Yony Fund - Power the Collective Journey",
+    "step3": {
+      "label": "Step 3",
+      "title": "Yony Fund – Power the Collective Journey",
       "desc1": "To bring the games to life across multiple territories, the essential foundations of the journey must be powered by collective support.",
       "desc2": "The Yony Fund mobilizes collective financial and strategic support to help the adventure grow and reach the world.",
       "goal": "🎯 Goal: raise the resources needed to launch the collective journey."
