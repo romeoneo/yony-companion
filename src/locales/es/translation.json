@@ -60,10 +60,12 @@
   },
   "join": {
     "title": "El", "titleYony": "Yony", "titleAccent": "Challenge",
-    "subtitle": "Antes de que los juegos puedan comenzar, se deben completar dos pasos. Una vez logrados, se anunciarán las fechas oficiales de los nueve meses de los juegos del Yonyverse.",
-    "step1": { "label": "Paso 1", "title": "Yony Family - Construir la comunidad fundadora", "desc1": "Los juegos necesitan participantes para encarnar los personajes de la aventura.", "desc2": "Cada categoría de personajes tiene un número mínimo que debe alcanzarse.", "goal": "🎯 Objetivo: reunir todos los personajes necesarios para el juego.", "left": "restante(s)" },
+    "subtitle": "Antes de que los juegos puedan comenzar, se deben completar tres pasos. Una vez logrados, se anunciarán las fechas oficiales de los nueve meses de los juegos del Yonyverse.",
+    "garden": { "label": "Paso 1", "title": "Yony Garden – Hacer emerger los proyectos", "desc1": "Los Yony Seeds son portadores de proyectos que se agrupan para formar Yony Flowers.", "desc2": "Cada Flower reúne 8 Yony Seeds (8 portadores de proyectos).", "desc3": "Las Flowers se distribuyen en diferentes países.", "desc4": "El Yony Garden representa el primer paso del Yonyverse: hacer emerger los proyectos que formarán el ecosistema.", "goal": "🎯 Objetivo: reunir 256 Yony Flowers en todo el mundo." },
+    "gardenProgress": { "title": "Progreso Yony Garden", "text": "de los portadores de proyectos reunidos" },
+    "step2": { "label": "Paso 2", "title": "Yony Family – Construir la comunidad fundadora", "desc1": "Los juegos necesitan participantes para encarnar los personajes de la aventura.", "desc2": "Cada categoría de personajes tiene un número mínimo que debe alcanzarse.", "goal": "🎯 Objetivo: reunir todos los personajes necesarios para el juego.", "left": "restante(s)" },
     "familyProgress": { "title": "Progreso Yony Family", "members": "miembros", "assembled": "de la comunidad fundadora reunida" },
-    "step2": { "label": "Paso 2", "title": "Yony Fund - Impulsar el Viaje Colectivo", "desc1": "Para dar vida a los juegos en múltiples territorios, los cimientos esenciales del viaje deben ser impulsados por el apoyo colectivo.", "desc2": "El Yony Fund moviliza apoyo financiero y estratégico colectivo para ayudar a la aventura a crecer y alcanzar el mundo.", "goal": "🎯 Objetivo: reunir los recursos necesarios para lanzar el viaje colectivo." },
+    "step3": { "label": "Paso 3", "title": "Yony Fund – Impulsar el Viaje Colectivo", "desc1": "Para dar vida a los juegos en múltiples territorios, los cimientos esenciales del viaje deben ser impulsados por el apoyo colectivo.", "desc2": "El Yony Fund moviliza apoyo financiero y estratégico colectivo para ayudar a la aventura a crecer y alcanzar el mundo.", "goal": "🎯 Objetivo: reunir los recursos necesarios para lanzar el viaje colectivo." },
     "pillars": {
       "exploration": { "title": "Exploración y viaje", "desc": "Transporte y exploraciones a través de los territorios activados en el viaje." },
       "collective": { "title": "Operaciones colectivas", "desc": "Organización, coordinación y facilitación de la aventura colectiva." },
